@@ -1,0 +1,48 @@
+Package: genarray
+Type: Package
+Title: R-stlye General Arrays
+Version: 0.0.1
+Authors@R: c(
+	person(given="Adam T.", family="Kocsis", role=c("cre", "aut"),
+		   email="adam.t.kocsis@gmail.com", comment=c(ORCID="0000-0002-9028-665X")),
+ 	person(given="Nussaibah B.", family="Raja", role=c("aut"), comment=c(ORCID="0000-0002-0000-3944")),
+	person(given="Deutsche Forschungsgemeinschaft", role="fnd"),
+	person(given="FAU GeoZentrum Nordbayern", role="fnd"))
+Collate:
+    zzz.R
+    classes.R
+	generics.R
+	utility.R
+	GenArray-base.R
+	GenArray-xattrib.R
+    XArray-base.R
+    XArray-xattrib.R
+    XArray-subset.R
+    XArray-replace.R
+    RastArray-base.R
+Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
+Description: The package implements a wrapper around lists and stacks of any class to allow users to fold lists in n-dimensional, R-style arrays. 
+License: CC BY 4.0
+Date: 2022-11-24
+BugReports: https://github.com/adamkocsis/genarray
+Encoding: UTF-8
+LazyData: false
+Depends:
+    R (>= 4.0.0) 
+Imports: 
+	graphics,
+	methods,
+	grDevices,
+	utils
+NeedsCompilation: no
+RoxygenNote: 7.2.1
+VignetteBuilder: knitr
+Suggests:
+	jpeg,
+    knitr,
+    ncdf4,
+    rgdal,
+    rmarkdown,
+	terra,
+	sp,
+	sf
