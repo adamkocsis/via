@@ -20,6 +20,9 @@ Collate:
     XArray-subset.R
     XArray-replace.R
     RastArray-base.R
+	RastArray-xattrib.R
+	RastArray-groupgen.R
+	RastArray-replace.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
 Description: The package implements a wrapper around lists and stacks of any class to allow users to fold lists in n-dimensional, R-style arrays. 
 License: CC BY 4.0
@@ -38,10 +41,7 @@ NeedsCompilation: no
 RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 Suggests:
-	jpeg,
     knitr,
-    ncdf4,
-    rgdal,
     rmarkdown,
 	terra,
 	sp,

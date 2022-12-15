@@ -66,9 +66,7 @@ setMethod(
 	#   }
 
 	    nl <- nlayers(object)
-	    if (nl == 0) {
-	        cat("nlayers     :", nl, "\n")
-	    } else {
+	    if (nl > 0) {
 	   		cat("Properties of items: \n")
 			cat("- class       : ", class(object@stack[[1]]), "\n")
 
@@ -103,10 +101,20 @@ setMethod(
 		    }
 		    cat("- num. layers : ", nlayers(object), "\n", 
 		        sep = "")
+			cat("- missing     : ", sum(is.na(object@index)), "\n", 
+				sep = "")
 		    cat("- proxy:\n ")
 		    print(proxy(object))
 		   
-	    }
+	    } else {
+	        cat("nlayers       :", nl, "\n")
+			if(sum(is.na(object@index))>0){
+				cat("- missing     : ", sum(is.na(object@index)), "\n", 
+					sep = "")
+				cat("- proxy:\n ")
+				print(proxy(object))
+			}
+	    } 
 	    cat("\n")
 	}
 )

@@ -42,12 +42,15 @@ ga3d <- GenArray(index=ind3d, stack=theList)
 # Newer index with missing values
 #  vector
 ind1dNAmid <- c(1,2,3,4, NA, 5, 6, 7, 8, 9, NA, 10)
+names(ind1dNAmid) <- letters[1:length(ind1dNAmid)]
 ga1dNAmid <- GenArray(index=ind1dNAmid, stack=theList[1:10])
 
 ind1dNAfront <- c(NA, NA, 1,2,3,4, 5, 6, 7, 8, 9, 10)
+names(ind1dNAfront) <- letters[1:length(ind1dNAfront)]
 ga1dNAfront<- GenArray(index=ind1dNAfront, stack=theList[1:10])
 
 ind1dNAend <- c(1,2,3,4, 5, 6, 7, 8, 9, 10, NA, NA)
+names(ind1dNAend) <- letters[1:length(ind1dNAend)]
 ga1dNAend<- GenArray(index=ind1dNAend, stack=theList[1:10])
 
 # 2d cases

@@ -46,28 +46,101 @@ setMethod("initialize",signature="RastArray",
 )
 
 
+setMethod(
+	"show",
+	signature="RastArray", 
+	function (object) 
+	{
+	    cat(paste0("class         : ", class(object), "\n"))
+	    ## if (rotated(object)) {
+	    ##     cat("rotated     : TRUE\n")
+	    ## }
+	    mnr <- 15
+	#   if (filename(object) != "") {
+	#       cat("filename    :", filename(object), "\n")
+	#   }
+
+	    nl <- nlayers(object)
+	    if (nl > 0) {
+	   		cat("Properties of items: \n")
+			cat("- class       : ",class(object@stack[[1]]), "\n")
+			dims <- dim(object@stack[[1]])
+			cat(paste0("- dimensions  : ", dims[1],", ",dims[2]," (nrow, ncol)\n"))
+			reses <- terra::res(object@stack[[1]])
+			cat(paste0("- resolution  : ",reses[1],", ",reses[2]," (x, y)\n"))
+			extent <- terra::ext(object@stack[[1]])
+			cat(paste0("- extent      : ", extent$xmin, ", ",extent$xmax,", ",extent$ymin,", ",extent$ymax, " (xmin, xmax, ymin, ymax)\n"))
+
+  			cat("Array properties: \n")
+  			adim <- dim(object)
+  			allName <- names(object)
+		   
+	        if(length(adim)==1){
+		        cat("- dimensions  : ", paste(adim, collapse=", "), 
+		            "  (vector)\n", 
+		            sep = "")
+		      
+		    }else{
+		    	allName<- dimnames(object)
+		    	if(length(allName)==2){
+			    	cat("- dimensions  : ", paste(adim, collapse=", "), 
+			            "  (nrow, ncol)\n", 
+			            sep = "")
+			    }else{
+			    	cat("- dimensions  : ", paste(adim, collapse=", "), 
+			            "  (nrow, ncol, ...)\n", 
+			            sep = "")
+			    }
+		#    	for(i in 1:length(allName)){
+		#			if(i==1) cat("- rownames    : ", paste(allName[[i]], collapse=", "), "\n", sep = "")
+		#			if(i==2) cat("- colnames    : ", paste(allName[[i]], collapse=", "), "\n", sep = "")
+		#			if(i>2) cat(paste("- Dim", i, " names", sep=""), "  : ", paste(allName[[i]], collapse=", "), "\n", sep = "")
+		#    	}
+				
+
+		    	  
+		    }
+		    cat("- num. layers : ", nlayers(object), "\n", 
+		        sep = "")
+			cat("- missing     : ", sum(is.na(object@index)), "\n", 
+				sep = "")
+		    cat("- proxy:\n ")
+		    print(proxy(object))
+		   
+	    } else {
+	        cat("nlayers       :", nl, "\n")
+			if(sum(is.na(object@index))>0){
+				cat("- missing     : ", sum(is.na(object@index)), "\n", 
+					sep = "")
+				cat("- proxy:\n ")
+				print(proxy(object))
+			}
+	    } 
+	    cat("\n")
+	}
+)
 
 
 
 
 
 
-## #' Positions of missing values in a RasterArray object
-## #' 
-## #' The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a \code{RasterArray}.
-## #' 
-## #' @param x A \code{RasterArray} class object.
-## #' @return A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RasterArray}.
-## #' 
-## #' @examples
-## #' data(dems)
-## #' dems[2] <- NA
-## #' is.na(dems)
-## #' 
-## #' @export
-## is.na.RastArray<-function(x){
-## 	is.na(proxy(x))
-## }
+#' Positions of missing values in a RasterArray object
+#' 
+#' The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a \code{RastArray}.
+#' 
+#' @param x A \code{RasterArray} class object.
+#' @return A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RastArray}.
+#' 
+#' @examples
+#' data(dems)
+#' dems[2] <- NA
+#' is.na(dems)
+#' 
+#' @export
+is.na.RastArray<-function(x){
+	is.na(proxy(x))
+}
 
 
 

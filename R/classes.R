@@ -60,22 +60,7 @@ RastArray <- setClass("RastArray", contains="XArray")
 
 #VectArray <- setClass("VectArray", contains="XArray")
 #SpArray <- setClass("SpArray", contains="XArray")
-#SfArray <- setClass("SfArray", contains="XArray")
+SfArray <- setClass("SfArray", contains="GenArray")
 
-## # Stacks
-## #' Spatial Stack definition
-## #' 
-## #' @param Spatials A \code{list} of Spatial objects or a \code{character} vector of file names identifying items for readOGR, in case the rgdal package is installed..
-## #' @param proj4string A \code{\link[sp]{CRS}}-class object.
-## #' @param verbose A \code{logical} value. Same as for \code{array}, creates \code{proxy} procedurally.
-## #' @return A \code{SpatialStack} class object.
-## #' @rdname SpatialStack
-## #' @name SpatialStack
-## #' @exportClass SpatialStack
-## if(!requireNamespace("sp", quietly=TRUE)){
-## 	SpatialStack <- setClass("SpatialStack", slots=list(Spatials="list", proj4string="CRS", bbox="matrix"))
-## }else{
-## 	SpatialStack <- setClass("SpatialStack", slots=list(Spatials="list"))
-## }
 
 

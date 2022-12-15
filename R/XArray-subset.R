@@ -55,7 +55,7 @@ setMethod(
 			fetchIndex <- originIndex
 			dim(fetchIndex) <- NULL
 
-			# drop to a single RasterLayer
+			# drop to a single entity
 			if(length(fetchIndex)==1 & drop==TRUE){
 				# if it is NA
 				if(is.na(fetchIndex)){
@@ -63,7 +63,6 @@ setMethod(
 				}else{
 					x<- x@stack[[fetchIndex]]
 				}
-				
 
 			# keep using RasterArray
 			}else{
@@ -75,8 +74,13 @@ setMethod(
 					validFetch <- fetchIndex
 				}
 
-				# get the relevant layers
-				x@stack <- x@stack[[validFetch, drop=FALSE]]
+				# wrappers will not be dropped
+				## if(inherits(x@stack, "list")){
+					x@stack <- x@stack[validFetch]
+				## }else{
+				## 	# get the relevant layers
+				## 	x@stack <- x@stack[[validFetch, drop=FALSE]]
+				## }	
 
 				# rewrite the index 
 				x@index<- originIndex
@@ -167,8 +171,13 @@ setMethod(
 			usedInd <- i
 			usedInd[bNA] <- FALSE
 			
-			#select appropriate layers
-			newStack<- x@stack[[which(usedInd), drop=FALSE]]
+			# drop not understood for SpatRaster
+			if(!inherits(x, "RastArray")){
+				#select appropriate layers
+				newStack<- x@stack[[which(usedInd), drop=FALSE]]
+			}else{
+				newStack<- x@stack[[which(usedInd)]]
+			}
 
 			# index subscript
 			newIndex <- x@index[i]
@@ -177,8 +186,14 @@ setMethod(
 
 		# either character or numeric
 		if(is.character(i) | is.numeric(i)){
-			#select appropriate layers
-			newStack<- x@stack[[i[!bNA], drop=FALSE]]
+
+			# drop not understood for SpatRaster
+			if(!inherits(x, "RastArray")){
+				#select appropriate layers
+				newStack<- x@stack[[i[!bNA], drop=FALSE]]
+			}else{
+				newStack<- x@stack[[i[!bNA]]]
+			}
 
 			# reindex
 			newIndex <- rep(NA, length(i))

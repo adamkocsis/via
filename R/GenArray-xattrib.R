@@ -6,3 +6,4 @@ setMethod(
 	function(x) length(x@stack)
 )
 
+

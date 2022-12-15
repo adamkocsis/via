@@ -145,3 +145,22 @@ mapedge <- function(x=360, y=180, xmin=-180, xmax=180, ymin=-90, ymax=90){
   	# return object
   	return(final)
 }
+
+#' @rdname arraylength
+#' @exportMethod nlayers
+setMethod(
+	"nlayers",
+	signature="list",
+	function(x) length(x)
+)
+
+#' @rdname arraylength
+#' @exportMethod nlayers
+setMethod(
+	"nlayers",
+	signature="SpatRaster",
+	function(x){
+	 dims <- dim(x)
+	 return(dims[3])
+	}
+)
