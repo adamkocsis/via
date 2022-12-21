@@ -124,23 +124,27 @@ detailedBounds <- function(x,y, xmin=-180, xmax=180, ymin=-90, ymax=90){
 #' @param x (\code{numeric}) Number of segments in the x (longitude) dimension. 
 #' @param y (\code{numeric}) Number of segments in the y (latitude) dimension. 
 #' @param xmin (\code{numeric}) Minimum value of x (longitude).
-#' @param xmax (\code{numeric}) Minimum value of x (longitude).
+#' @param xmax (\code{numeric}) Maximum value of x (longitude).
 #' @param ymin (\code{numeric}) Maximum value of y (latitude).
-#' @param ymax (\code{numeric}) Maximum value of y (latitude).
+#' @param ymax (\code{numeric}) Minimum value of y (latitude).
 #' 
-#' @return A \code{SpatialPolygons} class object.
+#' @return A \code{sfc_POLYGON} class object from the sf package.
 #' @examples
-#' # requires rgdal
+#' library(sf)
 #' edge <- mapedge()
-#' molledge <- spTransform(edge, CRS("+proj=moll"))
+#' molledge <- st_transform(edge, crs="ESRI:54009")
 #' 
 #' @export
 mapedge <- function(x=360, y=180, xmin=-180, xmax=180, ymin=-90, ymax=90){
+	if(!requireNamespace("sf", quietly=TRUE)){
+		stop("This function requires the 'sf' package to run!")
+	}
 	# return a rectangle
   	rectangle <- detailedBounds(x, y, xmin, xmax, ymin, ymax)
 
   	# now make it a SpatialPolygons
-  	final <- SpatialPolygons(list(Polygons(list(Polygon(rectangle)), ID="0")), proj4string=CRS("+proj=longlat"))
+  	final <- sf::st_geometry(sf::st_polygon(list(rectangle)))
+	sf::st_crs(final) <- 4326
 
   	# return object
   	return(final)

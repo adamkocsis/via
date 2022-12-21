@@ -1,8 +1,10 @@
 
 # build from existing stack with existing index, or dimensions
-#' @export RastArray
-setMethod("initialize",signature="RastArray",
+#' @export RasterArray
+setMethod("initialize",signature="RasterArray",
 	definition=function(.Object,stack, index=NULL, dim=NULL){
+		# automatic wrapper
+		if(is.null(index)) index <- 1:nlayers(stack)
 		# some defense for index
 		if(is.null(dim)){ 
 			if(class(stack)!="SpatRaster") stop("The 'stack' has to be a 'SpatRaster' - class object.")
@@ -48,7 +50,7 @@ setMethod("initialize",signature="RastArray",
 
 setMethod(
 	"show",
-	signature="RastArray", 
+	signature="RasterArray", 
 	function (object) 
 	{
 	    cat(paste0("class         : ", class(object), "\n"))
@@ -63,13 +65,15 @@ setMethod(
 	    nl <- nlayers(object)
 	    if (nl > 0) {
 	   		cat("Properties of items: \n")
-			cat("- class       : ",class(object@stack[[1]]), "\n")
+			cat(paste0("- class       : ",class(object@stack[[1]]), "\n"))
 			dims <- dim(object@stack[[1]])
 			cat(paste0("- dimensions  : ", dims[1],", ",dims[2]," (nrow, ncol)\n"))
 			reses <- terra::res(object@stack[[1]])
 			cat(paste0("- resolution  : ",reses[1],", ",reses[2]," (x, y)\n"))
 			extent <- terra::ext(object@stack[[1]])
 			cat(paste0("- extent      : ", extent$xmin, ", ",extent$xmax,", ",extent$ymin,", ",extent$ymax, " (xmin, xmax, ymin, ymax)\n"))
+			refsys <- terra:::.name_or_proj4(object@stack[[1]])
+			cat(paste0("- coord.ref.  : ",refsys,"\n"))
 
   			cat("Array properties: \n")
   			adim <- dim(object)
@@ -127,10 +131,10 @@ setMethod(
 
 #' Positions of missing values in a RasterArray object
 #' 
-#' The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a \code{RastArray}.
+#' The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a \code{RasterArray}.
 #' 
 #' @param x A \code{RasterArray} class object.
-#' @return A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RastArray}.
+#' @return A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RasterArray}.
 #' 
 #' @examples
 #' data(dems)
@@ -138,36 +142,11 @@ setMethod(
 #' is.na(dems)
 #' 
 #' @export
-is.na.RastArray<-function(x){
+is.na.RasterArray<-function(x){
 	is.na(proxy(x))
 }
 
 
-
-## #' @rdname apply-methods
-## #' @aliases apply,RasterArray-method
-## #' @aliases apply,SpatialArray-method
-## "apply"
-
-## if("simplify" %in% names(formals(base::apply))){
-## 	setMethod("apply", "RasterArray",function(X, MARGIN, FUN,..., simplify=TRUE) 
-## 		if(is.null(MARGIN)){
-## 			ArrayApplyNULL(X, FUN, ...)
-## 		}else{
-## 			ArrayApplyReduce(X, MARGIN, FUN, ...)
-## 		}
-## 	)
-
-## }else{
-## 	setMethod("apply", "RasterArray",function(X, MARGIN, FUN,...) 
-## 		if(is.null(MARGIN)){
-## 			ArrayApplyNULL(X=X, FUN=FUN, ...)
-## 		}else{
-## 			ArrayApplyReduce(X, MARGIN, FUN, ...)
-## 		}
-## 	)
-
-## }
 
 
 

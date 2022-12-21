@@ -57,7 +57,12 @@ setReplaceMethod(
 		keepOrig <- origInd[!origInd%in%theIndex]
 		
 		# omit unwanted layers
-		x@stack <- x@stack[[keepOrig]]
+		if(inherits(x, "GenArray")){
+			x@stack <- x@stack[keepOrig]
+		}
+		if(inherits(x, "RasterArray")){
+			x@stack <- x@stack[[keepOrig]]
+		}
 		
 		# constrain order again
 		x@index<- defragment(x@index)

@@ -28,19 +28,18 @@ XArray <- setClass("XArray", slots=list(index="arrayORmatrixORvector", stack="AN
 #'   names(ind) <- letters[1:length(ind)]
 #'   ra<- RasterArray(stack=st, index=ind)
 #'   
-#' @exportClass RastArray
+#' @exportClass GenArray
 GenArray <- setClass("GenArray", contains="XArray")
 
 #' Array of rasters 
 #' 
 #' Array class for easier navigation of multilayer rasters 
 #' 
-#' The class implements structures to organize RasterLayers that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+#' The class implements structures to organize single-layer SpatRasters that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
 #' 
 #' The class has two slots:
 #' stack: RasterStack, the actual data.
 #' index: A proxy object that represents the organization of the layers. 
-#' 
 #' 
 #' @param stack A \code{RasterStack} class object.
 #' @param index A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.
@@ -48,14 +47,14 @@ GenArray <- setClass("GenArray", contains="XArray")
 #' @return A \code{RasterArray} class object.
 #' @examples
 #' # data import
-#'   data(dems)
-#'   st <-dems@stack
+#'   one <- oneRast()
+#'   st <-one@stack
 #'   ind <- 1:nlayers(st)
 #'   names(ind) <- letters[1:length(ind)]
 #'   ra<- RasterArray(stack=st, index=ind)
 #'   
-#' @exportClass RastArray
-RastArray <- setClass("RastArray", contains="XArray")
+#' @exportClass RasterArray
+RasterArray <- setClass("RasterArray", contains="XArray")
 
 
 #VectArray <- setClass("VectArray", contains="XArray")

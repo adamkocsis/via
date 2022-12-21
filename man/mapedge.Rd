@@ -13,21 +13,21 @@ mapedge(x = 360, y = 180, xmin = -180, xmax = 180, ymin = -90, ymax = 90)
 
 \item{xmin}{(\code{numeric}) Minimum value of x (longitude).}
 
-\item{xmax}{(\code{numeric}) Minimum value of x (longitude).}
+\item{xmax}{(\code{numeric}) Maximum value of x (longitude).}
 
 \item{ymin}{(\code{numeric}) Maximum value of y (latitude).}
 
-\item{ymax}{(\code{numeric}) Maximum value of y (latitude).}
+\item{ymax}{(\code{numeric}) Minimum value of y (latitude).}
 }
 \value{
-A \code{SpatialPolygons} class object.
+A \code{sfc_POLYGON} class object from the sf package.
 }
 \description{
 Function to plot the edge of a map with different projections.
 }
 \examples{
-# requires rgdal
+library(sf)
 edge <- mapedge()
-molledge <- spTransform(edge, CRS("+proj=moll"))
+molledge <- st_transform(edge, crs="ESRI:54009")
 
 }

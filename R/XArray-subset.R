@@ -172,9 +172,9 @@ setMethod(
 			usedInd[bNA] <- FALSE
 			
 			# drop not understood for SpatRaster
-			if(!inherits(x, "RastArray")){
+			if(!inherits(x, "RasterArray")){
 				#select appropriate layers
-				newStack<- x@stack[[which(usedInd), drop=FALSE]]
+				newStack<- x@stack[which(usedInd)]
 			}else{
 				newStack<- x@stack[[which(usedInd)]]
 			}
@@ -188,9 +188,9 @@ setMethod(
 		if(is.character(i) | is.numeric(i)){
 
 			# drop not understood for SpatRaster
-			if(!inherits(x, "RastArray")){
-				#select appropriate layers
-				newStack<- x@stack[[i[!bNA], drop=FALSE]]
+			if(!inherits(x, "RasterArray")){
+				# GenArray - list subsetting
+				newStack<- x@stack[i[!bNA]]
 			}else{
 				newStack<- x@stack[[i[!bNA]]]
 			}
@@ -201,12 +201,12 @@ setMethod(
 		}
 
 		# depending on type of object
-		if(class(newStack)=="SpatRaster"){
-			final <- RastArray(index=newIndex, stack=newStack)
+		if(inherits(newStack, "list")){
+			final <- GenArray(index=newIndex, stack=newStack)
 		}
 
-		if(class(newStack)=="SpatialStack"){
-#			final <- SpatialArray(index=newIndex, stack=newStack)
+		if(inherits(newStack, "SpatRaster")){
+			final <- RasterArray(index=newIndex, stack=newStack)
 		}
 
 		if(drop){

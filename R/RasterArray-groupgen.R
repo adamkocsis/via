@@ -1,14 +1,14 @@
 ###########################################################
 
 # Arith methods
-setMethod("Arith", c(e1="RastArray", e2="numeric"), 
+setMethod("Arith", c(e1="RasterArray", e2="numeric"), 
 	definition=function(e1,e2){
 		e1@stack <- methods::callGeneric(e1@stack, e2)
 		e1
 	}
 )
 
-setMethod("Arith", c(e2="RastArray", e1="numeric"), 
+setMethod("Arith", c(e2="RasterArray", e1="numeric"), 
 	definition=function(e1,e2){
 		e2@stack <- methods::callGeneric(e2@stack, e1)
 		e2
@@ -18,7 +18,7 @@ setMethod("Arith", c(e2="RastArray", e1="numeric"),
 ###########################################################
 # Compare method
 
-setMethod("Compare", c(e1="RastArray", e2="SpatRaster"), 
+setMethod("Compare", c(e1="RasterArray", e2="SpatRaster"), 
 	definition=function(e1,e2){
 		e1@stack <- methods::callGeneric(e1@stack, e2)
 		e1
@@ -27,7 +27,7 @@ setMethod("Compare", c(e1="RastArray", e2="SpatRaster"),
 
 ###########################################################
 # Math method
-setMethod("Math", c(x="RastArray"), 
+setMethod("Math", c(x="RasterArray"), 
 	definition=function(x){
 		x@stack <- methods::callGeneric(x@stack)
 		x
@@ -36,7 +36,7 @@ setMethod("Math", c(x="RastArray"),
 
 ###########################################################
 # Math2 method
-setMethod("Math2", signature=c(x="RastArray"), 
+setMethod("Math2", signature=c(x="RasterArray"), 
 	definition=function(x, digits){
 		op=.Generic[[1]]
 		switch(op,
@@ -55,7 +55,7 @@ setMethod("Math2", signature=c(x="RastArray"),
 	}
 )
 
-setMethod("Summary", c(x="RastArray"), 
+setMethod("Summary", c(x="RasterArray"), 
 	definition=function(x,..., na.rm=FALSE){
 		op<-.Generic[[1]]
 	#	if(op=="range"){
