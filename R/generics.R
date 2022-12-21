@@ -251,3 +251,22 @@ if(!requireNamespace("sf", quietly=TRUE)){
 }else{
 	setGeneric("st_transform", def=sf::st_transform, package="sf")
 }
+
+#' Bounding box of a \code{\link[genarray:SfArray-class]{SfArray}} object
+#' 
+#' The method is inherited from the \code{\link[sf:sf]{sf}} class.
+#' 
+#' @param x a \code{\link[sf:sf-class]{sf}}-class object.
+#' @param ... arguments passed to the \code{\link[raster]{extent}} function.
+#' 
+#' @return An \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+#' @examples
+#' data(dems)
+#' agg <- ext(dems)
+#' @rdname st_bbox
+#' @name st_bbox
+if(!requireNamespace("sf", quietly=TRUE)){
+	setGeneric("st_bbox", function(x) standardGeneric("st_transform"))
+}else{
+	setGeneric("st_bbox", def=sf::st_transform, package="sf")
+}

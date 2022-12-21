@@ -112,3 +112,6 @@ st_crs(primitive)
 allMoll<-st_transform(primitive, crs="ESRI:54009")
 plot(allMoll[[1]])
 st_crs(allMoll)
+
+st_bbox(primitive)
+st_bbox(allMoll)
