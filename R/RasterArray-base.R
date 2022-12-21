@@ -64,7 +64,7 @@ setMethod(
 
 	    nl <- nlayers(object)
 	    if (nl > 0) {
-	   		cat("Properties of items: \n")
+	   		cat("Element properties: \n")
 			cat(paste0("- class       : ",class(object@stack[[1]]), "\n"))
 			dims <- dim(object@stack[[1]])
 			cat(paste0("- dimensions  : ", dims[1],", ",dims[2]," (nrow, ncol)\n"))

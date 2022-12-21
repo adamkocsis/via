@@ -67,7 +67,7 @@ setMethod(
 
 	    nl <- nlayers(object)
 	    if (nl > 0) {
-	   		cat("Properties of items: \n")
+	   		cat("Element properties: \n")
 			cat("- class       : ", class(object@stack[[1]]), "\n")
 
   			cat("Array properties: \n")
