@@ -123,10 +123,20 @@ setMethod(
 	"[",
 	signature(x="XArray", i="ANY", j="ANY"),
 	definition=function(x,i,j,..., drop=TRUE){
+		# save system call
 		sysCall <- sys.call(which=-1)
 
+		# look for drop and omit from the call
+		call <- as.character(sysCall)
+		args <- names(sysCall)
+		dropNum <- which(args=="drop")
+		if(length(dropNum)>0){
+			call <- call[-dropNum]
+		}
+		
+		# check whether one or multidimensional subscripts are necessary
 		oneDim<-FALSE
-		if(length(sysCall)==3){
+		if(length(call)==3){
 			oneDim <- TRUE
 		}
 		subset(x,i,j,..., oneDim=oneDim, drop=drop)
