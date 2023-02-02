@@ -1,7 +1,7 @@
-Package: genarray
+Package: via
 Type: Package
-Title: R-stlye General Arrays
-Version: 0.0.1
+Title: Virtual Arrays of General R objects
+Version: 0.1
 Authors@R: c(
 	person(given="Adam T.", family="Kocsis", role=c("cre", "aut"),
 		   email="adam.t.kocsis@gmail.com", comment=c(ORCID="0000-0002-9028-665X")),
@@ -20,9 +20,9 @@ Collate:
     XArray-subset.R
     XArray-replace.R
 	XArray-combine.R
-	GenArray-base.R
-	GenArray-xattrib.R
-	GenArray-combine.R
+	ViArray-base.R
+	ViArray-xattrib.R
+	ViArray-combine.R
     RasterArray-base.R
 	RasterArray-xattrib.R
 	RasterArray-groupgen.R
@@ -33,7 +33,7 @@ Collate:
 	SfArray-replace.R
 	SfArray-sf.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
-Description: The package implements a wrapper around lists and stacks of any class to allow users to fold lists in n-dimensional, R-style arrays. 
+Description: The package implements a wrapper around lists of any class to allow users to fold lists in n-dimensional, R-style virtual arrays. 
 License: CC BY 4.0
 Date: 2022-11-24
 BugReports: https://github.com/adamkocsis/genarray

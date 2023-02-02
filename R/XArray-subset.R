@@ -189,7 +189,7 @@ setMethod(
 
 			# drop not understood for SpatRaster
 			if(!inherits(x, "RasterArray")){
-				# GenArray - list subsetting
+				# ViArray - list subsetting
 				newStack<- x@stack[i[!bNA]]
 			}else{
 				newStack<- x@stack[[i[!bNA]]]
@@ -202,7 +202,7 @@ setMethod(
 
 		# depending on type of object
 		if(inherits(newStack, "list")){
-			final <- GenArray(index=newIndex, stack=newStack)
+			final <- ViArray(index=newIndex, stack=newStack)
 		}
 
 		if(inherits(newStack, "SpatRaster")){

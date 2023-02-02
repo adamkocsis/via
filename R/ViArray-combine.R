@@ -2,10 +2,10 @@
 # Internals for c- methods
 
 # Adding as ingle element
-setMethod("c2", signature=c("GenArray", "ANY"), 
+setMethod("c2", signature=c("ViArray", "ANY"), 
 	definition=function(x, y){
 		callStack <- sys.calls()
-		# check the type - should be the same as the rest of GenArray
+		# check the type - should be the same as the rest of ViArray
 		targetClass <- class(x@stack[[1]])[1]
 		naCase <- FALSE
 		# if the type is not the same as the rest
@@ -29,7 +29,7 @@ setMethod("c2", signature=c("GenArray", "ANY"),
 		if(!naCase){
 			ind <- c(x@index, nlayers(x)+1)
 			callSymb <- sys.call(which=-3)
-			endObj <- GenArray(c(x@stack, list(y)), index=ind)
+			endObj <- ViArray(c(x@stack, list(y)), index=ind)
 
 			if(is.symbol(callSymb[[3]])){
 				names(endObj@stack)[nlayers(endObj)] <- deparse(callSymb[[3]])
@@ -38,7 +38,7 @@ setMethod("c2", signature=c("GenArray", "ANY"),
 		}else{
 			ind <- c(x@index, NA)
 
-			endObj <- GenArray(x@stack, index=ind)
+			endObj <- ViArray(x@stack, index=ind)
 		}
 		return(endObj)
 
@@ -46,7 +46,7 @@ setMethod("c2", signature=c("GenArray", "ANY"),
 )
 
 # XArray with itself
-setMethod("c2", signature=c("GenArray", "GenArray"), 
+setMethod("c2", signature=c("ViArray", "ViArray"), 
 	definition=function(x, y){
 		# shift indices of the second argument
 		indexPlus<- y@index+nlayers(x)
@@ -55,7 +55,7 @@ setMethod("c2", signature=c("GenArray", "GenArray"),
 		ind <- c(x@index, indexPlus)
 
 		# the final object
-		endObj <- GenArray(c(x@stack, y@stack), index=ind)
+		endObj <- ViArray(c(x@stack, y@stack), index=ind)
 
 		return(endObj)
 	}

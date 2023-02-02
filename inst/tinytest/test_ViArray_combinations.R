@@ -1,9 +1,9 @@
 library(tinytest)  
 
 # X-attribs of GenArray objects
-source("./genarray_objects.R")
+source("./ViArray_objects.R")
 
-library(genarray)
+library(via)
 
 
 elem <- ga1d[1]

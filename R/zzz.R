@@ -1,4 +1,4 @@
-#' Generalized ArrayRray
+#' Virtual Arrays for R
 #'
 #' Cool package to be written.
 #' 
@@ -6,7 +6,7 @@
 #'
 #' @author Adam T. Kocsis (adam.t.kocsis@gmail.com) and Nussaibah B. Raja
 #' @docType package
-#' @name genarray
+#' @name via
 NULL
 
 #' @importFrom methods new cbind2 rbind2

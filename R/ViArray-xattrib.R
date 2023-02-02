@@ -2,7 +2,7 @@
 #' @exportMethod nlayers
 setMethod(
 	"nlayers",
-	signature="GenArray",
+	signature="ViArray",
 	function(x) length(x@stack)
 )
 

@@ -1,4 +1,4 @@
-library(genarray)
+library(via)
 library(sf)
 
 generator <- function(n, crs=4326){

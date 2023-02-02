@@ -1,4 +1,4 @@
-#' Combine GenArray and one-dimensional RasterArrays and Spatial* objects with one-dimensiooal SpatialArrays
+#' Combine ViArray and one-dimensional RasterArrays and Spatial* objects with one-dimensiooal SpatialArrays
 #'
 #' Methods sequences that start with an NA do not yet work. 
 #' @rdname combine

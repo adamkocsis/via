@@ -1,6 +1,6 @@
 # build from existing stack with existing index, or dimensions
-#' @export GenArray
-setMethod("initialize",signature="GenArray",
+#' @export ViArray
+setMethod("initialize",signature="ViArray",
 	definition=function(.Object,stack, index=NULL, dim=NULL){
 		# some defense for index
 		if(is.null(index)){
@@ -53,7 +53,7 @@ setMethod("initialize",signature="GenArray",
 
 setMethod(
 	"show",
-	signature="GenArray", 
+	signature="ViArray", 
 	function (object) 
 	{
 	    cat("class         :", class(object), "\n")

@@ -57,7 +57,7 @@ setReplaceMethod(
 		keepOrig <- origInd[!origInd%in%theIndex]
 		
 		# omit unwanted layers
-		if(inherits(x, "GenArray")){
+		if(inherits(x, "ViArray")){
 			x@stack <- x@stack[keepOrig]
 		}
 		if(inherits(x, "RasterArray")){

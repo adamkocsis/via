@@ -28,8 +28,8 @@ XArray <- setClass("XArray", slots=list(index="arrayORmatrixORvector", stack="AN
 #'   names(ind) <- letters[1:length(ind)]
 #'   ra<- RasterArray(stack=st, index=ind)
 #'   
-#' @exportClass GenArray
-GenArray <- setClass("GenArray", contains="XArray")
+#' @exportClass ViArray
+ViArray <- setClass("ViArray", contains="XArray")
 
 #' Array of rasters 
 #' 
@@ -59,7 +59,7 @@ RasterArray <- setClass("RasterArray", contains="XArray")
 
 #VectArray <- setClass("VectArray", contains="XArray")
 #SpArray <- setClass("SpArray", contains="XArray")
-SfArray <- setClass("SfArray", contains="GenArray")
+SfArray <- setClass("SfArray", contains="ViArray")
 
 
 

@@ -1,7 +1,7 @@
 library(tinytest)  
 
-# X-attribs of GenArray objects
-source("./genarray_objects.R")
+# X-attribs of ViArray objects
+source("./ViArray_objects.R")
 
 ################################################################################
 # dim()
