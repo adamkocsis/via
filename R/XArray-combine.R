@@ -1,42 +1,62 @@
-#' Combine ViArray and one-dimensional RasterArrays and Spatial* objects with one-dimensiooal SpatialArrays
-#'
-#' Methods sequences that start with an NA do not yet work. 
-#' @rdname combine
-#' @param x \code{RasterLayer} or \code{RasterArray} objects or Spatial* and \code{\link{SpatialArray}} objects to combine.
-#' @return A \code{\link{RasterArray}} or \code{\link{SpatialArray}}class object.
-#' @param ... additional objects to combine. 
-#' @export 
-setMethod(
-	"c",
-	"XArray",
-	#c.RasterArray<-
-	function(x, ...){
-		listArg <- list(...)
-		finXA <- x
-		# store the system call
-		callSymb <<- sys.call(which=0)
-		symbolNames <- names(callSymb)
-	
-		# run loop only if it is more than 1
-		if(length(listArg)!=0){
-			for(i in 1:length(listArg)){
-				elem <- listArg[[i]]
-				# name of the first will be taken care of by c2
-				finXA<-c2(finXA, elem)
-				# try to overwrite the name - necessary for multiple combinations
-				if(!is.null(symbolNames)){
-					if(symbolNames[i+2]!=""){
-						names(finXA@index)[length(finXA)] <- symbolNames[i+2]
-					}
+################################################################
+# Internals for c- methods
+
+# Adding as ingle element
+setMethod("c2", signature=c("XArray", "ANY"), 
+	definition=function(x, y){
+		callStack <- sys.calls()
+		# check the type - should be the same as the rest of XArray
+		targetClass <- class(x@stack[[1]])[1]
+		naCase <- FALSE
+		# if the type is not the same as the rest
+		if(!inherits(y, targetClass)){
+			# if it has more than one values -> halt
+			if(length(y)>1){
+				stop("Incompatible class.")
+			# if it is only one value it might still be good
+			}else{
+				# if that is not missing - > halt
+				if(!is.na(y)){
+					stop("Incompatible class.")
+				}else{
+					naCase <- TRUE
 				}
 			}
 		}
-		return(finXA)
+
+		
+		# The new index
+		if(!naCase){
+			ind <- c(x@index, nlayers(x)+1)
+			callSymb <- sys.call(which=-3)
+			endObj <- XArray(c(x@stack, list(y)), index=ind)
+
+			if(is.symbol(callSymb[[3]])){
+				names(endObj@stack)[nlayers(endObj)] <- deparse(callSymb[[3]])
+			}
+
+		}else{
+			ind <- c(x@index, NA)
+
+			endObj <- XArray(x@stack, index=ind)
+		}
+		return(endObj)
+
 	}
 )
 
+# VirtualArray with itself
+setMethod("c2", signature=c("XArray", "XArray"), 
+	definition=function(x, y){
+		# shift indices of the second argument
+		indexPlus<- y@index+nlayers(x)
 
-# pairwise generic
-setGeneric("c2", function(x,y,...) standardGeneric("c2"))
+		# combine the indices
+		ind <- c(x@index, indexPlus)
 
+		# the final object
+		endObj <- XArray(c(x@stack, y@stack), index=ind)
 
+		return(endObj)
+	}
+)

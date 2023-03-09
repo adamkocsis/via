@@ -23,17 +23,17 @@ rownames(ind) <- letters[1:3]
 
 # index too short
 expect_error(
-	ViArray(index=1:11, stack=theList)
+	XArray(index=1:11, stack=theList)
 )
 
 # index too long 
 expect_error(
-	ViArray(index=1:13, stack=theList)
+	XArray(index=1:13, stack=theList)
 )
 
 # index appropriate, but stack too long
 expect_error(
-	ViArray(index=c(1:11, NA), stack=theList)
+	XArray(index=c(1:11, NA), stack=theList)
 )
 
 ################################################################################
@@ -42,7 +42,7 @@ theList2 <- theList
 theList2[[12]] <- 1:15 
 
 expect_error(
-	ViArray(stack=theList2)
+	XArray(stack=theList2)
 )
 
 # gaps in the stack
@@ -50,5 +50,5 @@ theList3 <- theList
 theList3[[12]] <- NA 
 
 expect_error(
-	ViArray(stack=theList3)
+	XArray(stack=theList3)
 )

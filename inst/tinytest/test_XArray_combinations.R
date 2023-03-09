@@ -1,7 +1,7 @@
 library(tinytest)  
 
 # X-attribs of GenArray objects
-source("./ViArray_objects.R")
+source("./XArray_objects.R")
 
 library(via)
 

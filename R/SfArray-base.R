@@ -6,8 +6,8 @@ setMethod("initialize",signature="SfArray",
 		if(!requireNamespace("sf", quietly=TRUE)){
 			stop("This function requires the sf package.")
 		}	
-		# execute everything from the ViArray constructor
-		ga <- ViArray(stack=stack, index=index, dim=dim)
+		# execute everything from the XArray constructor
+		ga <- XArray(stack=stack, index=index, dim=dim)
 
 		# get the crs
 		firstCRS <- sf::st_crs(ga@stack[[1]])

@@ -20,7 +20,7 @@
 #' @exportMethod "[<-"
 setReplaceMethod(
 	"[", 
-	signature(x="XArray", value="logical"),
+	signature(x="VirtualArray", value="logical"),
 	definition=function(x,i,j,..., value){
 		# fetch the index
 		indDim <- dim(x@index)
@@ -57,7 +57,7 @@ setReplaceMethod(
 		keepOrig <- origInd[!origInd%in%theIndex]
 		
 		# omit unwanted layers
-		if(inherits(x, "ViArray")){
+		if(inherits(x, "XArray")){
 			x@stack <- x@stack[keepOrig]
 		}
 		if(inherits(x, "RasterArray")){
@@ -74,8 +74,8 @@ setReplaceMethod(
 
 
 
-# Generalized layer replacement function for XArray. Method dispatch written explicitly as RasterArray[ <- RasterLayer and SpatialArray [<- Spatial*
-XArrayReplaceLayer <- function(x,i,j,value,...){
+# Generalized layer replacement function for VirtualArray. Method dispatch written explicitly as RasterArray[ <- RasterLayer and SpatialArray [<- Spatial*
+VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 	# fetch the index
 	indDim <- dim(x@index)
 	# one dim case
@@ -214,7 +214,7 @@ XArrayReplaceLayer <- function(x,i,j,value,...){
 #' @exportMethod "[[<-"
 setReplaceMethod(
 	"[[", 
-	signature(x="XArray"),
+	signature(x="VirtualArray"),
 	function(x,i, value){
 		x@stack[[i]] <- value
 		return(x)

@@ -10,8 +10,6 @@
 NULL
 
 #' @importFrom methods new cbind2 rbind2
-#' @importFrom graphics par layout mtext
 #' @importFrom grDevices colorRampPalette rgb
-#' @importFrom grDevices devAskNewPage
 NULL
 

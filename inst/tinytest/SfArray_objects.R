@@ -1,6 +1,8 @@
 library(via)
 library(sf)
+library(tinytest)
 
+# define a generator function for this
 generator <- function(n, crs=4326){
 
 	li<-list()
@@ -18,100 +20,96 @@ generator <- function(n, crs=4326){
 	return(final)
 }
 
-plot(generator(6))
+# visalize
+# plot(generator(6))
 
-# 3. 
-
+# create nice examples
 set.seed(11)
 tra <- st_transform(generator(60), crs="ESRI:54009")
 plot(tra$geom)
 plot(tra, main="", add=TRUE, nbreaks=20)
 
 
-# 
-sta <- list()
-for(i in 1:6){
+# Start prototyping
+theList <- list()
+for(i in 1:12){
 	# list
-	sta[[i]] <- generator(10)
+	theList[[i]] <- generator(10)
 }
 
-names(sta) <- paste0("sf_", 1:length(sta))
+names(theList) <- paste0("lay_", 1:length(theList))
 
 ################################################################################
-primitive <- SfArray(sta)
+expect_silent(primitive <- SfArray(theList))
 
 # vector case
-index <- 1:length(sta)
+index <- 1:length(theList)
 names(index) <- paste0("a", 1:length(index))
-
-sa1d <-  SfArray(stack=sta, index=index)
-
-# vector case with missing
-ind <- c(NA, 1:5)
-names(ind) <- letters[1:length(ind)]
-sa1dFront <- SfArray(stack=sta[1:5], ind)
-
+ga1d <-  SfArray(stack=theList, index=index)
 
 # vector case with missing
-ind <- c(1:5, NA)
+ind <- c(NA, NA, 1:10)
 names(ind) <- letters[1:length(ind)]
-sa1dEnd<- SfArray(stack=sta[1:5], ind)
+ga1dNAfront <- SfArray(stack=theList[1:10], ind)
 
 # vector case with mid missing
-ind <- c(1:2, NA, 3:5)
+ind <- c(1:4, NA, 5:9, NA, 10)
 names(ind) <- letters[1:length(ind)]
-sa1dMid<- SfArray(stack=sta[1:5], ind)
+ga1dNAmid<- SfArray(stack=theList[1:10], ind)
+
+# vector case with missing
+ind <- c(1:10,NA, NA)
+names(ind) <- letters[1:length(ind)]
+ga1dNAend<- SfArray(stack=theList[1:10], ind)
 
 ###############################################################################
 # matrix case
-ind <- matrix(1:length(index), ncol=2, nrow=3)
-colnames(ind) <-paste0("c", 1:2)
-rownames(ind) <-paste0("r", 1:3)
+ind <- matrix(1:length(index), ncol=4, nrow=3)
+colnames(ind) <- LETTERS[1:4]
+rownames(ind) <-letters[1:3]
+ga2d <- SfArray(stack=theList, ind)
 
-sa2d <- SfArray(stack=sta, ind)
+# matrix case - missing
+# 2d cases
+ind2dNAmid <- matrix(ind1dNAmid, ncol=4)
+colnames(ind2dNAmid) <- LETTERS[1:4]
+rownames(ind2dNAmid) <- letters[1:3]
+ga2dNAmid <- SfArray(index=ind2dNAmid, stack=theList[1:10])
 
-################################################################################
-# replacement
-# 1d
-# missing values
-sa1dre1 <- sa1d
-sa1dre1[1] <- NA
+ind2dNAfront<- matrix(ind1dNAfront, ncol=4)
+colnames(ind2dNAfront) <- LETTERS[1:4]
+rownames(ind2dNAfront) <- letters[1:3]
+ga2dNAfront<- SfArray(index=ind2dNAfront, stack=theList[1:10])
 
-sa1d[2]
-sa1dre1[2]
+ind2dNAend<- matrix(ind1dNAend, ncol=4)
+colnames(ind2dNAend) <- LETTERS[1:4]
+rownames(ind2dNAend) <- letters[1:3]
+ga2dNAend<- SfArray(index=ind2dNAend, stack=theList[1:10])
 
+###############################################################################
+# 3d case
+ind3dNAfront<- array(ind1dNAfront, dim=c(2,3,2))
+dimnames(ind3dNAfront) <- list(
+	first=letters[1:2],
+	second=LETTERS[1:3],
+	third=paste0("a",1:2)
+)
+ga3dNAfront <- SfArray(index=ind3dNAfront, stack=theList[1:10])
 
-# single layer
-sa1dre1[1] <- sa1d[6]
-sa1dre1[2] <- sa1d[6]
+ind3dNAmid <- array(ind1dNAmid, dim=c(2,3,2))
+dimnames(ind3dNAmid) <- list(
+	first=letters[1:2],
+	second=LETTERS[1:3],
+	third=paste0("a",1:2)
+)
+ga3dNAmid<- SfArray(index=ind3dNAmid, stack=theList[1:10])
 
-sa1dre1[["d"]] <-sa1d[6]
-
-# 2d
-sa2dre <- sa2d
-sa2dre[2,2] <- sa1d[6]
-sa2dre[1,1] <- NA
-
-
-sa2dre["r1", "c2"] <- NA
-
-sa2dre[["c"]] <- sa1d[6]
-
-# should be equal
-sa2dre[["c"]]
-sa2dre["r2", "c2"]
-
-
-############################################################x
-# st_crs
-st_crs(primitive)
-
-# project
+ind3dNAend<- array(ind1dNAend, dim=c(2,3,2))
+dimnames(ind3dNAend) <- list(
+	first=letters[1:2],
+	second=LETTERS[1:3],
+	third=paste0("a",1:2)
+)
+ga3dNAend<- SfArray(index=ind3dNAend, stack=theList[1:10])
 
 
-allMoll<-st_transform(primitive, crs="ESRI:54009")
-plot(allMoll[[1]])
-st_crs(allMoll)
-
-st_bbox(primitive)
-st_bbox(allMoll)

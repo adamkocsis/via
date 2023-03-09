@@ -2,7 +2,7 @@
 setClassUnion("arrayORmatrixORvector", c("vector", "matrix", "array"))
 
 # base virtual class
-XArray <- setClass("XArray", slots=list(index="arrayORmatrixORvector", stack="ANY"))
+VirtualArray <- setClass("VirtualArray", slots=list(index="arrayORmatrixORvector", stack="ANY"))
 
 
 #' General Array 
@@ -28,8 +28,8 @@ XArray <- setClass("XArray", slots=list(index="arrayORmatrixORvector", stack="AN
 #'   names(ind) <- letters[1:length(ind)]
 #'   ra<- RasterArray(stack=st, index=ind)
 #'   
-#' @exportClass ViArray
-ViArray <- setClass("ViArray", contains="XArray")
+#' @exportClass XArray
+XArray <- setClass("XArray", contains="VirtualArray")
 
 #' Array of rasters 
 #' 
@@ -54,12 +54,12 @@ ViArray <- setClass("ViArray", contains="XArray")
 #'   ra<- RasterArray(stack=st, index=ind)
 #'   
 #' @exportClass RasterArray
-RasterArray <- setClass("RasterArray", contains="XArray")
+RasterArray <- setClass("RasterArray", contains="VirtualArray")
 
 
-#VectArray <- setClass("VectArray", contains="XArray")
-#SpArray <- setClass("SpArray", contains="XArray")
-SfArray <- setClass("SfArray", contains="ViArray")
+#VectArray <- setClass("VectArray", contains="VirtualArray")
+#SpArray <- setClass("SpArray", contains="VirtualArray")
+SfArray <- setClass("SfArray", contains="XArray")
 
 
 

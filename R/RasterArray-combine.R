@@ -1,4 +1,4 @@
-# XArray with itself
+# VirtualArray with itself
 setMethod("c2", signature=c("RasterArray", "RasterArray"), 
 	definition=function(x, y){
 		# shift indices of the second argument

@@ -1,6 +1,6 @@
 Package: via
 Type: Package
-Title: Virtual Arrays of General R objects
+Title: Virtual Arrays
 Version: 0.1
 Authors@R: c(
 	person(given="Adam T.", family="Kocsis", role=c("cre", "aut"),
@@ -15,14 +15,14 @@ Collate:
     classes.R
 	generics.R
 	utility.R
-    XArray-base.R
-    XArray-xattrib.R
-    XArray-subset.R
-    XArray-replace.R
+    VirtualArray-base.R
+    VirtualArray-xattrib.R
+    VirtualArray-subset.R
+    VirtualArray-replace.R
+	VirtualArray-combine.R
+	XArray-base.R
+	XArray-xattrib.R
 	XArray-combine.R
-	ViArray-base.R
-	ViArray-xattrib.R
-	ViArray-combine.R
     RasterArray-base.R
 	RasterArray-xattrib.R
 	RasterArray-groupgen.R
@@ -33,10 +33,10 @@ Collate:
 	SfArray-replace.R
 	SfArray-sf.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
-Description: The package implements a wrapper around lists of any class to allow users to fold lists in n-dimensional, R-style virtual arrays. 
+Description: The package defines the base class VirtualArray, a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived VirtualArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.
 License: CC BY 4.0
-Date: 2022-11-24
-BugReports: https://github.com/adamkocsis/genarray
+Date: 2023-03-09
+BugReports: https://github.com/adamkocsis/via
 Encoding: UTF-8
 LazyData: false
 Depends:

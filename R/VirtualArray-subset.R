@@ -30,7 +30,7 @@
 #' subset(coasts, i=2, j=1:2)
 setMethod(
 	"subset", 
-	signature(x="XArray"), 
+	signature(x="VirtualArray"), 
 	function(x, i,j, ...,oneDim=FALSE, drop=TRUE){
 			# fetch the index
 			indDim <- dim(x@index)
@@ -75,12 +75,12 @@ setMethod(
 				}
 
 				# wrappers will not be dropped
-				## if(inherits(x@stack, "list")){
+				if(inherits(x@stack, "list")){
 					x@stack <- x@stack[validFetch]
-				## }else{
-				## 	# get the relevant layers
-				## 	x@stack <- x@stack[[validFetch, drop=FALSE]]
-				## }	
+				}else{
+					# get the relevant layers
+				 	x@stack <- x@stack[[validFetch]]
+				}	
 
 				# rewrite the index 
 				x@index<- originIndex
@@ -121,7 +121,7 @@ setMethod(
 #' @exportMethod [
 setMethod(
 	"[",
-	signature(x="XArray", i="ANY", j="ANY"),
+	signature(x="VirtualArray", i="ANY", j="ANY"),
 	definition=function(x,i,j,..., drop=TRUE){
 		# save system call
 		sysCall <- sys.call(which=-1)
@@ -167,7 +167,7 @@ setMethod(
 #' mean(values(dem2[["dem_0"]]==dem2[["dem_5"]]))
 setMethod(
 	"[[", 
-	signature(x="XArray"),
+	signature(x="VirtualArray"),
 	function(x,i,drop=TRUE){
 		# where are NAs in the subscrtip
 		bNA <- is.na(i)
@@ -199,7 +199,7 @@ setMethod(
 
 			# drop not understood for SpatRaster
 			if(!inherits(x, "RasterArray")){
-				# ViArray - list subsetting
+				# XArray - list subsetting
 				newStack<- x@stack[i[!bNA]]
 			}else{
 				newStack<- x@stack[[i[!bNA]]]
@@ -212,7 +212,7 @@ setMethod(
 
 		# depending on type of object
 		if(inherits(newStack, "list")){
-			final <- ViArray(index=newIndex, stack=newStack)
+			final <- XArray(index=newIndex, stack=newStack)
 		}
 
 		if(inherits(newStack, "SpatRaster")){
