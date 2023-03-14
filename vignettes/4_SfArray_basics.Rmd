@@ -1,10 +1,10 @@
 ---
-title: "Introduction to the 'chronosphere' R package"
+title: "SfArray basics"
 author: "Adam T. Kocsis, Nussaïbah B. Raja"
 date: '`r Sys.Date()`'
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to the 'chronosphere' R package}
+  %\VignetteIndexEntry{SfArray basics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

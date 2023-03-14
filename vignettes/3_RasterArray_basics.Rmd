@@ -1,10 +1,10 @@
 ---
-title: "VirtualArray basics. XArray."
+title: "RasterArray basics"
 author: "Adam T. Kocsis, Nussaïbah B. Raja"
 date: '`r Sys.Date()`'
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{VirtualArray basics. XArray.}
+  %\VignetteIndexEntry{RasterArray basics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,24 +13,6 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 library(via)
 ```
-
-# Introduction
-
-## Classes
-- VirtualArray
-- XArray
-- RasterArray
-- SfArray
-
-## Example data
-
-# XArray
-
-## Attributes and properties
-- dim
-- names
-
-## Subsetting and replacements
 
 # Creating XArrays
 
@@ -43,5 +25,3 @@ library(via)
 - rbind()
 
 # XArray 
-
-# Internal structures

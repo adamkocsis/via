@@ -17,6 +17,12 @@ navbar:
           href: 404.html
         - text: "2. XArrays"
           href: 404.html
+        - text: "3. RasterArrays"
+          href: 404.html
+        - text: "4. SfArrays"
+          href: 404.html
+        - text: "5. The iterating function via"
+          href: 404.html
     internals:
       text: Internals
       menu: 
