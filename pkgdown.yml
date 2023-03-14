@@ -4,10 +4,11 @@ pkgdown_sha: ~
 articles:
   1_installation: 1_installation.html
   2_XArray_basics: 2_XArray_basics.html
+  3_RasterArray_basics: 3_RasterArray_basics.html
   4_SfArray_basics: 4_SfArray_basics.html
   5_via: 5_via.html
   internals: internals.html
-last_built: 2023-03-14T15:53Z
+last_built: 2023-03-14T16:08Z
 urls:
   reference: https://adamkocsis.github.io/via/reference
   article: https://adamkocsis.github.io/via/articles
