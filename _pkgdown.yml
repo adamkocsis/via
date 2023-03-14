@@ -1,3 +1,4 @@
+url: https://adamkocsis.github.io/via
 template:
   bootstrap: 5
   bootswatch: cosmo 
@@ -30,8 +31,6 @@ navbar:
 authors:
   Adam T. Kocsis:
     href: "https://palaeobiology.nat.fau.de/people/instructors/kocsis/"
-  Nussaibah B. Raja:
-    href: "https://www.gzn.nat.fau.eu/palaeontologie/team/wissenschaftler/nussaibah-raja-schoob/"
   Deutsche Forschungsgemeinschaft:
     href: https://www.dfg.de/en/index.jsp
     html: <img src='https://www.dfg.de/includes/bausteine/open_graph_de/dfgfallback.jpg' alt='dfg' width='80' />
