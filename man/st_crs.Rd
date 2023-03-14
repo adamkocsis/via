@@ -3,22 +3,22 @@
 \name{st_crs}
 \alias{st_crs}
 \alias{st_crs.SfArray}
-\title{Coordinate_reference system of a \code{\link[genarray:SfArray-class]{SfArray}} object}
+\title{Coordinate reference system of a \code{\link[via:SfArray-class]{SfArray}} object}
 \usage{
 \method{st_crs}{SfArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{\link[sf:sf-class]{sf}}-class object.}
+\item{x}{a \code{\link[sf:sf]{sf}}-class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
+\item{...}{arguments passed to the \code{\link[sf:st_crs]{st_crs}} function.}
 }
 \value{
-An aggregated \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+An aggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
 The method is inherited from the \code{\link[sf:sf]{sf}} class.
 }
 \examples{
-data(dems)
-agg <- ext(dems)
+data(paleocoastlines)
+crs <- st_crs(paleocoastlines)
 }

@@ -3,14 +3,14 @@
 \name{colnames,VirtualArray-method}
 \alias{colnames,VirtualArray-method}
 \alias{colnames<-,VirtualArray-method}
-\title{Column names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}}}
+\title{Column names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 \usage{
 \S4method{colnames}{VirtualArray}(x)
 
 \S4method{colnames}{VirtualArray}(x) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SpatialArray}} object.}
+\item{x}{\code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 
 \item{value}{\code{character} vector.}
 }
@@ -18,10 +18,10 @@
 A \code{character} vector of column names or \code{NULL}.
 }
 \description{
-Get or set the column names of two-dimensional code{\link{RasterArray}} or \code{\link{SpatialArray}} objects
+Get or set the column names of two-dimensional code{\link[via:XArray-class]{VirtualArray}}-derived class objects
 }
 \examples{
-data(coasts)
-colnames(coasts)
-colnames(coasts) <- c("a", "b")
+data(paleocoastlines)
+colnames(paleocoastlines)
+colnames(paleocoastlines) <- c("a", "b")
 }

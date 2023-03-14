@@ -3,9 +3,10 @@
 %   R/RasterArray-replace.R, R/SfArray-replace.R
 \name{[<-,VirtualArray,ANY,ANY,logical-method}
 \alias{[<-,VirtualArray,ANY,ANY,logical-method}
+\alias{[<-,VirtualArray-method}
 \alias{[<-,RasterArray,ANY,ANY,SpatRaster-method}
 \alias{[<-,SfArray,ANY,ANY,sf-method}
-\title{Replace layers of a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object}
+\title{Replace layers of an object of a class derived from a \code{\link[via:XArray-class]{VirtualArray}}.}
 \usage{
 \S4method{[}{VirtualArray,ANY,ANY,logical}(x, i, j, ...) <- value
 
@@ -14,7 +15,7 @@
 \S4method{[}{SfArray,ANY,ANY,sf}(x, i, j, ...) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SpatialArray}} object.}
+\item{x}{\code{\link[via:XArray-class]{VirtualArray}}-class object.}
 
 \item{i}{subscript of the first dimension(rows) or vector-like subsetting.}
 
@@ -28,14 +29,15 @@
 None.
 }
 \description{
-Single bracket \code{'['} refers to indices and names within the \\code{\link{RasterArray}} or \code{\link{SpatialArray}}. Use double brackets to replace layers based on their names (in the stack).
-\code{RasterLayers} and \code{\link{RasterArray}} entries can be used to replace values in \code{\link{RasterArray}}s. \code{Spatial*} objects and \code{\link{SpatialArray}}s can be used with \code{\link{SpatialArray}}s.
+Single bracket \code{'['} refers to indices and names within the \\code{\link[via:XArray-class]{VirtualArray}}. Use double brackets to replace layers based on their names (in the stack).
+Object types of the same kind \code{SpatRasters} can be used to replace values in \code{\link{RasterArray}}s. \code{sf} objects can be used with \code{\link{SfArray}}s.
 }
 \examples{
-data(dems)
+ex <- rastex() 
 # replace third element with missing value
-dems[3] <- NA
+ex[3] <- NA
 # duplicate first element and make it the second too
-dems[2] <-dems[1]
+ex[2] <- ex[1]
+ex
 
 }

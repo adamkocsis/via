@@ -3,22 +3,22 @@
 \name{ext}
 \alias{ext}
 \alias{ext,RasterArray-method}
-\title{Extent of a \code{\link[chronosphere:RasterArray-class]{RasterArray}} object}
+\title{Extent of a \code{\link[via:RasterArray-class]{RasterArray}} object}
 \usage{
 \S4method{ext}{RasterArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{\link[chronosphere:RasterArray-class]{RasterArray}}-class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}}-class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
+\item{...}{arguments passed to the \code{\link[terra]{ext}} function.}
 }
 \value{
-An aggregated \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+An aggregated \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[raster:raster]{RasterStack}} class.
+The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
 }
 \examples{
-data(dems)
-agg <- ext(dems)
+ex <- rastex()
+extent <- ext(ex)
 }

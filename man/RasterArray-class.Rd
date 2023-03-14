@@ -4,16 +4,16 @@
 \name{RasterArray-class}
 \alias{RasterArray-class}
 \alias{RasterArray}
-\title{Array of rasters}
+\title{Array of SpatRasters}
 \arguments{
-\item{stack}{A \code{RasterStack} class object.}
+\item{stack}{A \code{SpatRaster} class object.}
 
 \item{index}{A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.}
 
 \item{dim}{A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.}
 }
 \value{
-A \code{RasterArray} class object.
+A \code{RasterArray}-class object.
 }
 \description{
 Array class for easier navigation of multilayer rasters
@@ -22,14 +22,14 @@ Array class for easier navigation of multilayer rasters
 The class implements structures to organize single-layer SpatRasters that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
 
 The class has two slots:
-stack: RasterStack, the actual data.
+stack: A SpatRaster object with multiple layers, the actual data.
 index: A proxy object that represents the organization of the layers.
 }
 \examples{
-# data import
-  one <- oneRast()
-  st <-one@stack
-  ind <- 1:nlayers(st)
+# example data
+  ex <- rastex()
+  st <-ex@stack
+  ind <- 1:6
   names(ind) <- letters[1:length(ind)]
   ra<- RasterArray(stack=st, index=ind)
   

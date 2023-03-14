@@ -1,20 +1,22 @@
-#' Replace layers of a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object
+#' Replace layers of an object of a class derived from a \code{\link[via:XArray-class]{VirtualArray}}.  
 #' 
-#' Single bracket \code{'['} refers to indices and names within the \\code{\link{RasterArray}} or \code{\link{SpatialArray}}. Use double brackets to replace layers based on their names (in the stack).
-#' \code{RasterLayers} and \code{\link{RasterArray}} entries can be used to replace values in \code{\link{RasterArray}}s. \code{Spatial*} objects and \code{\link{SpatialArray}}s can be used with \code{\link{SpatialArray}}s.
+#' Single bracket \code{'['} refers to indices and names within the \\code{\link[via:XArray-class]{VirtualArray}}. Use double brackets to replace layers based on their names (in the stack).
+#' Object types of the same kind \code{SpatRasters} can be used to replace values in \code{\link{RasterArray}}s. \code{sf} objects can be used with \code{\link{SfArray}}s.
 #'
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
 #' @param j subscript of the second dimension (columns).
 #' @param ... subscript of additional dimensions.
 #' @param value A same class object as \code{x}.
+#' @aliases [<-,VirtualArray-method
 #' @return None.
 #' @examples
-#' data(dems)
+#' ex <- rastex() 
 #' # replace third element with missing value
-#' dems[3] <- NA
+#' ex[3] <- NA
 #' # duplicate first element and make it the second too
-#' dems[2] <-dems[1]
+#' ex[2] <- ex[1]
+#' ex
 #' 
 #' @rdname replacementSingle
 #' @exportMethod "[<-"
@@ -104,9 +106,16 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 			tempInd2[newInd]<- 1:length(newInd)
 			
 			# add the new layer to the stack
-			newStack <- c(x@stack, value[[rep(1, length(totallyNew))]])
-			# the reorderd stack
-			x@stack <- newStack[[tempInd2]]
+			if(inherits(value, "SpatRaster")){
+				newStack <- c(x@stack, value[[rep(1, length(totallyNew))]])
+				# the reorderd stack
+				x@stack <- newStack[[tempInd2]]
+			# XArray + derived
+			}else{
+				newStack <- c(x@stack, list(value)[rep(1, length(totallyNew))])
+				x@stack <- newStack[tempInd2]
+			}
+			
 			x@index <- tempIndex
 		}
 		if(any(!bIndNA)){
@@ -123,11 +132,20 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 			tempInd2 <- rep(NA, length(newInd))
 			tempInd2[newInd] <-  1:length(tempInd2)
 			
-			# put the additional elements to the stack
-			newStack <- c(x@stack[[origVals]], value[[rep(1, length(replaceIndex))]])
-			
-			# reorder to correct
-			x@stack <- newStack[[tempInd2]]
+			if(inherits(value, "SpatRaster")){
+				# put the additional elements to the stack
+				newStack <- c(x@stack[[origVals]], value[[rep(1, length(replaceIndex))]])
+
+				# reorder to correct
+				x@stack <- newStack[[tempInd2]]
+			# XArray + derived
+			}else{
+				# put the additional elements to the stack
+				newStack <- c(x@stack[origVals], list(value)[rep(1, length(replaceIndex))])
+
+				# reorder to correct
+				x@stack <- newStack[tempInd2]
+			}
 		}
 	}
 	# multi- dim case
@@ -158,13 +176,14 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 			if(inherits(value, "SpatRaster")){
 				# add the new layer to the stack
 				newStack <- c(x@stack, value[[rep(1, length(totallyNew))]])
+				x@stack <- newStack[[tempInd2]]
+			# XArray + derived
 			}else{
-				## # create a new stack
-				## newStack <- SpatialStack(Spatials=c(x@stack@Spatials, rep(list(value), length(totallyNew))))
+				newStack <- c(x@stack, list(value)[rep(1, length(totallyNew))])
+				x@stack <- newStack[tempInd2]
 			}
 
 			# the reorderd stack
-			x@stack <- newStack[[tempInd2]]
 			x@index <- tempIndex
 		}
 		if(any(!bIndNA)){
@@ -185,13 +204,15 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 			if(inherits(value, "SpatRaster")){
 				# put the additional elements to the stack
 				newStack <- c(x@stack[[origVals]], value[[rep(1, length(replaceIndex))]])
+				x@stack <- newStack[[tempInd2]]
+			# XArray + derived
 			}else{
-				## # create a new stack
-				## newStack <- SpatialStack(Spatials=c(x@stack[[origVals]]@Spatials, rep(list(value), length(replaceIndex))))
+				newStack <- c(x@stack[origVals], list(value)[rep(1, length(replaceIndex))])
+				x@stack <- newStack[tempInd2]
 			}
+
 			
 			# reorder to correct
-			x@stack <- newStack[[tempInd2]]
 		
 		}
 	}
@@ -201,15 +222,17 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 }
 
 
-#' Replace \code{RasterLayer}s in a \code{\link{RasterArray}} object and \code{Spatial*} objects in a \code{\link{SpatialArray}} object.
+#' Replace elements of a \code{VirtualArray}-class objects.
 #'
-#' Double bracket \code{'[['} refers to layers' name in the \code{RasterStack} of the \code{RasterArray} and the \code{\link{SpatialStack}} of the \code{\link{SpatialArray}}. Use single brackets to replace elements based on their position in the \code{RasterArray}/\code{\link{SpatialArray}}.
+#' Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the \code{VirtualArray}. Use single brackets to replace elements based on their position in the \code{VirtualArray}.
 #' 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' @param x Object from a class derived from \code{\link[via:XArray-class]{VirtualArray}}.
 #' @param i subscript of layers to replace.
 #' @param value \code{character} vector.
 #' @return None.
 #' 
+#' @aliases [[<-,VirtualArray-method
+#' @aliases [[<-,VirtualArray,ANY,ANY-method
 #' @rdname doubleBracketReplace
 #' @exportMethod "[[<-"
 setReplaceMethod(

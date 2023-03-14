@@ -1,15 +1,13 @@
 
-#' Dimensions of \code{\link{SpatialArray}} or \code{\link{RasterArray}} objects
+#' Dimensions of \code{\link[via:XArray-class]{VirtualArray}}-derived class objects
 #' 
-#' The function returns the dimensions of the array in which \code{RasterLayer}s or \code{Spatial*} objects are organized.
-#' @param x A \code{\link{SpatialArray}} or \code{\link{RasterArray}} class object.
+#' The function returns the dimensions of the array in which elements are organized.
+#' @param x A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @return A \code{numeric} vector.
 #' 
 #' @examples
-#' data(dems)
-#' dim(dems)
-#' data(coasts)
-#' dim(coasts)
+#' data(exemplar)
+#' dim(exemplar)
 #' @exportMethod dim
 setMethod(
 	"dim", 
@@ -22,20 +20,18 @@ setMethod(
 )
 
 
-#' Names of one-dimensional \code{\link{RasterArray}}, \code{\link{SpatialStack}} or \code{\link{SpatialArray}} objects.
+#' Names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.
 #' 
-#' Get or set the names of one-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects 
-#' @param x \code{\link{RasterArray}}, \code{\link{SpatialStack}} or \code{\link{SpatialArray}} object.
+#' Get or set the names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects 
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of names or \code{NULL}.
 #' 
 #' @examples
-#' data(dems)
-#' names(dems)
-#' names(dems)[4] <- "weirdo"
+#' ex <- rastex()
+#' names(ex)
+#' names(ex)[4] <- "weirdo"
 #' # NULL
-#' data(coasts)
-#' names(coasts)
 #' @rdname names
 #' @exportMethod names
 setMethod(
@@ -59,24 +55,24 @@ setReplaceMethod(
 })
 
 
-#' Number of elements or layers in a \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object
+#' Number of elements or layers in a \code{\link[via:XArray-class]{VirtualArray}}-derived class object
 #' 
-#' Function to return the length of the array in which \code{RasterLayers} are organized.
+#' Function to return the length of the array in which elements are organized.
 #' 
-#' The \code{length()} function returns the number elements that should be present based on the array structure itself, and not the total number of values stored in the object (such as the \code{length} method of \code{RasterStack}s). As the object can contain missing values, the number of actual layers can be queried with \code{\link{nlayers}}. 
+#' The \code{length()} function returns the number elements that should be present based on the array structure itself, and not the total number of values stored in the object. As the object can contain missing values, the number of actual layers can be queried with \code{\link{nlayers}}. 
 #' 
-#' @param x a \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object.
+#' @param x a \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @return A \code{numeric} value. 
 #' @examples
-#' data(dems)
+#' ex <- rastex()
 #' # omit third element
-#' dems[3] <- NA
+#' ex[3] <- NA
 #' # number of elements in the RasterArray
-#' length(dems)
+#' length(ex)
 #' # remaining number values in the stack 
-#' length(dems@stack)
+#' length(ex@stack)
 #' # the number of remaining layers in the RasterArray
-#' nlayers(dems)
+#' nlayers(ex)
 #' 
 #' @rdname arraylength
 #' @exportMethod length
@@ -101,17 +97,17 @@ setMethod(
 
 #####################
 
-#' Column names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}}
+#' Column names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' 
-#' Get or set the column names of two-dimensional code{\link{RasterArray}} or \code{\link{SpatialArray}} objects 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' Get or set the column names of two-dimensional code{\link[via:XArray-class]{VirtualArray}}-derived class objects 
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of column names or \code{NULL}.
 #' 
 #' @examples
-#' data(coasts)
-#' colnames(coasts)
-#' colnames(coasts) <- c("a", "b")
+#' data(paleocoastlines)
+#' colnames(paleocoastlines)
+#' colnames(paleocoastlines) <- c("a", "b")
 #' @rdname colnames
 #' @exportMethod colnames
 setMethod(
@@ -134,17 +130,17 @@ setReplaceMethod(
 
 
 
-#' Row names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects
+#' Row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.
 #' 
-#' Get or set the row names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}}objects  
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' Get or set the row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object  
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of row names or \code{NULL}.
 #' 
 #' @examples
-#' data(coasts)
-#' rownames(coasts)
-#' rownames(coasts) <- paste(rownames(coasts), "Ma")
+#' data(paleocoastlines)
+#' rownames(paleocoastlines)
+#' rownames(paleocoastlines) <- paste(rownames(paleocoastlines), "Ma")
 #' @rdname rownames
 #' @exportMethod rownames
 setMethod(
@@ -166,19 +162,20 @@ setReplaceMethod(
 })
 
 
-#' Names of multidimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects.
+#' Names of a multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' 
-#' Get or set the dimnames of multidimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' Get or set the dimnames of multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
+#' @param x \code{\link{RasterArray}} or \code{\link{SfArray}} object.
 #' @param value \code{character} vector.
 #' @return A \code{list} of \code{character} vectors or \code{NULL}.
 #' 
 #' @examples
-#' data(dems)
-#' dimnames(dems)
-#' data(coasts)
-#' dimnames(coasts)
-#' dimnames(coasts)[[2]] <- c("first", "second")
+#' ex <- rastex()
+#' dimnames(ex)
+#' data(paleocoastlines)
+#' dimnames(paleocoastlines)
+#' dimnames(paleocoastlines)[[2]] <- c("first", "second")
+#' names(dimnames(paleocoastlines)) <- c("age", "type")
 #' @rdname dimnames
 #' @exportMethod dimnames
 setMethod(
@@ -194,25 +191,25 @@ setReplaceMethod(
 	signature="VirtualArray",
 	definition=function(x,  value){
 		# not defined for matrices or higher
-		if(is.null(dim(x))) stop("One-dimensional RasterArrays and SpatialArrays have no dimnames.")
+		if(is.null(dim(x))) stop("One-dimensional VirtualArrays have no dimnames.")
 		dimnames(x@index) <- value 
 		return(x)
 })
 
 
 
-#' Number of columns and rows of a \code{\link{RasterArray}} or \code{\link{SpatialArray}} 
+#' Number of columns and rows of a \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' 
-#' Unlike the \code{ncol} and \code{nrow} functions of the raster package (\code{\link[raster]{ncell}}), this function returns the number of columns and rows of the \code{RasterArray} container, rather than the dimensions of the contained \code{RasterLayer}s. 
+#' Unlike the \code{ncol} and \code{nrow} functions of the terra package, this function returns the number of columns and rows of the \code{VirtualArray}-derived container, rather than the dimensions of the contained \code{SpatRaster}s. 
 #' 
-#' @param x A \code{\link{RasterArray}} or \code{\link{SpatialArray}}  class object.
+#' @param x A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @rdname adimatt
 #' @return A \code{numeric} value of the number of columns and rows.
 #' @exportMethod ncol
 #' @examples
-#' data(coasts)
-#' ncol(coasts)
-#' nrow(coasts)
+#' data(paleocoastlines)
+#' ncol(paleocoastlines)
+#' nrow(paleocoastlines)
 setMethod(
 	"ncol", 
 	signature="VirtualArray", 

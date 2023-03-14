@@ -8,7 +8,7 @@ setMethod("initialize",signature="XArray",
 		}
 
 		# check whether the stack has the same types
-		if(class(stack)!="list") stop("The 'stack' has to be a 'list' - class object.")
+		if(!inherits(stack,"list")) stop("The 'stack' has to be a 'list' - class object.")
 		if(length(unique(lapply(stack, class)))!=1) stop("The 'stack' can only contain a single class of items.")
 	
 		if(is.null(dim)){ 

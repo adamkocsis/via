@@ -3,14 +3,14 @@
 \name{layers}
 \alias{layers}
 \alias{layers,VirtualArray-method}
-\title{Names of \code{\link{RasterArray}} or \code{\link{SpatialArray}} Layers in the stack}
+\title{Names of \code{\link[via:XArray-class]{VirtualArray}} Layers in the stack}
 \usage{
 layers(x, ...)
 
 \S4method{layers}{VirtualArray}(x)
 }
 \arguments{
-\item{x}{A \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object.}
+\item{x}{A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 
 \item{...}{additional arguments passed to class-specific methods.}
 }
@@ -18,10 +18,10 @@ layers(x, ...)
 A \code{character} vector of names.
 }
 \description{
-Names of \code{\link{RasterArray}} or \code{\link{SpatialArray}} Layers in the stack
+Names of \code{\link[via:XArray-class]{VirtualArray}} Layers in the stack
 }
 \examples{
 # names of layers in the stack
-data(dems)
-layers(dems)
+data(exemplar)
+layers(exemplar)
 }

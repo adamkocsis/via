@@ -2,22 +2,20 @@
 % Please edit documentation in R/VirtualArray-xattrib.R
 \name{dim,VirtualArray-method}
 \alias{dim,VirtualArray-method}
-\title{Dimensions of \code{\link{SpatialArray}} or \code{\link{RasterArray}} objects}
+\title{Dimensions of \code{\link[via:XArray-class]{VirtualArray}}-derived class objects}
 \usage{
 \S4method{dim}{VirtualArray}(x)
 }
 \arguments{
-\item{x}{A \code{\link{SpatialArray}} or \code{\link{RasterArray}} class object.}
+\item{x}{A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 }
 \value{
 A \code{numeric} vector.
 }
 \description{
-The function returns the dimensions of the array in which \code{RasterLayer}s or \code{Spatial*} objects are organized.
+The function returns the dimensions of the array in which elements are organized.
 }
 \examples{
-data(dems)
-dim(dems)
-data(coasts)
-dim(coasts)
+data(exemplar)
+dim(exemplar)
 }

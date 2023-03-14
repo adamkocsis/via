@@ -2,17 +2,17 @@
 % Please edit documentation in R/VirtualArray-combine.R
 \name{c,VirtualArray-method}
 \alias{c,VirtualArray-method}
-\title{Combine ViArray and one-dimensional RasterArrays and Spatial* objects with one-dimensiooal SpatialArrays}
+\title{Combine a one-dimensional VirtualArray with other obejcts}
 \usage{
 \S4method{c}{VirtualArray}(x, ...)
 }
 \arguments{
-\item{x}{\code{RasterLayer} or \code{RasterArray} objects or Spatial* and \code{\link{SpatialArray}} objects to combine.}
+\item{x}{\code{VirtualArray} object to combine wit other objects.}
 
 \item{...}{additional objects to combine.}
 }
 \value{
-A \code{\link{RasterArray}} or \code{\link{SpatialArray}}class object.
+A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 }
 \description{
 Methods sequences that start with an NA do not yet work.

@@ -3,4 +3,11 @@ README.md
 .git
 README.Rmd
 README.html
-
+index.md
+index.Rmd
+index.html
+vignettes/
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+_archive/

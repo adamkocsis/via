@@ -48,19 +48,22 @@ newbounds <- function(x, cols=NULL, rows=NULL){
 
 #' Names as numerics
 #' 
-#' The set of functions return names of objects directly transformed to numeric values.
+#' The set of functions return names of objects directly cast to numeric values.
 #' 
 #' @param x Object with names, colnames or rownames attributes.
 #' @rdname nums
 #' @return Numeric vector.
 #' @examples
-#' data(dems)
-#' # ages as numerics
-#' nums(dems)
-#' # younger than 20Ma
-#' dems[nums(dems)<20]
 #' 
+#' # base R object
+#' a <- 1:10
+#' names(a) <- seq(10, 100, 10)
+#' nums(a)
 #' 
+#' # XArray
+#' data(exemplar)
+#' colnums(exemplar)
+#' rownums(exemplar)
 #' @export
 nums <- function(x){
   as.numeric(names(x))
@@ -96,25 +99,6 @@ marginsubset <- function(x, mar, i){
 }
 
 
-#Accessing file within the package
-pkg_file <- function(...) {
-  system.file(..., package = "genarray")
-}
-
-
-
-
-
-# function used by mapedge
-
-detailedBounds <- function(x,y, xmin=-180, xmax=180, ymin=-90, ymax=90){
-  rbind(
-    cbind(seq(xmin, xmax, length.out=x), rep(ymax, x)),
-    cbind(rep(xmax, y), seq(ymax, ymin, length.out=y)),
-    cbind(seq(xmax, xmin, length.out=x), rep(ymin, x)),
-    cbind(rep(xmin, y), seq(ymin, ymax, length.out=y))
-  )
-}
 
 
 #' @rdname arraylength
@@ -125,13 +109,16 @@ setMethod(
 	function(x) length(x)
 )
 
+
+#' @name nlayers
 #' @rdname arraylength
+#' @aliases nlayers,SpatRaster-method
 #' @exportMethod nlayers
 setMethod(
 	"nlayers",
 	signature="SpatRaster",
 	function(x){
-	 dims <- dim(x)
-	 return(dims[3])
+	dims <- dim(x)
+	return(dims[3])
 	}
 )

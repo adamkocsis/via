@@ -3,22 +3,23 @@
 \name{aggregate}
 \alias{aggregate}
 \alias{aggregate,RasterArray-method}
-\title{Aggregate raster cells in a \code{\link[chronosphere:RasterArray-class]{RasterArray}} object}
+\title{Aggregate raster cells in a \code{\link[via:RasterArray-class]{RasterArray}} object}
 \usage{
 \S4method{aggregate}{RasterArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{\link[chronosphere:RasterArray-class]{RasterArray}}-class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}}-class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{aggregate}} function.}
+\item{...}{arguments passed to the \code{\link[terra]{aggregate}} function.}
 }
 \value{
-An aggregated \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+An aggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
-The method is inherited from the \code{\link[raster:raster]{RasterStack}} class.
+The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
 }
 \examples{
-data(dems)
-agg <- aggregate(dems, 5)
+library(terra)
+ex <- rastex()
+agg <- aggregate(ex, 30)
 }

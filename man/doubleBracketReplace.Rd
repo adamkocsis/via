@@ -2,12 +2,14 @@
 % Please edit documentation in R/VirtualArray-replace.R
 \name{[[<-,VirtualArray,ANY-method}
 \alias{[[<-,VirtualArray,ANY-method}
-\title{Replace \code{RasterLayer}s in a \code{\link{RasterArray}} object and \code{Spatial*} objects in a \code{\link{SpatialArray}} object.}
+\alias{[[<-,VirtualArray-method}
+\alias{[[<-,VirtualArray,ANY,ANY-method}
+\title{Replace elements of a \code{VirtualArray}-class objects.}
 \usage{
 \S4method{[[}{VirtualArray,ANY}(x, i) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SpatialArray}} object.}
+\item{x}{Object from a class derived from \code{\link[via:XArray-class]{VirtualArray}}.}
 
 \item{i}{subscript of layers to replace.}
 
@@ -17,5 +19,5 @@
 None.
 }
 \description{
-Double bracket \code{'[['} refers to layers' name in the \code{RasterStack} of the \code{RasterArray} and the \code{\link{SpatialStack}} of the \code{\link{SpatialArray}}. Use single brackets to replace elements based on their position in the \code{RasterArray}/\code{\link{SpatialArray}}.
+Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the \code{VirtualArray}. Use single brackets to replace elements based on their position in the \code{VirtualArray}.
 }

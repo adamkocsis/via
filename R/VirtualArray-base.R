@@ -1,18 +1,18 @@
-#' The proxy of a RasterArray or SpatialArray object
+#' The proxy of a VirtualArray-derived object
 #' 
-#' This function returns an object that symbolizes the structure of layers in the \code{RasterArray} and \code{SpatialArray}.
+#' This function returns an object that symbolizes the structure of layers in the \code{XArray}, \code{RasterArray} or \code{SfArray}.
 #'
-#' The \code{proxy} method wraps the names of layers in the stack using the \code{index} slot of the \code{RasterArray}.
+#' The \code{proxy} method wraps the names of layers in the stack using the \code{index} slot of the \code{VirtualArray}.
 #'  
-#' @param x \code{RasterArray} or \code{SpatialArray}  ocal object.
-#' @return A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{RasterArray} and \code{SpatialArray} structure.
+#' @param x \code{XArray}, \code{RasterArray} or \code{SfArray} object.
+#' @return A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{VirtualArray} structure.
 #' @param ... additional arguments passed to class-specific methods.
 #' @examples
-#' data(dems)
-#' proxy(dems)
+#' data(exemplar)
+#' proxy(exemplar)
 #'
-#' data(coasts)
-#' proxy(coasts)
+#' data(paleocoastlines)
+#' proxy(paleocoastlines)
 #' @exportMethod proxy
 #' @rdname proxy
 setGeneric("proxy", function(x,...) standardGeneric("proxy"))
@@ -37,15 +37,15 @@ setMethod(
 
 
 
-#' Transpose a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object
+#' Transpose a \code{\link[via:XArray-class]{VirtualArray}} object
 #' 
 #' @examples
-#' data(dems)
-#' t(dems)
-#' data(coasts)
-#' t(coasts)
-#' @param x A \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object. 
-#' @return A \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object.
+#' data(exemplar)
+#' t(exemplar)
+#' data(paleocoastlines)
+#' t(paleocoastlines)
+#' @param x A \code{\link[via:XArray-class]{VirtualArray}}-class object. 
+#' @return A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @exportMethod t
 #' @rdname t-methods
 setMethod(

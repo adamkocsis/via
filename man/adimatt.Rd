@@ -3,23 +3,23 @@
 \name{ncol,VirtualArray-method}
 \alias{ncol,VirtualArray-method}
 \alias{nrow,VirtualArray-method}
-\title{Number of columns and rows of a \code{\link{RasterArray}} or \code{\link{SpatialArray}}}
+\title{Number of columns and rows of a \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 \usage{
 \S4method{ncol}{VirtualArray}(x)
 
 \S4method{nrow}{VirtualArray}(x)
 }
 \arguments{
-\item{x}{A \code{\link{RasterArray}} or \code{\link{SpatialArray}}  class object.}
+\item{x}{A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 }
 \value{
 A \code{numeric} value of the number of columns and rows.
 }
 \description{
-Unlike the \code{ncol} and \code{nrow} functions of the raster package (\code{\link[raster]{ncell}}), this function returns the number of columns and rows of the \code{RasterArray} container, rather than the dimensions of the contained \code{RasterLayer}s.
+Unlike the \code{ncol} and \code{nrow} functions of the terra package, this function returns the number of columns and rows of the \code{VirtualArray}-derived container, rather than the dimensions of the contained \code{SpatRaster}s.
 }
 \examples{
-data(coasts)
-ncol(coasts)
-nrow(coasts)
+data(paleocoastlines)
+ncol(paleocoastlines)
+nrow(paleocoastlines)
 }

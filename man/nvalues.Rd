@@ -21,6 +21,6 @@ A \code{numeric} value.
 The total number of values in a RasterArray object
 }
 \examples{
-data(dems)
-nvalues(dems)
+ex <- rastex()
+nvalues(ex)
 }

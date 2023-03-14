@@ -2,22 +2,22 @@
 % Please edit documentation in R/VirtualArray-base.R
 \name{t,VirtualArray-method}
 \alias{t,VirtualArray-method}
-\title{Transpose a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object}
+\title{Transpose a \code{\link[via:XArray-class]{VirtualArray}} object}
 \usage{
 \S4method{t}{VirtualArray}(x)
 }
 \arguments{
-\item{x}{A \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object.}
+\item{x}{A \code{\link[via:XArray-class]{VirtualArray}}-class object.}
 }
 \value{
-A \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object.
+A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 }
 \description{
-Transpose a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object
+Transpose a \code{\link[via:XArray-class]{VirtualArray}} object
 }
 \examples{
-data(dems)
-t(dems)
-data(coasts)
-t(coasts)
+data(exemplar)
+t(exemplar)
+data(paleocoastlines)
+t(paleocoastlines)
 }

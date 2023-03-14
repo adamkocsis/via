@@ -1,0 +1,10 @@
+---
+title: "The iterator function via()"
+author: "Adam T. Kocsis, Nussaïbah B. Raja"
+date: '`r Sys.Date()`'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The iterator function via()}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---

@@ -3,19 +3,19 @@
 \name{dimlayer}
 \alias{dimlayer}
 \alias{dimlayer,RasterArray-method}
-\title{Dimensions of RasterLayers in a RasterArray object}
+\title{Dimensions of layers in a VirtualArray object}
 \usage{
 dimlayer(x, ...)
 
 \S4method{dimlayer}{RasterArray}(x)
 }
 \arguments{
-\item{x}{A \code{RasterArray} class object.}
+\item{x}{A \code{VirtualArray} class object.}
 
 \item{...}{additional arguments passed to class-specific methods.}
 }
 \value{
-A \code{numeric} vector with the number of rows and columns in the \code{RasterLayer}s.
+A \code{numeric} vector with the number of rows and columns in the \code{VirtualArray}s.
 }
 \description{
 The funcion will return the dimensions RasterLayers

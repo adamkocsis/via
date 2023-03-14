@@ -1,20 +1,18 @@
 Package: via
 Type: Package
-Title: Virtual Arrays
-Version: 0.1
+Title: Virtual Arrays for R
+Version: 0.1.0
 Authors@R: c(
 	person(given="Adam T.", family="Kocsis", role=c("cre", "aut"),
 		   email="adam.t.kocsis@gmail.com", comment=c(ORCID="0000-0002-9028-665X")),
- 	person(given="Nussaibah B.", family="Raja", role=c("aut"), comment=c(ORCID="0000-0002-0000-3944")),
 	person(given="Deutsche Forschungsgemeinschaft", role="fnd"),
 	person(given="FAU GeoZentrum Nordbayern", role="fnd"))
 Collate:
     zzz.R
 	data.R
-	colours.R
-    classes.R
 	generics.R
 	utility.R
+    classes.R
     VirtualArray-base.R
     VirtualArray-xattrib.R
     VirtualArray-subset.R
@@ -33,23 +31,20 @@ Collate:
 	SfArray-replace.R
 	SfArray-sf.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
-Description: The package defines the base class VirtualArray, a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived VirtualArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.
+Description: The base class VirtualArray is defined, which acts as a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.
 License: CC BY 4.0
-Date: 2023-03-09
+Date: 2023-03-14
 BugReports: https://github.com/adamkocsis/via
 Encoding: UTF-8
 LazyData: false
 Depends:
     R (>= 4.0.0) 
 Imports: 
-	graphics,
-	methods,
-	grDevices,
-	utils
+	methods
 NeedsCompilation: no
-RoxygenNote: 7.2.1
-VignetteBuilder: knitr
+RoxygenNote: 7.2.3
 Suggests:
+    tinytest,
     knitr,
     rmarkdown,
 	terra,

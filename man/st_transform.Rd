@@ -3,22 +3,24 @@
 \name{st_transform}
 \alias{st_transform}
 \alias{st_transform.SfArray}
-\title{Projection change a \code{\link[genarray:SfArray-class]{SfArray}} object}
+\title{Projection change a \code{\link[via:SfArray-class]{SfArray}} object}
 \usage{
 \method{st_transform}{SfArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{\link[sf:sf-class]{sf}}-class object.}
+\item{x}{a \code{\link[sf:sf]{sf}}-class object.}
 
 \item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
 }
 \value{
-An \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+An \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
 The method is inherited from the \code{\link[sf:sf]{sf}} class.
 }
 \examples{
-data(dems)
-agg <- ext(dems)
+data(paleocoastlines)
+moll<- st_transform(paleocoastlines, "ESRI:54009")
+plot(moll["20", "margin"]$geometry, col="cyan")
+plot(moll["20", "coastline"]$geometry, add=TRUE, col="brown")
 }

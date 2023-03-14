@@ -1,33 +1,32 @@
 
-#' Subset a \code{\link{RasterArray}} or \code{\link{SpatialArray}} object
+#' Subset a \code{\link[via:XArray-class]{VirtualArray}}-class object
 #' 
-#' Extract subsets of \code{\link{RasterArray}} or \code{\link{SpatialArray}} class object similarly to a regular array. 
+#' Extract subsets of an object from a class derived from \code{\link[via:XArray-class]{VirtualArray}} similarly to a regular array. 
 #' 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
 #' @param j subscript of the second dimension (columns).
 #' @param ... subscript of additional dimensions.
-#' @param drop \code{logical} in case the result of subsetting is a single element, should the \\code{\link{RasterArray}} or \code{\link{SpatialArray}} wrapper be dropped and the element be reduced to a single \code{RasterLayer}/ \code{Spatial*} object?
-#' @param oneDim \code{logical} In case of multidimensional \code{\link{RasterArray}}s or \code{\link{SpatialArray}}s, setting \code{oneDim} to \code{TRUE} allows the application of one dimensional subscripts.  
-#' @return A \code{RasterLayer}, \code{RasterArray}, \code{Spatial*} or \code{\link{SpatialArray}} class object.
+#' @param drop \code{logical} in case the result of subsetting is a single element, should the \\code{\link[via:XArray-class]{VirtualArray}} wrapper be dropped?
+#' @param oneDim \code{logical} In case of multidimensional \code{\link[via:XArray-class]{VirtualArray}}s, setting \code{oneDim} to \code{TRUE} allows the application of one dimensional subscripts.  
+#' @return Either the same class as \code{x}, or the class that forms the element of the \code{VirtualArray}.
 # combined
+#' @rdname subset
 #' @exportMethod subset
 #' @examples
-#' data(dems)
+#' ex <- rastex()
 #' # first 4
-#' subset(dems, i=1:4)
+#' subset(ex, i=1:4)
 #' # missing at the end
-#' subset(dems, i=1:12)
+#' subset(ex, i=1:12)
 #' # character subscript
-#' subset(dems, i=c("5", "25"))
+#' subset(ex, i=c("a", "b"))
 #' # logical subscript
-#' subs <- rep(TRUE, length(dems))
+#' subs <- rep(TRUE, length(ex))
 #' subs[1] <- FALSE # remove first
-#' subset(dems, i= subs)
+#' subset(ex, i= subs)
 #' # no drop
-#' subset(dems, i=1, drop=FALSE)
-#' data(coasts)
-#' subset(coasts, i=2, j=1:2)
+#' subset(ex, i=1, drop=FALSE)
 setMethod(
 	"subset", 
 	signature(x="VirtualArray"), 
@@ -94,29 +93,31 @@ setMethod(
 )
 
 
-#' Indexing to extract subsets of a code{\link{RasterArray}} or \code{\link{SpatialArray}} object
+#' Indexing to extract subsets of a code{\link[via:XArray-class]{VirtualArray}}-class object
 #'
-#' Single bracket \code{'['} refers to indices and names within the \code{\link{RasterArray}} . Use double brackets to extract layers based on their names (in the stack).
+#' Single bracket \code{'['} refers to indices and names within the \code{\link[via:XArray-class]{VirtualArray}} . Use double brackets to extract layers based on their names (in the stack).
 #' 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}}  object.
+#' @param x An object from a \code{\link[via:XArray-class]{VirtualArray}}-derived class. 
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
 #' @param j subscript of the second dimension (columns).
 #' @param ... subscript of additional dimensions.
-#' @param drop \code{logical} in case the result of subsetting is a single element, should the \code{\link{RasterArray}} or \code{\link{SpatialArray}}  wrapper be dropped and the element be reduced to a single \code{RasterLayer} or \code{Spatial*}?
-#' @return A \code{RasterLayer}, \code{RasterArray}, \code{Spatial*} or \code{\link{SpatialArray}} class object.
+#' @param drop \code{logical} in case the result of subsetting is a single element, should the \code{\link[via:XArray-class]{VirtualArray}}-derived wrapper be dropped? 
+#' @return An object from either the same class as \code{x} or the class of its elements.
+#' @rdname VirtualArray-single-bracket-method
+#' @aliases [,VirtualArray-method
 #' @examples
-#' data(dems)
+#' ex <- rastex()
 #' # numeric subsetting
-#' firstThree <- dems[1:3]
+#' firstThree <- ex[1:3]
 #' # character subsetting
-#' second <- dems["10"]
+#' second <- ex["d"]
 #' # logical subsetting
-#' subscript <- rep(FALSE, length(dems))
+#' subscript <- rep(FALSE, length(ex))
 #' subscript[2] <- TRUE
-#' second2 <- dems[subscript]
-#' data(coasts)
-#' present<- coasts["0", ]
-#' allMargin <- coasts[, "margin"]
+#' second2 <- ex[subscript]
+#' data(paleocoastlines)
+#' present<- paleocoastlines["0", ]
+#' allMargin <- paleocoastlines[, "margin"]
 #' 
 #' @exportMethod [
 setMethod(
@@ -145,26 +146,28 @@ setMethod(
 )
 
 
-#' Indexing to extract \code{RasterLayer}s of a \code{\link{RasterArray}} or \code{Spatial*} of a \code{\link{SpatialArray}} object
+#' Indexing to extract the elements of a \code{VirtualArray}-derived class object.
 #'
-#' Double bracket \code{'[['} refers to layers' name in the \code{RasterStack} of the \code{RasterArray} or the \code{SpatialStack} of the \code{SpatialArray}. Use single brackets to extract elements based on their position in the \code{\link{RasterArray}} or \code{\link{SpatialArray}}
+#' Double bracket \code{'[['} refers to elements'/layers' name in the \code{@stack} of the \code{VirtualArray}. Use single brackets to extract elements based on their position in the \code{\link[via:XArray-class]{VirtualArray}}.
 #' 
-#' @param x \code{\link{RasterArray}} or \code{\link{SpatialArray}} object.
+#' @param x \code{\link[via:XArray-class]{VirtualArray}}
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
-#' @param drop \code{logical} should the \code{RasterStack} be dropped and the element be reduced to a single \code{RasterLayer}?
-#' @return A \code{RasterLayer} or \code{RasterArray} class object.
+#' @param drop \code{logical} should the \code{VirtualArray} be dropped and the element be reduced to the element class?
+#' @return A \code{VirtualArray}-derived class object, or an object of the class that makes up the VirtualArray
+#' @rdname VirtualArray-double-bracket-method
+#' @aliases [[,VirtualArray-method
 #' @exportMethod "[["
 #' @examples
-#' data(dems)
+#' data(exemplar)
 #' # finds a layer
-#' dems[["dem_30"]]
+#' exemplar[["sample1"]]
 #' # returns a stack
-#' dems[[c("dem_0", "dem_15")]]
+#' exemplar[[c("sample1", "sample2")]]
 #' # replaces a layervalues, but not the attributes of the layer
-#' dem2 <- dems
-#' dem2[["dem_0"]] <- dem2[["dem_5"]]
-#' # compare every value in the 0 and 5 ma maps, they are all the same
-#' mean(values(dem2[["dem_0"]]==dem2[["dem_5"]]))
+#' exemplar2 <- exemplar
+#' exemplar2[["sample1"]] <- exemplar2[["sample2"]]
+#' # compare every value in the they are all the same
+#' exemplar2[["sample1"]]$x == exemplar2[["sample2"]]$x
 setMethod(
 	"[[", 
 	signature(x="VirtualArray"),

@@ -3,22 +3,22 @@
 \name{st_bbox}
 \alias{st_bbox}
 \alias{st_bbox.SfArray}
-\title{Bounding box of a \code{\link[genarray:SfArray-class]{SfArray}} object}
+\title{Bounding box of a \code{\link[via:SfArray-class]{SfArray}} object}
 \usage{
 \method{st_bbox}{SfArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{\link[sf:sf-class]{sf}}-class object.}
+\item{x}{a \code{\link[sf:sf]{sf}}-class object.}
 
 \item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
 }
 \value{
-An \code{\link[chronosphere:RasterArray-class]{RasterArray}} class object.
+An \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
 The method is inherited from the \code{\link[sf:sf]{sf}} class.
 }
 \examples{
-data(dems)
-agg <- ext(dems)
+data(paleocoastlines)
+bb<- st_bbox(paleocoastlines)
 }

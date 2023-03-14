@@ -14,35 +14,23 @@ project
 \S4method{project}{RasterArray}(x, y, ...)
 }
 \arguments{
-\item{...}{additional arguments as for \code{\link[raster]{writeRaster}}.}
+\item{x}{A \code{RasterArray} object to project.}
 
-\item{from}{A \code{Raster*} \code{RasterArray} object to project.}
+\item{y}{A \code{RasterArray} the same options as in \code{\link[terra]{project}}.}
 
-\item{to}{\code{Raster*} object with the parameters to which 'from' should be projected}
-
-\item{res}{single or (vector of) two numerics. To, optionally, set the output resolution if 'to' is missing}
-
-\item{crs}{character or object of class 'CRS'. PROJ.4 description of the coordinate reference system. In projectRaster this is used to set the output CRS if 'to' is missing, or if 'to' has no valid CRS}
-
-\item{method}{method used to compute values for the new RasterLayer. Either 'ngb' (nearest neighbor), which is useful for categorical variables, or 'bilinear' (bilinear interpolation; the default value), which is appropriate for continuous variables.}
-
-\item{alignOnly}{\code{logical}. Use to or other parameters only to align the output (i.e. same origin and resolution), but use the projected extent from from}
-
-\item{over}{\code{logical}. If TRUE wrapping around the date-line is turned off. This can be desirable for global data (to avoid mapping the same areas twice) but it is not desireable in other cases}
-
-\item{filename}{\code{character} output filname. Not applicable for RasterArray class objects.}
+\item{...}{additional arguments as for \code{\link[terra]{project}}.}
 }
 \value{
 A projected \code{RasterArray} class object.
 }
 \description{
-The method implemets the \code{\link[raster]{projectRaster}} function for \code{RasterArray} class objects.
+The method implemets the \code{\link[terra]{project}} function for \code{RasterArray} class objects.
+
+Practically the same as terra::project
 }
 \examples{
 # project first three to mollweide
-data(dems)
-suppressWarnings(
-  mollDem <- project(dems[1:3], crs=CRS("+proj=moll"))
-)
+ex <- rastex() 
+mollEx <- project(ex[1:3], y="ESRI:54009")
 }
 \keyword{datasets}

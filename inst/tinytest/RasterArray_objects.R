@@ -26,19 +26,19 @@ names(index) <- paste0("a", 1:length(index))
 ga1d <-  RasterArray(stack=sta, index=index)
 
 # vector case with missing
-ind <- c(NA, NA, 1:10)
-names(ind) <- letters[1:length(ind)]
-ga1dNAfront <- RasterArray(stack=sta[[1:10]], ind)
+ind1dNAfront <- c(NA, NA, 1:10)
+names(ind1dNAfront) <- letters[1:length(ind1dNAfront)]
+ga1dNAfront <- RasterArray(stack=sta[[1:10]], ind1dNAfront)
 
 # vector case with mid missing
-ind <- c(1:4, NA, 5:9, NA, 10)
-names(ind) <- letters[1:length(ind)]
-ga1dNAmid<- RasterArray(stack=sta[[1:10]], ind)
+ind1dNAmid <- c(1:4, NA, 5:9, NA, 10)
+names(ind1dNAmid) <- letters[1:length(ind1dNAmid)]
+ga1dNAmid<- RasterArray(stack=sta[[1:10]], ind1dNAmid)
 
-# vector case with missing
-ind <- c(1:10,NA, NA)
-names(ind) <- letters[1:length(ind)]
-ga1dNAend<- RasterArray(stack=sta[[1:10]], ind)
+# vector case with end missing
+ind1dNAend <- c(1:10,NA, NA)
+names(ind1dNAend) <- letters[1:length(ind1dNAend)]
+ga1dNAend<- RasterArray(stack=sta[[1:10]], ind1dNAend)
 
 ###############################################################################
 # matrix case

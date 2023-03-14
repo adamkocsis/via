@@ -3,14 +3,14 @@
 \name{dimnames,VirtualArray-method}
 \alias{dimnames,VirtualArray-method}
 \alias{dimnames<-,VirtualArray-method}
-\title{Names of multidimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects.}
+\title{Names of a multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 \usage{
 \S4method{dimnames}{VirtualArray}(x)
 
 \S4method{dimnames}{VirtualArray}(x) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SpatialArray}} object.}
+\item{x}{\code{\link{RasterArray}} or \code{\link{SfArray}} object.}
 
 \item{value}{\code{character} vector.}
 }
@@ -18,12 +18,13 @@
 A \code{list} of \code{character} vectors or \code{NULL}.
 }
 \description{
-Get or set the dimnames of multidimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects
+Get or set the dimnames of multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 }
 \examples{
-data(dems)
-dimnames(dems)
-data(coasts)
-dimnames(coasts)
-dimnames(coasts)[[2]] <- c("first", "second")
+ex <- rastex()
+dimnames(ex)
+data(paleocoastlines)
+dimnames(paleocoastlines)
+dimnames(paleocoastlines)[[2]] <- c("first", "second")
+names(dimnames(paleocoastlines)) <- c("age", "type")
 }

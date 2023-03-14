@@ -3,14 +3,14 @@
 \name{names,VirtualArray-method}
 \alias{names,VirtualArray-method}
 \alias{names<-,VirtualArray-method}
-\title{Names of one-dimensional \code{\link{RasterArray}}, \code{\link{SpatialStack}} or \code{\link{SpatialArray}} objects.}
+\title{Names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.}
 \usage{
 \S4method{names}{VirtualArray}(x)
 
 \S4method{names}{VirtualArray}(x) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}}, \code{\link{SpatialStack}} or \code{\link{SpatialArray}} object.}
+\item{x}{\code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
 
 \item{value}{\code{character} vector.}
 }
@@ -18,13 +18,11 @@
 A \code{character} vector of names or \code{NULL}.
 }
 \description{
-Get or set the names of one-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects
+Get or set the names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects
 }
 \examples{
-data(dems)
-names(dems)
-names(dems)[4] <- "weirdo"
+ex <- rastex()
+names(ex)
+names(ex)[4] <- "weirdo"
 # NULL
-data(coasts)
-names(coasts)
 }

@@ -1,6 +1,49 @@
-library(via)
 library(sf)
+library(via)
 library(tinytest)
+
+######################
+# Function for testing from rgplates
+detailedBounds <- function(x,y, xmin=-180, xmax=180, ymin=-90, ymax=90){
+  rbind(
+    cbind(seq(xmin, xmax, length.out=x), rep(ymax, x)),
+    cbind(rep(xmax, y), seq(ymax, ymin, length.out=y)),
+    cbind(seq(xmax, xmin, length.out=x), rep(ymin, x)),
+    cbind(rep(xmin, y), seq(ymin, ymax, length.out=y))
+  )
+}
+
+mapedge <- function(x=360, y=180, xmin=-180, xmax=180, ymin=-90, ymax=90, out="sf"){
+	# return a rectangle
+  	rectangle <- detailedBounds(x, y, xmin, xmax, ymin, ymax)
+
+	# outdefense
+	if(!out%in%c("sf", "sp")) stop("Invalid 'out' argument!.")
+
+	# old spatials
+	if(out=="sp"){
+		# check for the presense of spatials
+		if(!requireNamespace("sp", quietly=TRUE)){
+			stop("This output requires the sp package!")	
+		}else{
+			final <- sp::SpatialPolygons(list(sp::Polygons(list(sp::Polygon(rectangle)), ID="0")), proj4string=sp::CRS("+proj=longlat"))
+		}
+	}
+
+	# default method
+	if(out=="sf"){
+		# sf is a hard dependency in any case
+		final<- st_geometry(st_polygon(list(rectangle)))
+		# set appropriate CRS
+		st_crs(final) <- "EPSG:4326"
+	}
+
+
+  	# return object
+  	return(final)
+}
+
+#############################################################################
 
 # define a generator function for this
 generator <- function(n, crs=4326){
@@ -48,19 +91,19 @@ names(index) <- paste0("a", 1:length(index))
 ga1d <-  SfArray(stack=theList, index=index)
 
 # vector case with missing
-ind <- c(NA, NA, 1:10)
-names(ind) <- letters[1:length(ind)]
-ga1dNAfront <- SfArray(stack=theList[1:10], ind)
+ind1dNAfront <- c(NA, NA, 1:10)
+names(ind1dNAfront) <- letters[1:length(ind1dNAfront)]
+ga1dNAfront <- SfArray(stack=theList[1:10], ind1dNAfront)
 
 # vector case with mid missing
-ind <- c(1:4, NA, 5:9, NA, 10)
-names(ind) <- letters[1:length(ind)]
-ga1dNAmid<- SfArray(stack=theList[1:10], ind)
+ind1dNAmid <- c(1:4, NA, 5:9, NA, 10)
+names(ind1dNAmid) <- letters[1:length(ind1dNAmid)]
+ga1dNAmid<- SfArray(stack=theList[1:10], ind1dNAmid)
 
 # vector case with missing
-ind <- c(1:10,NA, NA)
-names(ind) <- letters[1:length(ind)]
-ga1dNAend<- SfArray(stack=theList[1:10], ind)
+ind1dNAend <- c(1:10,NA, NA)
+names(ind1dNAend) <- letters[1:length(ind1dNAend)]
+ga1dNAend<- SfArray(stack=theList[1:10], ind1dNAend)
 
 ###############################################################################
 # matrix case

@@ -1,9 +1,10 @@
-#' Combine ViArray and one-dimensional RasterArrays and Spatial* objects with one-dimensiooal SpatialArrays
+#' Combine a one-dimensional VirtualArray with other obejcts 
 #'
 #' Methods sequences that start with an NA do not yet work. 
+#
 #' @rdname combine
-#' @param x \code{RasterLayer} or \code{RasterArray} objects or Spatial* and \code{\link{SpatialArray}} objects to combine.
-#' @return A \code{\link{RasterArray}} or \code{\link{SpatialArray}}class object.
+#' @param x \code{VirtualArray} object to combine wit other objects.
+#' @return A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param ... additional objects to combine. 
 #' @export 
 setMethod(
@@ -14,7 +15,7 @@ setMethod(
 		listArg <- list(...)
 		finXA <- x
 		# store the system call
-		callSymb <<- sys.call(which=0)
+		callSymb <- sys.call(which=0)
 		symbolNames <- names(callSymb)
 	
 		# run loop only if it is more than 1

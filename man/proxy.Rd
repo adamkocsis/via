@@ -3,30 +3,30 @@
 \name{proxy}
 \alias{proxy}
 \alias{proxy,VirtualArray-method}
-\title{The proxy of a RasterArray or SpatialArray object}
+\title{The proxy of a VirtualArray-derived object}
 \usage{
 proxy(x, ...)
 
 \S4method{proxy}{VirtualArray}(x)
 }
 \arguments{
-\item{x}{\code{RasterArray} or \code{SpatialArray}  ocal object.}
+\item{x}{\code{XArray}, \code{RasterArray} or \code{SfArray} object.}
 
 \item{...}{additional arguments passed to class-specific methods.}
 }
 \value{
-A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{RasterArray} and \code{SpatialArray} structure.
+A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{VirtualArray} structure.
 }
 \description{
-This function returns an object that symbolizes the structure of layers in the \code{RasterArray} and \code{SpatialArray}.
+This function returns an object that symbolizes the structure of layers in the \code{XArray}, \code{RasterArray} or \code{SfArray}.
 }
 \details{
-The \code{proxy} method wraps the names of layers in the stack using the \code{index} slot of the \code{RasterArray}.
+The \code{proxy} method wraps the names of layers in the stack using the \code{index} slot of the \code{VirtualArray}.
 }
 \examples{
-data(dems)
-proxy(dems)
+data(exemplar)
+proxy(exemplar)
 
-data(coasts)
-proxy(coasts)
+data(paleocoastlines)
+proxy(paleocoastlines)
 }

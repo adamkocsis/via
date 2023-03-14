@@ -12,19 +12,24 @@ setMethod(
 
 #' Number of cells in a RasterArray object
 #' 
-#' The method is inherited from the \code{RasterStack} class.
+#' The method is inherited from the \code{SpatRaster} class.
 #' 
 #' @param x a \code{RasterArray} class object.
 #' @rdname ncell
 #' @return A \code{numeric} value.
 #' @examples
-#' data(dems)
-#' ncell(dems)
+#' ex <- rastex()
+#' ncell(ex)
 #' @exportMethod ncell
 setMethod(
 	"ncell",
 	signature="RasterArray",
-	function(x) ncell(x@stack)
+	function(x){
+		if(!requireNamespace("terra", quietly=TRUE)){
+			stop("This function requires the terra package.")
+		}	
+		terra::ncell(x@stack)
+	}
 )
 
 

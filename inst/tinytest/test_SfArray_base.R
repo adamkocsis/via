@@ -3,35 +3,52 @@ library(tinytest)
 # X-attribs of XArray objects
 source("./SfArray_objects.R")
 
+###################################
+# Informal draft testing
+
+
 # replacement
 # 1d
 # missing values
-sa1dre1 <- sa1d
-sa1dre1[1] <- NA
+ga1dre1 <- ga1d
+ga1dre1[1] <- NA
 
-sa1d[2]
-sa1dre1[2]
+ga1d[2]
+ga1dre1[2]
 
 
 # single layer
-sa1dre1[1] <- sa1d[6]
-sa1dre1[2] <- sa1d[6]
+ga1dre1[1] <- ga1d[6]
+plot(ga1d[6])
+plot(ga1dre1[1])
 
-sa1dre1[["d"]] <-sa1d[6]
+ga1dre1[2] <- ga1d[6]
+plot(ga1dre1[2])
+
+ga1dre1[["d"]] <-ga1d[6]
+plot(ga1dre1[["d"]])
 
 # 2d
-sa2dre <- sa2d
-sa2dre[2,2] <- sa1d[6]
-sa2dre[1,1] <- NA
+ga2dre <- ga2d
+plot(ga2dre[2,3])
+ga2dre[2,2] <- ga1d[6]
+# no change in original
+plot(ga2dre[2,3])
+
+plot(ga1d[6])
+plot(ga2dre[2,2])
+ga2dre[1,1] <- NA
 
 
-sa2dre["r1", "c2"] <- NA
+ga2dre["c", "A"] <- NA
 
-sa2dre[["c"]] <- sa1d[6]
+# name change and replacement
+ga2dre[["lay_7"]] <- ga1d[6]
+plot(ga2dre[["lay_7"]])
 
 # should be equal
-sa2dre[["c"]]
-sa2dre["r2", "c2"]
+ga2dre[["lay_7"]]
+ga1d[6]
 
 
 ############################################################x
@@ -40,10 +57,9 @@ st_crs(primitive)
 
 # project
 
+## allMoll<-st_transform(primitive, "ESRI:54009")
+## plot(allMoll[[1]])
+## st_crs(allMoll)
 
-allMoll<-st_transform(primitive, crs="ESRI:54009")
-plot(allMoll[[1]])
-st_crs(allMoll)
-
-st_bbox(primitive)
-st_bbox(allMoll)
+## st_bbox(primitive)
+## st_bbox(allMoll)

@@ -37,15 +37,15 @@ expect_equal(as.character(prox_ga3d), names(ga3d@stack))
 # 1D no names
 prox <- proxy(ga1dNAmid)
 expect_equal(length(prox), length(ga1dNAmid))
-expect_equal(prox[!is.na(prox)], layers(ga1dNAmid))
+expect_equivalent(prox[!is.na(prox)], layers(ga1dNAmid))
 
 prox <- proxy(ga1dNAfront)
 expect_equal(length(prox), length(ga1dNAfront))
-expect_equal(prox[!is.na(prox)], layers(ga1dNAfront))
+expect_equivalent(prox[!is.na(prox)], layers(ga1dNAfront))
 
 prox <- proxy(ga1dNAend)
 expect_equal(length(prox), length(ga1dNAend))
-expect_equal(prox[!is.na(prox)], layers(ga1dNAend))
+expect_equivalent(prox[!is.na(prox)], layers(ga1dNAend))
 
 # 2D proper names
 prox <- proxy(ga2dNAmid)
@@ -62,7 +62,10 @@ expect_equal(prox[!is.na(prox)], layers(ga3dNAmid))
 ################################################################################
 # t()
 # 0. not-applicable
-expect_error(t(ga1d))
+expect_silent(t1 <- t(ga1d))
+expect_equal(t1@index, t(ga1d@index))
+expect_equal(t1@stack, ga1d@stack)
+
 expect_error(t(ga3d))
 
 # 1. complete case

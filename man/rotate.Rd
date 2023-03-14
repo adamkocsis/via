@@ -3,18 +3,18 @@
 \name{rotate}
 \alias{rotate}
 \alias{rotate,RasterArray-method}
-\title{Rotate a \code{\link[chronosphere:RasterArray-class]{RasterArray}} object}
+\title{Rotate a \code{\link[via:RasterArray-class]{RasterArray}} object}
 \usage{
 \S4method{rotate}{RasterArray}(x, ...)
 }
 \arguments{
-\item{x}{(\code{\link[chronosphere:RasterArray-class]{RasterArray}}) Object.}
+\item{x}{(\code{\link[via:RasterArray-class]{RasterArray}}) Object.}
 
-\item{...}{Additional arguments passed to the \code{\link[raster]{rotate}} function.}
+\item{...}{Additional arguments passed to the \code{\link[terra]{rotate}} function.}
 }
 \value{
-A \code{\link[chronosphere:RasterArray-class]{RasterArray}}-class object.
+A \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[raster:raster]{RasterStack}} class.
+The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
 }

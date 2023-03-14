@@ -3,14 +3,14 @@
 \name{rownames,VirtualArray-method}
 \alias{rownames,VirtualArray-method}
 \alias{rownames<-,VirtualArray-method}
-\title{Row names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}} objects}
+\title{Row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.}
 \usage{
 \S4method{rownames}{VirtualArray}(x)
 
 \S4method{rownames}{VirtualArray}(x) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SpatialArray}} object.}
+\item{x}{\code{\link[via:XArray-class]{VirtualArray}}-class object.}
 
 \item{value}{\code{character} vector.}
 }
@@ -18,10 +18,10 @@
 A \code{character} vector of row names or \code{NULL}.
 }
 \description{
-Get or set the row names of two-dimensional \code{\link{RasterArray}} or \code{\link{SpatialArray}}objects
+Get or set the row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object
 }
 \examples{
-data(coasts)
-rownames(coasts)
-rownames(coasts) <- paste(rownames(coasts), "Ma")
+data(paleocoastlines)
+rownames(paleocoastlines)
+rownames(paleocoastlines) <- paste(rownames(paleocoastlines), "Ma")
 }

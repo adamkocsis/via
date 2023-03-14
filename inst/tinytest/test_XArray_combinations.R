@@ -3,7 +3,6 @@ library(tinytest)
 # X-attribs of GenArray objects
 source("./XArray_objects.R")
 
-library(via)
 
 
 elem <- ga1d[1]
@@ -37,10 +36,7 @@ ne <- c(ga1d, one= elem, one2= elem2)
 
 
 # expected error
-ne <- c(ga1d, 12)
-
-
-
+expect_error(ne <- c(ga1d, 12))
 
 ##############################################
 me <- c(ga1d, ga1d)
@@ -48,13 +44,6 @@ me <- c(ga1d, ga1d)
 
 
 
-
-
-
-
-################################################################################
-# need a new constructor for
-# GenArray(elem, elem)
 
 
 

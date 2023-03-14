@@ -4,33 +4,34 @@
 \name{XArray-class}
 \alias{XArray-class}
 \alias{XArray}
-\title{General Array}
+\title{Virtual Array of general R objects}
 \arguments{
-\item{stack}{A \code{RasterStack} class object.}
+\item{stack}{A \code{list}-class object.}
 
-\item{index}{A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.}
+\item{index}{A \code{vector}, \code{matrix} or \code{array} type object. Includes the indices of layers in the stack.}
 
 \item{dim}{A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.}
 }
 \value{
-A \code{RasterArray} class object.
+An \code{XArray}-class object.
 }
 \description{
 Array template
 }
 \details{
-The class implements structures to organize RasterLayers that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+The class implements structures to organize objects of the same class in multidimensional arrays. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
 
 The class has two slots:
-stack: RasterStack, the actual data.
-index: A proxy object that represents the organization of the layers.
+stack: A list containing objects of the same class (i.e. layers).
+index: A proxy object that represents the structure of the entities.
 }
 \examples{
-# data import
-  data(dems)
-  st <-dems@stack
+# 2d XArray of vectors
+  data(exemplar)
+  st <-exemplar@stack
   ind <- 1:nlayers(st)
-  names(ind) <- letters[1:length(ind)]
-  ra<- RasterArray(stack=st, index=ind)
+  dim(ind) <- c(3,4)
+  dimnames(ind) <- list(n = c(10, 20, 30), seed = 1:4)
+  xa<- XArray(stack=st, index=ind)
   
 }

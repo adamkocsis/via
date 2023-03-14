@@ -10,7 +10,7 @@
 \arguments{
 \item{x}{a \code{RasterArray} class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{disaggregate}} function.}
+\item{...}{arguments passed to the \code{\link[terra]{disagg}} function.}
 }
 \value{
 A disaggregated \code{RasterArray} class object.
@@ -19,6 +19,6 @@ A disaggregated \code{RasterArray} class object.
 The method is inherited from the \code{RasterStack} class.
 }
 \examples{
-data(dems)
-disagg <- disagg(dems, 3)
+ex <- rastex() 
+disagg <- disagg(ex, 3)
 }

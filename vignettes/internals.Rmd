@@ -1,0 +1,45 @@
+---
+title: "Internals"
+description: >
+  Technial details of the package interals.
+---
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+</script>
+
+
+# Requirements
+
+## Dependencies
+
+
+## Imports
+
+
+## Suggests
+
+Functions from some packages that are used by some functions only (optional):
+
+- [knitr](https://cran.r-project.org/package=knitr) and [rmarkdown](https://cran.r-project.org/package=rmarkdown): used for vignette creation.
+- [geojsonsf](https://cran.r-project.org/package=geojsonsf): used by the **online method** of `reconstruct()` to read in the spatial output of the GWS. 
+- [sp](https://cran.r-project.org/package=sp): optional output formats for vector spatial data.
+- [chronosphere](https://cran.r-project.org/package=chronosphere): informal suggestion in help files for downloading `platemodel` instances.
+
+* * *
+
+
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+</div>
+
+
+
+# Function call graph
+
+<pre class="mermaid">
+flowchart LR
+
+	A --> B
+
+</pre>

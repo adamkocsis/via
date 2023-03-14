@@ -19,14 +19,17 @@ rownums(x)
 Numeric vector.
 }
 \description{
-The set of functions return names of objects directly transformed to numeric values.
+The set of functions return names of objects directly cast to numeric values.
 }
 \examples{
-data(dems)
-# ages as numerics
-nums(dems)
-# younger than 20Ma
-dems[nums(dems)<20]
 
+# base R object
+a <- 1:10
+names(a) <- seq(10, 100, 10)
+nums(a)
 
+# XArray
+data(exemplar)
+colnums(exemplar)
+rownums(exemplar)
 }

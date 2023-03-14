@@ -1,0 +1,47 @@
+---
+title: "VirtualArray basics. XArray."
+author: "Adam T. Kocsis, Nussaïbah B. Raja"
+date: '`r Sys.Date()`'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{XArray basics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(via)
+```
+
+# Introduction
+
+## Classes
+- VirtualArray
+- XArray
+- RasterArray
+- SfArray
+
+## Example data
+
+# XArray
+
+## Attributes and properties
+- dim
+- names
+
+## Subsetting and replacements
+
+# Creating XArrays
+
+## Folding
+
+## Propagation
+
+- c()
+- cbind()
+- rbind()
+
+# XArray 
+
+# Internal structures

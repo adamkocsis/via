@@ -1,0 +1,15 @@
+---
+title: "Introduction to the 'chronosphere' R package"
+author: "Adam T. Kocsis, Nussaïbah B. Raja"
+date: '`r Sys.Date()`'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the 'chronosphere' R package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+```

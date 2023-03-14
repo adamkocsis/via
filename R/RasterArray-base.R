@@ -1,13 +1,13 @@
-
 # build from existing stack with existing index, or dimensions
 #' @export RasterArray
 setMethod("initialize",signature="RasterArray",
 	definition=function(.Object,stack, index=NULL, dim=NULL){
+		if(!requireNamespace("terra", quietly=TRUE)) stop("This class requires the terra package.")
 		# automatic wrapper
 		if(is.null(index)) index <- 1:nlayers(stack)
 		# some defense for index
 		if(is.null(dim)){ 
-			if(class(stack)!="SpatRaster") stop("The 'stack' has to be a 'SpatRaster' - class object.")
+			if(!inherits(stack,"SpatRaster")) stop("The 'stack' has to be a 'SpatRaster' - class object.")
 			if(!is.numeric(index)) stop("The 'index' has to be a 'numeric' object.")
 			
 
@@ -16,7 +16,7 @@ setMethod("initialize",signature="RasterArray",
 
 			if(any(index[!bNA]%%1!=0) | any(index[!bNA]<1)) stop("The 'index' has to contain positive integer values.")
 			
-			# the number of valid entries mismatch the number of layers
+			# the number of valid entries mis the number of layers
 			if(sum(!bNA)!=nlayers(stack)) stop("You have to provide as many layers as many valid entries in index.")
 
 			# reorder the stack
@@ -72,7 +72,7 @@ setMethod(
 			cat(paste0("- resolution  : ",reses[1],", ",reses[2]," (x, y)\n"))
 			extent <- terra::ext(object@stack[[1]])
 			cat(paste0("- extent      : ", extent$xmin, ", ",extent$xmax,", ",extent$ymin,", ",extent$ymax, " (xmin, xmax, ymin, ymax)\n"))
-			refsys <- terra:::.name_or_proj4(object@stack[[1]])
+			refsys <- paste(terra::crs(object@stack[[1]], describe=TRUE)$name)
 			cat(paste0("- coord.ref.  : ",refsys,"\n"))
 
   			cat("Array properties: \n")
@@ -137,9 +137,9 @@ setMethod(
 #' @return A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RasterArray}.
 #' 
 #' @examples
-#' data(dems)
-#' dems[2] <- NA
-#' is.na(dems)
+#' ex <- rastex() 
+#' ex[2] <- NA
+#' is.na(ex)
 #' 
 #' @export
 is.na.RasterArray<-function(x){

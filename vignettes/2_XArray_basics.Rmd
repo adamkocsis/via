@@ -1,0 +1,27 @@
+---
+title: "XArray basics"
+author: "Adam T. Kocsis, Nussaïbah B. Raja"
+date: '`r Sys.Date()`'
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{XArray basics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(via)
+```
+
+# Creating XArrays
+
+## Folding
+
+## Propagation
+
+- c()
+- cbind()
+- rbind()
+
+# XArray 
