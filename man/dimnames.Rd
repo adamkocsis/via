@@ -3,14 +3,14 @@
 \name{dimnames,VirtualArray-method}
 \alias{dimnames,VirtualArray-method}
 \alias{dimnames<-,VirtualArray-method}
-\title{Names of a multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.}
+\title{Names of a multidimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.}
 \usage{
 \S4method{dimnames}{VirtualArray}(x)
 
 \S4method{dimnames}{VirtualArray}(x) <- value
 }
 \arguments{
-\item{x}{\code{\link{RasterArray}} or \code{\link{SfArray}} object.}
+\item{x}{\code{\link{RasterArray}} or \code{\link[via:SfArray-class]{SfArray}} object.}
 
 \item{value}{\code{character} vector.}
 }

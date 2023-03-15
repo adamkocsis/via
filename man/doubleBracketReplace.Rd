@@ -4,7 +4,7 @@
 \alias{[[<-,VirtualArray,ANY-method}
 \alias{[[<-,VirtualArray-method}
 \alias{[[<-,VirtualArray,ANY,ANY-method}
-\title{Replace elements of a \code{VirtualArray}-class objects.}
+\title{Replace elements of '\code{\link[via:XArray-class]{VirtualArray}}'-class objects.}
 \usage{
 \S4method{[[}{VirtualArray,ANY}(x, i) <- value
 }
@@ -16,8 +16,8 @@
 \item{value}{\code{character} vector.}
 }
 \value{
-None.
+The function has no return value.
 }
 \description{
-Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the \code{VirtualArray}. Use single brackets to replace elements based on their position in the \code{VirtualArray}.
+Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the '\code{\link[via:XArray-class]{VirtualArray}}'. Use single brackets to replace elements based on their position in the '\code{\link[via:XArray-class]{VirtualArray}}'-class object.
 }

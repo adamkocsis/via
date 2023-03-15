@@ -7,7 +7,7 @@
 \alias{xres,RasterArray-method}
 \alias{yres,RasterArray-method}
 \alias{res,RasterArray-method}
-\title{Resolution}
+\title{Resolution of a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{xres}{RasterArray}(x)
 
@@ -16,13 +16,13 @@
 \S4method{res}{RasterArray}(x)
 }
 \arguments{
-\item{x}{a \code{RasterArray} class object.}
+\item{x}{a \code{RasterArray}-class object.}
 }
 \value{
 A \code{numeric} vector.
 }
 \description{
-The methods are inherited from the \code{RasterStack} class, see \code{\link[terra]{res}}. Replacement is not allowed.
+The methods are inherited from the '\code{\link[terra:rast]{SpatRaster}}' class, see \code{\link[terra]{res}}. Replacement is not allowed.
 }
 \examples{
 ex <- rastex() 

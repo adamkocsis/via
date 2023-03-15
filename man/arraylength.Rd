@@ -8,7 +8,7 @@
 \alias{length,VirtualArray-method}
 \alias{nlayers,XArray-method}
 \alias{nlayers,RasterArray-method}
-\title{Number of elements or layers in a \code{\link[via:XArray-class]{VirtualArray}}-derived class object}
+\title{Number of elements or layers in a '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object}
 \usage{
 nlayers(x)
 

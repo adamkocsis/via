@@ -1,5 +1,4 @@
-
-#' Dimensions of \code{\link[via:XArray-class]{VirtualArray}}-derived class objects
+#' Dimensions of '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects
 #' 
 #' The function returns the dimensions of the array in which elements are organized.
 #' @param x A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
@@ -20,9 +19,9 @@ setMethod(
 )
 
 
-#' Names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.
+#' Names of one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects.
 #' 
-#' Get or set the names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects 
+#' Get or set the names of one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects 
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of names or \code{NULL}.
@@ -55,7 +54,7 @@ setReplaceMethod(
 })
 
 
-#' Number of elements or layers in a \code{\link[via:XArray-class]{VirtualArray}}-derived class object
+#' Number of elements or layers in a '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object
 #' 
 #' Function to return the length of the array in which elements are organized.
 #' 
@@ -97,9 +96,9 @@ setMethod(
 
 #####################
 
-#' Column names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
+#' Column names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.
 #' 
-#' Get or set the column names of two-dimensional code{\link[via:XArray-class]{VirtualArray}}-derived class objects 
+#' Get or set the column names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects 
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of column names or \code{NULL}.
@@ -130,9 +129,9 @@ setReplaceMethod(
 
 
 
-#' Row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.
+#' Row names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects.
 #' 
-#' Get or set the row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object  
+#' Get or set the row names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object  
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param value \code{character} vector.
 #' @return A \code{character} vector of row names or \code{NULL}.
@@ -162,10 +161,10 @@ setReplaceMethod(
 })
 
 
-#' Names of a multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
+#' Names of a multidimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.
 #' 
 #' Get or set the dimnames of multidimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
-#' @param x \code{\link{RasterArray}} or \code{\link{SfArray}} object.
+#' @param x \code{\link{RasterArray}} or \code{\link[via:SfArray-class]{SfArray}} object.
 #' @param value \code{character} vector.
 #' @return A \code{list} of \code{character} vectors or \code{NULL}.
 #' 
@@ -198,9 +197,9 @@ setReplaceMethod(
 
 
 
-#' Number of columns and rows of a \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
+#' Number of columns and rows of a '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.
 #' 
-#' Unlike the \code{ncol} and \code{nrow} functions of the terra package, this function returns the number of columns and rows of the \code{VirtualArray}-derived container, rather than the dimensions of the contained \code{SpatRaster}s. 
+#' Unlike the \code{ncol} and \code{nrow} functions of the '\code{\link[terra:terra-package]{terra}}' package, this function returns the number of columns and rows of the '\code{\link[via:XArray-class]{VirtualArray}}'-derived container, rather than the dimensions of the contained '\code{\link[terra:rast]{SpatRaster}}'-class object. 
 #' 
 #' @param x A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @rdname adimatt

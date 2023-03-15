@@ -5,15 +5,16 @@ setClassUnion("arrayORmatrixORvector", c("vector", "matrix", "array"))
 VirtualArray <- setClass("VirtualArray", slots=list(index="arrayORmatrixORvector", stack="ANY"))
 
 
-#' Virtual Array of general R objects
+#' Virtual array of general R objects
 #' 
-#' Array template 
-#' 
-#' The class implements structures to organize objects of the same class in multidimensional arrays. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+#' Template for construction of virtual arrays ('\code{VirtualArray}') and a derived class ('\code{XArray}') to instantiate it with general objects.
+#'
+#' The '\code{VirtualArray}' class implements structures to organize objects of the same class in multidimensional arrays. Subsetting rules were defined using the proxy object in the \code{index} slot. The '\code{VirtualArray}' is the base class for '\code{XArray}' and '\code{\link[via:RasterArray-class]{RasterArray}}' classes.
+#' The '\code{XArray}' class derived from \code{VirtualArray} allows the instantiation of basic virtual arrays with genearl R objects, which form a single \code{list} in the \code{@stack slot}. The '\code{\link[via:SfArray-class]{SfArray}}' class is derived from the '\code{XArray}' class.
 #' 
 #' The class has two slots:
-#' stack: A list containing objects of the same class (i.e. layers).
-#' index: A proxy object that represents the structure of the entities. 
+#' \code{@stack}: A list containing objects of the same class (i.e. layers).
+#' \code{@index}: A proxy object that represents the structure of the entities. 
 #' 
 #' 
 #' @param stack A \code{list}-class object.
@@ -32,20 +33,20 @@ VirtualArray <- setClass("VirtualArray", slots=list(index="arrayORmatrixORvector
 #' @exportClass XArray
 XArray <- setClass("XArray", contains="VirtualArray")
 
-#' Array of SpatRasters
+#' Array of '\code{\link[terra:rast]{SpatRaster}}'-class objects
 #' 
 #' Array class for easier navigation of multilayer rasters 
 #' 
-#' The class implements structures to organize single-layer SpatRasters that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+#' The class implements structures to organize single-layer '\code{\link[terra:rast]{SpatRaster}}'-class objects that have the same dimensions and coordinate reference system. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations.
 #' 
 #' The class has two slots:
-#' stack: A SpatRaster object with multiple layers, the actual data.
-#' index: A proxy object that represents the organization of the layers. 
+#' \code{@stack}: A '\code{\link[terra:rast]{SpatRaster}}'-class object with multiple layers, the actual data.
+#' \code{index}: A proxy object that represents the organization of the layer in the array. 
 #' 
-#' @param stack A \code{SpatRaster} class object.
+#' @param stack A \code{\link[terra:rast]{SpatRaster}} object.
 #' @param index A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.
 #' @param dim A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.
-#' @return A \code{RasterArray}-class object.
+#' @return A '\code{\link[via:RasterArray-class]{RasterArray}}'-class object.
 #' @examples
 #' # example data
 #'   ex <- rastex()
@@ -58,20 +59,20 @@ XArray <- setClass("XArray", contains="VirtualArray")
 RasterArray <- setClass("RasterArray", contains="VirtualArray")
 
 
-#' Array of Sf-class data 
+#' Array of '\code{\link[sf:sf]{sf}}'-derived class data 
 #' 
 #' Array class for easier navigation of vector spatial datasets 
 #' 
-#' The class implements structures to organize entire Sf-objects that share coordinate reference systesm. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations. The class is derived from the \code{VirtualArray} class.
+#' The class implements structures to organize entire '\code{\link[sf:sf]{sf}}' objects that share coordinate reference systesm. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations. The class is derived from the '\code{\link[via:XArray-class]{XArray}}' class.
 #' 
 #' The class has two slots:
-#' stack: A list object with multiple sf layers, the actual data.
-#' index: A proxy object that represents the organization of the layers. 
+#' \code{@stack}: A \code{list} object with multiple '\code{\link[sf:sf]{sf}}' class layers, the actual data.
+#' \code{@index}: A proxy object that represents the organization of the layers. 
 #' 
 #' @param stack A \code{list} of \code{sf}-class objects.
 #' @param index A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.
 #' @param dim A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.
-#' @return An \code{SfArray}-class object.
+#' @return An '\code{\link[via:SfArray-class]{SfArray}}'-class object.
 #' @examples
 #' # example data
 #'   library(sf) 

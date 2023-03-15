@@ -3,20 +3,20 @@
 \name{dimlayer}
 \alias{dimlayer}
 \alias{dimlayer,RasterArray-method}
-\title{Dimensions of layers in a VirtualArray object}
+\title{Dimensions of layers in a '\code{\link[via:XArray-class]{VirtualArray}}'-class object}
 \usage{
 dimlayer(x, ...)
 
 \S4method{dimlayer}{RasterArray}(x)
 }
 \arguments{
-\item{x}{A \code{VirtualArray} class object.}
+\item{x}{A \code{\link[via:XArray-class]{VirtualArray}} class object.}
 
 \item{...}{additional arguments passed to class-specific methods.}
 }
 \value{
-A \code{numeric} vector with the number of rows and columns in the \code{VirtualArray}s.
+A \code{numeric} vector with the number of rows and columns in the \code{\link[via:XArray-class]{VirtualArray}}s.
 }
 \description{
-The funcion will return the dimensions RasterLayers
+The funcion will return the dimensions '\code{\link[terra:rast]{SpatRaster}}'-class layers.
 }

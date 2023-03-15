@@ -3,7 +3,7 @@
 \name{st_transform}
 \alias{st_transform}
 \alias{st_transform.SfArray}
-\title{Projection change a \code{\link[via:SfArray-class]{SfArray}} object}
+\title{Projection change of an '\code{\link[via:SfArray-class]{SfArray}}'-class object}
 \usage{
 \method{st_transform}{SfArray}(x, ...)
 }
@@ -13,10 +13,10 @@
 \item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
 }
 \value{
-An \code{\link[via:RasterArray-class]{RasterArray}} class object.
+An \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[sf:sf]{sf}} class.
+The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 }
 \examples{
 data(paleocoastlines)

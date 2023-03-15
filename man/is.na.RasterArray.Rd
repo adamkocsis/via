@@ -2,7 +2,7 @@
 % Please edit documentation in R/RasterArray-base.R
 \name{is.na.RasterArray}
 \alias{is.na.RasterArray}
-\title{Positions of missing values in a RasterArray object}
+\title{Positions of missing values in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \method{is.na}{RasterArray}(x)
 }
@@ -13,7 +13,7 @@
 A \code{logical} \code{vector}, \code{matrix} or \code{array} matching the structure of the \code{RasterArray}.
 }
 \description{
-The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a \code{RasterArray}.
+The function behaves similar to the regular \code{is.na()} function applied to the proxy object of a '\code{RasterArray}'.
 }
 \examples{
 ex <- rastex() 

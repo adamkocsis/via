@@ -3,7 +3,7 @@
 \name{st_crs}
 \alias{st_crs}
 \alias{st_crs.SfArray}
-\title{Coordinate reference system of a \code{\link[via:SfArray-class]{SfArray}} object}
+\title{Coordinate reference system of an '\code{\link[via:SfArray-class]{SfArray}}'-class object}
 \usage{
 \method{st_crs}{SfArray}(x, ...)
 }
@@ -16,7 +16,7 @@
 An aggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
-The method is inherited from the \code{\link[sf:sf]{sf}} class.
+The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 }
 \examples{
 data(paleocoastlines)

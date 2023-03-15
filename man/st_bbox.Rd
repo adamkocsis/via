@@ -3,7 +3,7 @@
 \name{st_bbox}
 \alias{st_bbox}
 \alias{st_bbox.SfArray}
-\title{Bounding box of a \code{\link[via:SfArray-class]{SfArray}} object}
+\title{Bounding box of an '\code{\link[via:SfArray-class]{SfArray}}'-class object}
 \usage{
 \method{st_bbox}{SfArray}(x, ...)
 }
@@ -16,7 +16,7 @@
 An \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
-The method is inherited from the \code{\link[sf:sf]{sf}} class.
+The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 }
 \examples{
 data(paleocoastlines)

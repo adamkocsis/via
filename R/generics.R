@@ -1,6 +1,6 @@
 # NOTE: sf uses S3, if it is not available, the substitute generics have to be defined for S3 and not S4!
 
-#' Names of \code{\link[via:XArray-class]{VirtualArray}} Layers in the stack
+#' Names of layers in the \code{stack} of a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 #' 
 #' @param x A \code{\link[via:XArray-class]{VirtualArray}}-derived class object.
 #' @param ... additional arguments passed to class-specific methods.
@@ -26,12 +26,12 @@ setGeneric(
 	}
 )
 
-#' Dimensions of layers in a VirtualArray object
+#' Dimensions of layers in a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 #' 
-#' The funcion will return the dimensions RasterLayers
+#' The funcion will return the dimensions '\code{\link[terra:rast]{SpatRaster}}'-class layers.
 #' 
-#' @param x A \code{VirtualArray} class object.
-#' @return A \code{numeric} vector with the number of rows and columns in the \code{VirtualArray}s.
+#' @param x A \code{\link[via:XArray-class]{VirtualArray}} class object.
+#' @return A \code{numeric} vector with the number of rows and columns in the \code{\link[via:XArray-class]{VirtualArray}}s.
 #' @param ... additional arguments passed to class-specific methods.
 #' 
 #' @rdname dimlayer
@@ -39,9 +39,9 @@ setGeneric(
 setGeneric("dimlayer", function(x,...) standardGeneric("dimlayer"))
 
 
-#' The total number of values in a RasterArray object
+#' The total number of values in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' @param x A \code{RasterArray} class object.
+#' @param x A \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @param ... additional arguments passed to class-specific methods.
 #' @return A \code{numeric} value.
 #' 
@@ -80,7 +80,7 @@ if(!requireNamespace("terra", quietly=TRUE)){
 	setGeneric("yres", def=terra::yres, package="terra")
 }
 
-#' Resolution
+#' Resolution of a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
 #' @name res
 #' @rdname res
@@ -90,7 +90,7 @@ if(!requireNamespace("terra", quietly=TRUE)){
 	setGeneric("res", def=terra::res, package="terra")
 }
 
-#' Resampling
+#' Resampling a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
 #' @name resample
 #' @rdname resample
@@ -102,7 +102,7 @@ if(!requireNamespace("terra", quietly=TRUE)){
 
 
 
-#' Cropping
+#' Cropping a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
 #' @name crop
 #' @rdname crop
@@ -124,15 +124,15 @@ if(!requireNamespace("terra", quietly=TRUE)){
 	setGeneric("disagg", def=terra::disagg, package="terra")
 }
 
-#' Project a RasterArray object
+#' Project a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #'
-#' The method implemets the \code{\link[terra]{project}} function for \code{RasterArray} class objects.
+#' The method implemets the \code{\link[terra]{project}} function for '\code{\link[via:RasterArray-class]{RasterArray}}'-class objects.
 #' 
-#' @param x A \code{RasterArray} object to project.
-#' @param y A \code{RasterArray} the same options as in \code{\link[terra]{project}}.
+#' @param x A \code{\link[via:RasterArray-class]{RasterArray}} object to project.
+#' @param y A \code{\link[via:RasterArray-class]{RasterArray}} the same options as in \code{\link[terra]{project}}.
 #' @param ... additional arguments as for \code{\link[terra]{project}}.
 #' @rdname project
-#' @return A projected \code{RasterArray} class object.
+#' @return A projected \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @export project
 #' @examples
 #' # project first three to mollweide
@@ -157,9 +157,9 @@ if(!requireNamespace("terra", quietly=TRUE)){
 	setGeneric("rotate", def=terra::rotate, package="terra")
 }
 
-#' Extent of a \code{\link[via:RasterArray-class]{RasterArray}} object
+#' Extent of a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
 #' @param x a \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @param ... arguments passed to the \code{\link[terra]{ext}} function.
@@ -178,9 +178,9 @@ if(!requireNamespace("terra", quietly=TRUE)){
 }
 
 
-#' Coordinate reference system of a \code{\link[via:SfArray-class]{SfArray}} object
+#' Coordinate reference system of an '\code{\link[via:SfArray-class]{SfArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[sf:sf]{sf}} class.
+#' The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 #' 
 #' @param x a \code{\link[sf:sf]{sf}}-class object.
 #' @param ... arguments passed to the \code{\link[sf:st_crs]{st_crs}} function.
@@ -201,14 +201,14 @@ if(!requireNamespace("sf", quietly=TRUE)){
 	setGeneric("st_crs", def=sf::st_crs, package="sf")
 }
 
-#' Projection change a \code{\link[via:SfArray-class]{SfArray}} object
+#' Projection change of an '\code{\link[via:SfArray-class]{SfArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[sf:sf]{sf}} class.
+#' The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 #' 
 #' @param x a \code{\link[sf:sf]{sf}}-class object.
 #' @param ... arguments passed to the \code{\link[raster]{extent}} function.
 #' 
-#' @return An \code{\link[via:RasterArray-class]{RasterArray}} class object.
+#' @return An \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @examples
 #' data(paleocoastlines)
 #' moll<- st_transform(paleocoastlines, "ESRI:54009")
@@ -226,9 +226,9 @@ if(!requireNamespace("sf", quietly=TRUE)){
 	setGeneric("st_transform", def=sf::st_transform, package="sf")
 }
 
-#' Bounding box of a \code{\link[via:SfArray-class]{SfArray}} object
+#' Bounding box of an '\code{\link[via:SfArray-class]{SfArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[sf:sf]{sf}} class.
+#' The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 #' 
 #' @param x a \code{\link[sf:sf]{sf}}-class object.
 #' @param ... arguments passed to the \code{\link[raster]{extent}} function.

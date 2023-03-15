@@ -1,6 +1,6 @@
 Package: via
 Type: Package
-Title: Virtual Arrays for R
+Title: Virtual Arrays 
 Version: 0.1.0
 Authors@R: c(
 	person(given="Adam T.", family="Kocsis", role=c("cre", "aut"),
@@ -31,9 +31,9 @@ Collate:
 	SfArray-replace.R
 	SfArray-sf.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
-Description: The base class VirtualArray is defined, which acts as a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.
+Description: The base class 'VirtualArray' is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived 'XArray' class is defined to be used for homogeneous lists that contain a single class of objects. The 'RasterArray' and 'SfArray' classes enable the use of stacked spatial data instead of lists.
 License: CC BY 4.0
-Date: 2023-03-14
+Date: 2023-03-15
 BugReports: https://github.com/adamkocsis/via
 Encoding: UTF-8
 LazyData: false

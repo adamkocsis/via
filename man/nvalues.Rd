@@ -3,14 +3,14 @@
 \name{nvalues}
 \alias{nvalues}
 \alias{nvalues,RasterArray-method}
-\title{The total number of values in a RasterArray object}
+\title{The total number of values in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 nvalues(x, ...)
 
 \S4method{nvalues}{RasterArray}(x)
 }
 \arguments{
-\item{x}{A \code{RasterArray} class object.}
+\item{x}{A \code{\link[via:RasterArray-class]{RasterArray}}-class object.}
 
 \item{...}{additional arguments passed to class-specific methods.}
 }
@@ -18,7 +18,7 @@ nvalues(x, ...)
 A \code{numeric} value.
 }
 \description{
-The total number of values in a RasterArray object
+The total number of values in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 }
 \examples{
 ex <- rastex()

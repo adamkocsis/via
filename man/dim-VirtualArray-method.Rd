@@ -2,7 +2,7 @@
 % Please edit documentation in R/VirtualArray-xattrib.R
 \name{dim,VirtualArray-method}
 \alias{dim,VirtualArray-method}
-\title{Dimensions of \code{\link[via:XArray-class]{VirtualArray}}-derived class objects}
+\title{Dimensions of '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects}
 \usage{
 \S4method{dim}{VirtualArray}(x)
 }

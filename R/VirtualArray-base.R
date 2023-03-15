@@ -1,11 +1,11 @@
-#' The proxy of a VirtualArray-derived object
+#' The proxy of an from a class derived from '\code{\link[via:XArray-class]{VirtualArray}}'
 #' 
-#' This function returns an object that symbolizes the structure of layers in the \code{XArray}, \code{RasterArray} or \code{SfArray}.
+#' This function returns an object that symbolizes the structure of layers in the '\code{\link[via:XArray-class]{XArray}}', '\code{\link[via:RasterArray-class]{RasterArray}}' or '\code{\link[via:SfArray-class]{SfArray}}'.
 #'
-#' The \code{proxy} method wraps the names of layers in the stack using the \code{index} slot of the \code{VirtualArray}.
+#' The \code{proxy} method wraps the names of layers in the \code{@stack} using the \code{@index} slot of the '\code{\link[via:XArray-class]{VirtualArray}}'.
 #'  
-#' @param x \code{XArray}, \code{RasterArray} or \code{SfArray} object.
-#' @return A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{VirtualArray} structure.
+#' @param x \code{\link[via:XArray-class]{XArray}}, \code{\link[via:RasterArray-class]{RasterArray}} or \code{\link[via:SfArray-class]{SfArray}} object.
+#' @return A \code{vector}, \code{matrix} or \code{array} of characters representing the \code{\link[via:XArray-class]{VirtualArray}} structure.
 #' @param ... additional arguments passed to class-specific methods.
 #' @examples
 #' data(exemplar)
@@ -37,7 +37,7 @@ setMethod(
 
 
 
-#' Transpose a \code{\link[via:XArray-class]{VirtualArray}} object
+#' Transpose a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 #' 
 #' @examples
 #' data(exemplar)

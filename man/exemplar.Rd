@@ -3,7 +3,7 @@
 \docType{data}
 \name{exemplar}
 \alias{exemplar}
-\title{Example XArray object}
+\title{Example '\code{\link[via:XArray-class]{XArray}}'-class object}
 \format{
 : \code{\link[via:XArray-class]{XArray}} with 3 sample sizes (rows), and 4 different seeds (column).
 }
@@ -11,6 +11,6 @@
 data(exemplar)
 }
 \description{
-An XArray of \code{data.frames} made from a single \code{data.frame} with random sampling. The original object had two columns, the first (\code{x}) an integer seqence \code{1:100}, the second \code{y} a variable produced with \code{0.5 * x -30 + N(0,10)}.
+A '\code{\link[via:XArray-class]{XArray}}'-class objects of \code{data.frame}s, which were made from a single \code{data.frame} with random sampling. The original object had two columns, the first (\code{x}) an integer seqence \code{1:100}, the second \code{y} a variable produced with \code{0.5 * x -30 + N(0,10)}.
 }
 \keyword{datasets}

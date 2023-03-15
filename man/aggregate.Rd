@@ -3,7 +3,7 @@
 \name{aggregate}
 \alias{aggregate}
 \alias{aggregate,RasterArray-method}
-\title{Aggregate raster cells in a \code{\link[via:RasterArray-class]{RasterArray}} object}
+\title{Aggregate raster cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{aggregate}{RasterArray}(x, ...)
 }
@@ -13,10 +13,10 @@
 \item{...}{arguments passed to the \code{\link[terra]{aggregate}} function.}
 }
 \value{
-An aggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
+An aggregated \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 library(terra)

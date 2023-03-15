@@ -3,22 +3,22 @@
 \name{crop}
 \alias{crop}
 \alias{crop,RasterArray-method}
-\title{Cropping}
+\title{Cropping a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{crop}{RasterArray}(x, y, ...)
 }
 \arguments{
-\item{x}{a \code{RasterArray} class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}} class object.}
 
-\item{y}{an xtent object, or any object from which an Extent object can be extracted (see Details)}
+\item{y}{an \code{\link[via:ext]{SpatExtent}}-class object, or any object from which an extent object can be extracted (see Details)}
 
 \item{...}{arguments passed to the \code{\link[terra]{crop}} function.}
 }
 \value{
-A cropped \code{RasterArray} class object.
+A cropped \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{RasterStack} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 ex <- rastex()

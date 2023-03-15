@@ -1,9 +1,9 @@
-#' Combine a one-dimensional VirtualArray with other obejcts 
+#' Combine a one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-class object with other objects 
 #'
-#' Methods sequences that start with an NA do not yet work. 
+#' NOTE: Sequences that start with an \code{NA} do not yet work. 
 #
 #' @rdname combine
-#' @param x \code{VirtualArray} object to combine wit other objects.
+#' @param x \code{\link[via:XArray-class]{VirtualArray}} object to combine wit other objects.
 #' @return A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param ... additional objects to combine. 
 #' @export 

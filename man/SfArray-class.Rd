@@ -4,7 +4,7 @@
 \name{SfArray-class}
 \alias{SfArray-class}
 \alias{SfArray}
-\title{Array of Sf-class data}
+\title{Array of '\code{\link[sf:sf]{sf}}'-derived class data}
 \arguments{
 \item{stack}{A \code{list} of \code{sf}-class objects.}
 
@@ -13,17 +13,17 @@
 \item{dim}{A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.}
 }
 \value{
-An \code{SfArray}-class object.
+An '\code{\link[via:SfArray-class]{SfArray}}'-class object.
 }
 \description{
 Array class for easier navigation of vector spatial datasets
 }
 \details{
-The class implements structures to organize entire Sf-objects that share coordinate reference systesm. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations. The class is derived from the \code{VirtualArray} class.
+The class implements structures to organize entire '\code{\link[sf:sf]{sf}}' objects that share coordinate reference systesm. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations. The class is derived from the '\code{\link[via:XArray-class]{XArray}}' class.
 
 The class has two slots:
-stack: A list object with multiple sf layers, the actual data.
-index: A proxy object that represents the organization of the layers.
+\code{@stack}: A \code{list} object with multiple '\code{\link[sf:sf]{sf}}' class layers, the actual data.
+\code{@index}: A proxy object that represents the organization of the layers.
 }
 \examples{
 # example data

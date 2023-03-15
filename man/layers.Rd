@@ -3,7 +3,7 @@
 \name{layers}
 \alias{layers}
 \alias{layers,VirtualArray-method}
-\title{Names of \code{\link[via:XArray-class]{VirtualArray}} Layers in the stack}
+\title{Names of layers in the \code{stack} of a '\code{\link[via:XArray-class]{VirtualArray}}'-class object}
 \usage{
 layers(x, ...)
 
@@ -18,7 +18,7 @@ layers(x, ...)
 A \code{character} vector of names.
 }
 \description{
-Names of \code{\link[via:XArray-class]{VirtualArray}} Layers in the stack
+Names of layers in the \code{stack} of a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 }
 \examples{
 # names of layers in the stack

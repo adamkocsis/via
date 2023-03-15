@@ -4,7 +4,7 @@
 \name{project}
 \alias{project}
 \alias{project,RasterArray-method}
-\title{Project a RasterArray object}
+\title{Project a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \format{
 An object of class \code{standardGeneric} of length 1.
 }
@@ -14,19 +14,19 @@ project
 \S4method{project}{RasterArray}(x, y, ...)
 }
 \arguments{
-\item{x}{A \code{RasterArray} object to project.}
+\item{x}{A \code{\link[via:RasterArray-class]{RasterArray}} object to project.}
 
-\item{y}{A \code{RasterArray} the same options as in \code{\link[terra]{project}}.}
+\item{y}{A \code{\link[via:RasterArray-class]{RasterArray}} the same options as in \code{\link[terra]{project}}.}
 
 \item{...}{additional arguments as for \code{\link[terra]{project}}.}
 }
 \value{
-A projected \code{RasterArray} class object.
+A projected \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method implemets the \code{\link[terra]{project}} function for \code{RasterArray} class objects.
+The method implemets the \code{\link[terra]{project}} function for '\code{\link[via:RasterArray-class]{RasterArray}}'-class objects.
 
-Practically the same as terra::project
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class. See \code{\link[terra:project]{project}} for details.
 }
 \examples{
 # project first three to mollweide

@@ -3,7 +3,7 @@
 \name{rotate}
 \alias{rotate}
 \alias{rotate,RasterArray-method}
-\title{Rotate a \code{\link[via:RasterArray-class]{RasterArray}} object}
+\title{Rotate a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{rotate}{RasterArray}(x, ...)
 }
@@ -16,5 +16,5 @@
 A \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }

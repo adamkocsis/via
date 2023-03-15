@@ -3,7 +3,7 @@
 \name{names,VirtualArray-method}
 \alias{names,VirtualArray-method}
 \alias{names<-,VirtualArray-method}
-\title{Names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.}
+\title{Names of one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects.}
 \usage{
 \S4method{names}{VirtualArray}(x)
 
@@ -18,7 +18,7 @@
 A \code{character} vector of names or \code{NULL}.
 }
 \description{
-Get or set the names of one-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects
+Get or set the names of one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects
 }
 \examples{
 ex <- rastex()

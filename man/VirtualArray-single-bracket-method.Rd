@@ -3,7 +3,7 @@
 \name{[,VirtualArray,ANY,ANY-method}
 \alias{[,VirtualArray,ANY,ANY-method}
 \alias{[,VirtualArray-method}
-\title{Indexing to extract subsets of a code{\link[via:XArray-class]{VirtualArray}}-class object}
+\title{Indexing to extract subsets of a 'code{\link[via:XArray-class]{VirtualArray}}'-class object}
 \usage{
 \S4method{[}{VirtualArray,ANY,ANY}(x, i, j, ..., drop = TRUE)
 }
@@ -22,7 +22,7 @@
 An object from either the same class as \code{x} or the class of its elements.
 }
 \description{
-Single bracket \code{'['} refers to indices and names within the \code{\link[via:XArray-class]{VirtualArray}} . Use double brackets to extract layers based on their names (in the stack).
+Single bracket \code{'['} refers to indices and names within the '\code{\link[via:XArray-class]{VirtualArray}}'-class object. Use double brackets to extract layers based on their names (in the \code{@stack}).
 }
 \examples{
 ex <- rastex()

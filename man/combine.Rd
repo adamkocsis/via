@@ -2,12 +2,12 @@
 % Please edit documentation in R/VirtualArray-combine.R
 \name{c,VirtualArray-method}
 \alias{c,VirtualArray-method}
-\title{Combine a one-dimensional VirtualArray with other obejcts}
+\title{Combine a one-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-class object with other objects}
 \usage{
 \S4method{c}{VirtualArray}(x, ...)
 }
 \arguments{
-\item{x}{\code{VirtualArray} object to combine wit other objects.}
+\item{x}{\code{\link[via:XArray-class]{VirtualArray}} object to combine wit other objects.}
 
 \item{...}{additional objects to combine.}
 }
@@ -15,5 +15,5 @@
 A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 }
 \description{
-Methods sequences that start with an NA do not yet work.
+NOTE: Sequences that start with an \code{NA} do not yet work.
 }

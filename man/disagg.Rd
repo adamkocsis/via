@@ -3,20 +3,20 @@
 \name{disagg}
 \alias{disagg}
 \alias{disagg,RasterArray-method}
-\title{Disaggregate raster cells in a RasterArray object}
+\title{Disaggregate raster cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{disagg}{RasterArray}(x, ...)
 }
 \arguments{
-\item{x}{a \code{RasterArray} class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}} class object.}
 
 \item{...}{arguments passed to the \code{\link[terra]{disagg}} function.}
 }
 \value{
-A disaggregated \code{RasterArray} class object.
+A disaggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
 }
 \description{
-The method is inherited from the \code{RasterStack} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 ex <- rastex() 

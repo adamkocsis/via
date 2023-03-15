@@ -1,10 +1,10 @@
 # Functions that are practically inherited from SpatRaster*
 
-#' Resolution of a RasterArray object
+#' Resolution of a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The methods are inherited from the \code{RasterStack} class, see \code{\link[terra]{res}}. Replacement is not allowed.
+#' The methods are inherited from the '\code{\link[terra:rast]{SpatRaster}}' class, see \code{\link[terra]{res}}. Replacement is not allowed.
 #' 
-#' @param x a \code{RasterArray} class object.
+#' @param x a \code{RasterArray}-class object.
 #' @return A \code{numeric} vector.
 #' 
 #' @rdname res
@@ -61,9 +61,9 @@ setMethod(
 )
 
 
-#' Rotate a \code{\link[via:RasterArray-class]{RasterArray}} object
+#' Rotate a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
 #' @param x (\code{\link[via:RasterArray-class]{RasterArray}}) Object.
 #' @param ... Additional arguments passed to the \code{\link[terra]{rotate}} function.
@@ -101,14 +101,14 @@ setMethod(
 )
 
 
-#' Resample a RasterArray object
+#' Resample a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{SpatRaster} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
-#' @param x a \code{RasterArray} class object.
-#' @param y The y argument of the \code{\link[terra]{resample}} function.
-#' @return A resampled \code{RasterArray} class object.
-#' @param ... arguments passed to the \code{\link[terra]{resample}} function.
+#' @param x a \code{\link[via:RasterArray-class]{RasterArray}}-class object.
+#' @param y The y argument of the \code{\link[terra:resample]{resample}} function.
+#' @return A resampled \code{\link[via:RasterArray-class]{RasterArray}}-class object.
+#' @param ... arguments passed to the \code{\link[terra:resample]{resample}} function.
 #' 
 #' @rdname resample
 #' @aliases resample,RasterArray-method
@@ -131,14 +131,14 @@ setMethod(
 	}
 )
 
-#' Crop a RasterArray object
+#' Crop a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{RasterStack} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
-#' @param x a \code{RasterArray} class object.
-#' @param y an xtent object, or any object from which an Extent object can be extracted (see Details)
+#' @param x a \code{\link[via:RasterArray-class]{RasterArray}} class object.
+#' @param y an \code{\link[via:ext]{SpatExtent}}-class object, or any object from which an extent object can be extracted (see Details)
 #' @param ... arguments passed to the \code{\link[terra]{crop}} function.
-#' @return A cropped \code{RasterArray} class object.
+#' @return A cropped \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' 
 #' @examples
 #' ex <- rastex()
@@ -168,15 +168,15 @@ setMethod(
 	}
 )
 
-#' Aggregate raster cells in a \code{\link[via:RasterArray-class]{RasterArray}} object
+#' Aggregate raster cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
 #' @param x a \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @param ... arguments passed to the \code{\link[terra]{aggregate}} function.
 #' 
 #' @exportMethod aggregate
-#' @return An aggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
+#' @return An aggregated \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @examples
 #' library(terra)
 #' ex <- rastex()
@@ -198,12 +198,12 @@ setMethod(
 	}
 )
 
-#' Disaggregate raster cells in a RasterArray object
+#' Disaggregate raster cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{RasterStack} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
-#' @param x a \code{RasterArray} class object.
-#' @return A disaggregated \code{RasterArray} class object.
+#' @param x a \code{\link[via:RasterArray-class]{RasterArray}} class object.
+#' @return A disaggregated \code{\link[via:RasterArray-class]{RasterArray}} class object.
 #' @param ... arguments passed to the \code{\link[terra]{disagg}} function.
 #' 
 #' @exportMethod disagg
@@ -229,11 +229,9 @@ setMethod(
 
 
 
-
-#' Projecting a RasterArray-class object
+#' Projecting a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #'
-#' Practically the same as terra::project
-#'
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class. See \code{\link[terra:project]{project}} for details.
 #' 
 #' @rdname project
 setMethod("project", "RasterArray", 

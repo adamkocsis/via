@@ -4,22 +4,22 @@
 \alias{resample}
 \alias{resample,RasterArray,ANY-method}
 \alias{resample,RasterArray-method}
-\title{Resampling}
+\title{Resampling a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{resample}{RasterArray,ANY}(x, y, ...)
 }
 \arguments{
-\item{x}{a \code{RasterArray} class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}}-class object.}
 
-\item{y}{The y argument of the \code{\link[terra]{resample}} function.}
+\item{y}{The y argument of the \code{\link[terra:resample]{resample}} function.}
 
-\item{...}{arguments passed to the \code{\link[terra]{resample}} function.}
+\item{...}{arguments passed to the \code{\link[terra:resample]{resample}} function.}
 }
 \value{
-A resampled \code{RasterArray} class object.
+A resampled \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{SpatRaster} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 ex <- rastex()

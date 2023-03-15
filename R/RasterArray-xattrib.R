@@ -10,11 +10,11 @@ setMethod(
 )
 
 
-#' Number of cells in a RasterArray object
+#' Number of cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object
 #' 
-#' The method is inherited from the \code{SpatRaster} class.
+#' The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 #' 
-#' @param x a \code{RasterArray} class object.
+#' @param x a \code{\link[via:RasterArray-class]{RasterArray}} class object.
 #' @rdname ncell
 #' @return A \code{numeric} value.
 #' @examples

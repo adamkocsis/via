@@ -4,7 +4,7 @@
 \name{XArray-class}
 \alias{XArray-class}
 \alias{XArray}
-\title{Virtual Array of general R objects}
+\title{Virtual array of general R objects}
 \arguments{
 \item{stack}{A \code{list}-class object.}
 
@@ -16,14 +16,15 @@
 An \code{XArray}-class object.
 }
 \description{
-Array template
+Template for construction of virtual arrays ('\code{VirtualArray}') and a derived class ('\code{XArray}') to instantiate it with general objects.
 }
 \details{
-The class implements structures to organize objects of the same class in multidimensional arrays. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+The '\code{VirtualArray}' class implements structures to organize objects of the same class in multidimensional arrays. Subsetting rules were defined using the proxy object in the \code{index} slot. The '\code{VirtualArray}' is the base class for '\code{XArray}' and '\code{\link[via:RasterArray-class]{RasterArray}}' classes.
+The '\code{XArray}' class derived from \code{VirtualArray} allows the instantiation of basic virtual arrays with genearl R objects, which form a single \code{list} in the \code{@stack slot}. The '\code{\link[via:SfArray-class]{SfArray}}' class is derived from the '\code{XArray}' class.
 
 The class has two slots:
-stack: A list containing objects of the same class (i.e. layers).
-index: A proxy object that represents the structure of the entities.
+\code{@stack}: A list containing objects of the same class (i.e. layers).
+\code{@index}: A proxy object that represents the structure of the entities.
 }
 \examples{
 # 2d XArray of vectors

@@ -2,7 +2,7 @@
 % Please edit documentation in R/VirtualArray-base.R
 \name{t,VirtualArray-method}
 \alias{t,VirtualArray-method}
-\title{Transpose a \code{\link[via:XArray-class]{VirtualArray}} object}
+\title{Transpose a '\code{\link[via:XArray-class]{VirtualArray}}'-class object}
 \usage{
 \S4method{t}{VirtualArray}(x)
 }
@@ -13,7 +13,7 @@
 A \code{\link[via:XArray-class]{VirtualArray}}-class object.
 }
 \description{
-Transpose a \code{\link[via:XArray-class]{VirtualArray}} object
+Transpose a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 }
 \examples{
 data(exemplar)

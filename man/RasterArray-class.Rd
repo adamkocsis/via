@@ -4,26 +4,26 @@
 \name{RasterArray-class}
 \alias{RasterArray-class}
 \alias{RasterArray}
-\title{Array of SpatRasters}
+\title{Array of '\code{\link[terra:rast]{SpatRaster}}'-class objects}
 \arguments{
-\item{stack}{A \code{SpatRaster} class object.}
+\item{stack}{A \code{\link[terra:rast]{SpatRaster}} object.}
 
 \item{index}{A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.}
 
 \item{dim}{A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.}
 }
 \value{
-A \code{RasterArray}-class object.
+A '\code{\link[via:RasterArray-class]{RasterArray}}'-class object.
 }
 \description{
 Array class for easier navigation of multilayer rasters
 }
 \details{
-The class implements structures to organize single-layer SpatRasters that have the same dimensions. Subsetting rules were defined using the proxy object in the \code{index} slot. See examples for implementations.
+The class implements structures to organize single-layer '\code{\link[terra:rast]{SpatRaster}}'-class objects that have the same dimensions and coordinate reference system. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations.
 
 The class has two slots:
-stack: A SpatRaster object with multiple layers, the actual data.
-index: A proxy object that represents the organization of the layers.
+\code{@stack}: A '\code{\link[terra:rast]{SpatRaster}}'-class object with multiple layers, the actual data.
+\code{index}: A proxy object that represents the organization of the layer in the array.
 }
 \examples{
 # example data

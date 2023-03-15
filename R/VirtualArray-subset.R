@@ -1,7 +1,6 @@
-
-#' Subset a \code{\link[via:XArray-class]{VirtualArray}}-class object
+#' Subset a '\code{\link[via:XArray-class]{VirtualArray}}'-class object
 #' 
-#' Extract subsets of an object from a class derived from \code{\link[via:XArray-class]{VirtualArray}} similarly to a regular array. 
+#' Extract subsets of an object from a class derived from '\code{\link[via:XArray-class]{VirtualArray}}' similarly to a regular array. 
 #' 
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
@@ -9,7 +8,7 @@
 #' @param ... subscript of additional dimensions.
 #' @param drop \code{logical} in case the result of subsetting is a single element, should the \\code{\link[via:XArray-class]{VirtualArray}} wrapper be dropped?
 #' @param oneDim \code{logical} In case of multidimensional \code{\link[via:XArray-class]{VirtualArray}}s, setting \code{oneDim} to \code{TRUE} allows the application of one dimensional subscripts.  
-#' @return Either the same class as \code{x}, or the class that forms the element of the \code{VirtualArray}.
+#' @return Either the same class as \code{x}, or the class that forms the element of the \code{\link[via:XArray-class]{VirtualArray}}.
 # combined
 #' @rdname subset
 #' @exportMethod subset
@@ -93,9 +92,9 @@ setMethod(
 )
 
 
-#' Indexing to extract subsets of a code{\link[via:XArray-class]{VirtualArray}}-class object
+#' Indexing to extract subsets of a 'code{\link[via:XArray-class]{VirtualArray}}'-class object
 #'
-#' Single bracket \code{'['} refers to indices and names within the \code{\link[via:XArray-class]{VirtualArray}} . Use double brackets to extract layers based on their names (in the stack).
+#' Single bracket \code{'['} refers to indices and names within the '\code{\link[via:XArray-class]{VirtualArray}}'-class object. Use double brackets to extract layers based on their names (in the \code{@stack}).
 #' 
 #' @param x An object from a \code{\link[via:XArray-class]{VirtualArray}}-derived class. 
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
@@ -146,14 +145,14 @@ setMethod(
 )
 
 
-#' Indexing to extract the elements of a \code{VirtualArray}-derived class object.
+#' Indexing to extract the elements of a '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.
 #'
-#' Double bracket \code{'[['} refers to elements'/layers' name in the \code{@stack} of the \code{VirtualArray}. Use single brackets to extract elements based on their position in the \code{\link[via:XArray-class]{VirtualArray}}.
+#' Double bracket \code{'[['} refers to elements'/layers' name in the \code{@stack} of the '\code{\link[via:XArray-class]{VirtualArray}}'-derived object. Use single brackets to extract elements based on their position in the '\code{\link[via:XArray-class]{VirtualArray}}'.
 #' 
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
-#' @param drop \code{logical} should the \code{VirtualArray} be dropped and the element be reduced to the element class?
-#' @return A \code{VirtualArray}-derived class object, or an object of the class that makes up the VirtualArray
+#' @param drop \code{logical} should the \code{\link[via:XArray-class]{VirtualArray}} be dropped and the element be reduced to the element class?
+#' @return A \code{\link[via:XArray-class]{VirtualArray}}-derived class object, or an object of the class that makes up the VirtualArray
 #' @rdname VirtualArray-double-bracket-method
 #' @aliases [[,VirtualArray-method
 #' @exportMethod "[["

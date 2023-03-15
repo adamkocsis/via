@@ -1,7 +1,8 @@
-#' Replace layers of an object of a class derived from a \code{\link[via:XArray-class]{VirtualArray}}.  
+#' Replace layers in an object that is of a class derived from '\code{\link[via:XArray-class]{VirtualArray}}'.  
+#'
 #' 
-#' Single bracket \code{'['} refers to indices and names within the \\code{\link[via:XArray-class]{VirtualArray}}. Use double brackets to replace layers based on their names (in the stack).
-#' Object types of the same kind \code{SpatRasters} can be used to replace values in \code{\link{RasterArray}}s. \code{sf} objects can be used with \code{\link{SfArray}}s.
+#' Single bracket \code{'['} refers to indices and names within the '\code{\link[via:XArray-class]{VirtualArray}}'-class object. Use double brackets to replace layers based on their names (in the \code{@stack}).
+#' Object types of the same kind class can be used to replace values in '\code{\link[via:XArray-class]{XArray}}'-class objects. '\code{\link[terra:rast]{SpatRaster}}'-class objects can be used to replace values in '\code{\link[via:RasterArray-class]{RasterArray}}'-class objects. Classes inheriting from '\code{\link[sf:sf]{sf}}' can be used with '\code{\link{SfArray}}'-class objects.
 #'
 #' @param x \code{\link[via:XArray-class]{VirtualArray}}-class object.
 #' @param i subscript of the first dimension(rows) or vector-like subsetting.
@@ -9,7 +10,7 @@
 #' @param ... subscript of additional dimensions.
 #' @param value A same class object as \code{x}.
 #' @aliases [<-,VirtualArray-method
-#' @return None.
+#' @return The function has no return value.
 #' @examples
 #' ex <- rastex() 
 #' # replace third element with missing value
@@ -222,14 +223,14 @@ VirtualArrayReplaceLayer <- function(x,i,j,value,...){
 }
 
 
-#' Replace elements of a \code{VirtualArray}-class objects.
+#' Replace elements of '\code{\link[via:XArray-class]{VirtualArray}}'-class objects.
 #'
-#' Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the \code{VirtualArray}. Use single brackets to replace elements based on their position in the \code{VirtualArray}.
+#' Double bracket \code{'[['} refers to layers' name in the names of the \code{@stack} member of the '\code{\link[via:XArray-class]{VirtualArray}}'. Use single brackets to replace elements based on their position in the '\code{\link[via:XArray-class]{VirtualArray}}'-class object.
 #' 
 #' @param x Object from a class derived from \code{\link[via:XArray-class]{VirtualArray}}.
 #' @param i subscript of layers to replace.
 #' @param value \code{character} vector.
-#' @return None.
+#' @return The function has no return value.
 #' 
 #' @aliases [[<-,VirtualArray-method
 #' @aliases [[<-,VirtualArray,ANY,ANY-method

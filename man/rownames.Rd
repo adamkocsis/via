@@ -3,7 +3,7 @@
 \name{rownames,VirtualArray-method}
 \alias{rownames,VirtualArray-method}
 \alias{rownames<-,VirtualArray-method}
-\title{Row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class objects.}
+\title{Row names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class objects.}
 \usage{
 \S4method{rownames}{VirtualArray}(x)
 
@@ -18,7 +18,7 @@
 A \code{character} vector of row names or \code{NULL}.
 }
 \description{
-Get or set the row names of two-dimensional \code{\link[via:XArray-class]{VirtualArray}}-derived class object
+Get or set the row names of two-dimensional '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object
 }
 \examples{
 data(paleocoastlines)

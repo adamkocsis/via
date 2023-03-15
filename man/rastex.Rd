@@ -2,12 +2,15 @@
 % Please edit documentation in R/data.R
 \name{rastex}
 \alias{rastex}
-\title{Procedural example structures to demonstrate the capabilities of the RasterArray-class}
+\title{Procedural example structure to demonstrate the capabilities of the '\code{\link[via:RasterArray-class]{RasterArray}}' class}
 \usage{
 rastex()
 }
+\value{
+A two-dimensional \code{\link[via:RasterArray-class]{RasterArray}}-class object, with three rows and four columns.
+}
 \description{
-Procedural example structures to demonstrate the capabilities of the RasterArray-class
+Binary versions of \code{\link[terra:rast]{SpatRaster}}-class objects are problematic, this function is used to instantiate a \code{\link[via:RasterArray-class]{RasterArray}} example.
 }
 \examples{
 # create example

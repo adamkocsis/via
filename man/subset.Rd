@@ -2,7 +2,7 @@
 % Please edit documentation in R/VirtualArray-subset.R
 \name{subset,VirtualArray-method}
 \alias{subset,VirtualArray-method}
-\title{Subset a \code{\link[via:XArray-class]{VirtualArray}}-class object}
+\title{Subset a '\code{\link[via:XArray-class]{VirtualArray}}'-class object}
 \usage{
 \S4method{subset}{VirtualArray}(x, i, j, ..., oneDim = FALSE, drop = TRUE)
 }
@@ -20,10 +20,10 @@
 \item{drop}{\code{logical} in case the result of subsetting is a single element, should the \\code{\link[via:XArray-class]{VirtualArray}} wrapper be dropped?}
 }
 \value{
-Either the same class as \code{x}, or the class that forms the element of the \code{VirtualArray}.
+Either the same class as \code{x}, or the class that forms the element of the \code{\link[via:XArray-class]{VirtualArray}}.
 }
 \description{
-Extract subsets of an object from a class derived from \code{\link[via:XArray-class]{VirtualArray}} similarly to a regular array.
+Extract subsets of an object from a class derived from '\code{\link[via:XArray-class]{VirtualArray}}' similarly to a regular array.
 }
 \examples{
 ex <- rastex()

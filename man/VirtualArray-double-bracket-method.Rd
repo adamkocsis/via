@@ -3,7 +3,7 @@
 \name{[[,VirtualArray,ANY,ANY-method}
 \alias{[[,VirtualArray,ANY,ANY-method}
 \alias{[[,VirtualArray-method}
-\title{Indexing to extract the elements of a \code{VirtualArray}-derived class object.}
+\title{Indexing to extract the elements of a '\code{\link[via:XArray-class]{VirtualArray}}'-derived class object.}
 \usage{
 \S4method{[[}{VirtualArray,ANY,ANY}(x, i, drop = TRUE)
 }
@@ -12,13 +12,13 @@
 
 \item{i}{subscript of the first dimension(rows) or vector-like subsetting.}
 
-\item{drop}{\code{logical} should the \code{VirtualArray} be dropped and the element be reduced to the element class?}
+\item{drop}{\code{logical} should the \code{\link[via:XArray-class]{VirtualArray}} be dropped and the element be reduced to the element class?}
 }
 \value{
-A \code{VirtualArray}-derived class object, or an object of the class that makes up the VirtualArray
+A \code{\link[via:XArray-class]{VirtualArray}}-derived class object, or an object of the class that makes up the VirtualArray
 }
 \description{
-Double bracket \code{'[['} refers to elements'/layers' name in the \code{@stack} of the \code{VirtualArray}. Use single brackets to extract elements based on their position in the \code{\link[via:XArray-class]{VirtualArray}}.
+Double bracket \code{'[['} refers to elements'/layers' name in the \code{@stack} of the '\code{\link[via:XArray-class]{VirtualArray}}'-derived object. Use single brackets to extract elements based on their position in the '\code{\link[via:XArray-class]{VirtualArray}}'.
 }
 \examples{
 data(exemplar)

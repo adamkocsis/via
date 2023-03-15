@@ -3,18 +3,18 @@
 \name{ncell}
 \alias{ncell}
 \alias{ncell,RasterArray-method}
-\title{Number of cells in a RasterArray object}
+\title{Number of cells in a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{ncell}{RasterArray}(x)
 }
 \arguments{
-\item{x}{a \code{RasterArray} class object.}
+\item{x}{a \code{\link[via:RasterArray-class]{RasterArray}} class object.}
 }
 \value{
 A \code{numeric} value.
 }
 \description{
-The method is inherited from the \code{SpatRaster} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 ex <- rastex()

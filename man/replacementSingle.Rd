@@ -6,7 +6,7 @@
 \alias{[<-,VirtualArray-method}
 \alias{[<-,RasterArray,ANY,ANY,SpatRaster-method}
 \alias{[<-,SfArray,ANY,ANY,sf-method}
-\title{Replace layers of an object of a class derived from a \code{\link[via:XArray-class]{VirtualArray}}.}
+\title{Replace layers in an object that is of a class derived from '\code{\link[via:XArray-class]{VirtualArray}}'.}
 \usage{
 \S4method{[}{VirtualArray,ANY,ANY,logical}(x, i, j, ...) <- value
 
@@ -26,11 +26,11 @@
 \item{value}{A same class object as \code{x}.}
 }
 \value{
-None.
+The function has no return value.
 }
 \description{
-Single bracket \code{'['} refers to indices and names within the \\code{\link[via:XArray-class]{VirtualArray}}. Use double brackets to replace layers based on their names (in the stack).
-Object types of the same kind \code{SpatRasters} can be used to replace values in \code{\link{RasterArray}}s. \code{sf} objects can be used with \code{\link{SfArray}}s.
+Single bracket \code{'['} refers to indices and names within the '\code{\link[via:XArray-class]{VirtualArray}}'-class object. Use double brackets to replace layers based on their names (in the \code{@stack}).
+Object types of the same kind class can be used to replace values in '\code{\link[via:XArray-class]{XArray}}'-class objects. '\code{\link[terra:rast]{SpatRaster}}'-class objects can be used to replace values in '\code{\link[via:RasterArray-class]{RasterArray}}'-class objects. Classes inheriting from '\code{\link[sf:sf]{sf}}' can be used with '\code{\link{SfArray}}'-class objects.
 }
 \examples{
 ex <- rastex() 

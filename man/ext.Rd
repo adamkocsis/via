@@ -3,7 +3,7 @@
 \name{ext}
 \alias{ext}
 \alias{ext,RasterArray-method}
-\title{Extent of a \code{\link[via:RasterArray-class]{RasterArray}} object}
+\title{Extent of a '\code{\link[via:RasterArray-class]{RasterArray}}'-class object}
 \usage{
 \S4method{ext}{RasterArray}(x, ...)
 }
@@ -16,7 +16,7 @@
 An aggregated \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 }
 \description{
-The method is inherited from the \code{\link[terra:rast]{SpatRaster}} class.
+The method is inherited from the '\code{\link[terra:rast]{SpatRaster}}' class.
 }
 \examples{
 ex <- rastex()
