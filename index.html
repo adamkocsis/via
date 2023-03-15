@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="The base class VirtualArray is defined, which acts as a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.">
-<title>Virtual Arrays for R • via</title>
+<meta name="description" content="The base class VirtualArray is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.">
+<title>Virtual Arrays  • via</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -18,8 +18,8 @@
 <script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Buenard-0.4.0/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Virtual Arrays for R">
-<meta property="og:description" content="The base class VirtualArray is defined, which acts as a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Virtual Arrays ">
+<meta property="og:description" content="The base class VirtualArray is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.">
 <meta property="og:image" content="https://adamkocsis.github.io/via/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -87,14 +87,17 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="via-virtual-arrays-for-r-">via: Virtual Arrays for R <a class="anchor" aria-label="anchor" href="#via-virtual-arrays-for-r-"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="via-virtual-arrays-">via: Virtual Arrays <a class="anchor" aria-label="anchor" href="#via-virtual-arrays-"></a>
 </h1>
 </div>
+<p>The curse of dimensionality is a blessing in disguise. Although multi-dimensional arrays in R are restricted to the six basic types, many programming languages vectors and arrays as a template, which means that you can make such compound objects from any type of object that you like.</p>
+<p>This becomes especially handy when it comes to organisation of high-dimensional, spatial data.</p>
+<p>Array-subsetting, especially using character subscripts, makes</p>
 <div class="section level2">
-<h2 id="about">About<a class="anchor" aria-label="anchor" href="#about"></a>
+<h2 id="the-package">The package<a class="anchor" aria-label="anchor" href="#the-package"></a>
 </h2>
-<p>The package defines the base class VirtualArray, a wrapper around lists that allow users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived VirtualArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.</p>
-<div class="alert alert-danger" data-role="alert"><p>This is a test site!!</p></div>
+<p>The base class VirtualArray is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.</p>
+<div class="alert alert-danger" data-role="alert"><p>The package is still under intense development!</p></div>
 <hr>
 </div>
 <div class="section level2">
@@ -106,13 +109,13 @@
 <p>The functions here were originally developed and published as part of the <a href="https://cran.r-project.org/package=chronosphere" class="external-link">chronosphere</a> R package. For better compliance with <a href="https://en.wikipedia.org/wiki/Unix_philosophy" class="external-link">UNIX philosophy</a> and more efficient distribution/development, the original chronosphere has been broken up to three R packages:</p>
 <ul>
 <li>
-<code>rgplates</code>: functions related to tectonic reconstructions.</li>
+<a href="https://adamkocsis.github.io/rgplates/" class="external-link"><code>rgplates</code></a>: functions related to tectonic reconstructions.</li>
 <li>
-<code>via</code>: Virtual Arrays for efficient organisation of high-dimenional data.</li>
+<a href="https://adamkocsis.github.io/via/"><code>via</code></a>: Virtual Arrays for efficient organisation of high-dimenional data.</li>
 <li>
 <code>chronosphere</code>: version-controlled data distribution.</li>
 </ul>
-<p>This is a beta version, and like R, comes with absolutely no warranty.</p>
+<p>This is a pre-alpha version, and like R, comes with absolutely no warranty.</p>
 </div>
 </div>
 </div>
