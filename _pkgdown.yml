@@ -4,7 +4,8 @@ template:
   bootswatch: cosmo 
   bslib:
 #    primary: "#578734"
-    primary: "#d3a341"
+#    primary: "#d3a341"
+    primary: "#e8bc62"
     heading_font: {google: "Buenard"}
 navbar:
   structure:
