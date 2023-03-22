@@ -3,7 +3,8 @@ template:
   bootstrap: 5
   bootswatch: cosmo 
   bslib:
-    primary: "#578734"
+#    primary: "#578734"
+    primary: "#d3a341"
     heading_font: {google: "Buenard"}
 navbar:
   structure:

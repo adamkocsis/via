@@ -10,12 +10,16 @@ library(badger)
 
 # via: Virtual Arrays <img src="man/figures/logo.png" align="right" />
 
+`r badge_devel("adamkocsis/via", "green")`
+`r badge_cran_release("via", "blue")`
+`r badge_cran_download("via", "grand-total", "yellow")`
+`r badge_cran_checks("via")`
+
 
 The curse of dimensionality is a blessing in disguise. Although multi-dimensional arrays in R are restricted to the six basic types, many programming languages vectors and arrays as a template, which means that you can make such compound objects from any type of object that you like. 
 
 This becomes especially handy when it comes to organisation of high-dimensional, spatial data. 
 
-Array-subsetting, especially using character subscripts, makes  
 
 
 ## The package
@@ -38,5 +42,5 @@ The functions here were originally developed and published as part of the [chron
 - [`via`](https://adamkocsis.github.io/via/): Virtual Arrays for efficient organisation of high-dimenional data.
 - `chronosphere`: version-controlled data distribution.
 
-This is a beta version, and like R, comes with absolutely no warranty.
+This is a pre-alpha version, and like R, comes with absolutely no warranty.
 

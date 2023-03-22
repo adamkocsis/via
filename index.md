@@ -1,6 +1,12 @@
 
 # via: Virtual Arrays <img src="man/figures/logo.png" align="right" />
 
+[![](https://img.shields.io/badge/devel%20version-0.1.0-green.svg)](https://github.com/adamkocsis/via)
+[![](https://www.r-pkg.org/badges/version/via?color=blue)](https://cran.r-project.org/package=via)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/via?color=yellow)](https://cran.r-project.org/package=via)
+[![CRAN
+checks](https://badges.cranchecks.info/summary/via.svg)](https://cran.r-project.org/web/checks/check_results_via.html)
+
 The curse of dimensionality is a blessing in disguise. Although
 multi-dimensional arrays in R are restricted to the six basic types,
 many programming languages vectors and arrays as a template, which means
@@ -9,8 +15,6 @@ like.
 
 This becomes especially handy when it comes to organisation of
 high-dimensional, spatial data.
-
-Array-subsetting, especially using character subscripts, makes
 
 ## The package
 
@@ -46,4 +50,5 @@ broken up to three R packages:
     efficient organisation of high-dimenional data.
   - `chronosphere`: version-controlled data distribution.
 
-This is a beta version, and like R, comes with absolutely no warranty.
+This is a pre-alpha version, and like R, comes with absolutely no
+warranty.
