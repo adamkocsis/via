@@ -1,59 +1,37 @@
 # build from existing stack with existing index, or dimensions
-#' @export XArray
-setMethod("initialize",signature="XArray",
+#' @export SfcArray
+setMethod("initialize",signature="SfcArray",
 	definition=function(.Object,stack, index=NULL, dim=NULL){
-		# some defense for index
-		if(is.null(index)){
-			index <- 1:length(stack)
-		}
+		# defend for the presence of sp
+		if(!requireNamespace("sf", quietly=TRUE)){
+			stop("This function requires the sf package.")
+		}	
+		# execute everything from the XArray constructor
+		ga <- XArray(stack=stack, index=index, dim=dim)
 
-		# check whether the stack has the same types
-		if(!inherits(stack,"list")) stop("The 'stack' has to be a 'list' - class object.")
-#		if(length(unique(lapply(stack, class)))!=1) stop("The 'stack' can only contain a single class of items.")
+		# get the crs
+		firstCRS <- sf::st_crs(ga@stack[[1]])
 	
-		if(is.null(dim)){ 
-			if(!is.numeric(index)) stop("The 'index' has to be a 'numeric' object.")
-			
-
-			# where were supposed to be NAs
-			bNA <- is.na(index)
-
-			if(any(index[!bNA]%%1!=0) | any(index[!bNA]<1)) stop("The 'index' has to contain positive integer values.")
-			
-			# the number of valid entries mismatch the number of layers
-			if(sum(!bNA)!=length(stack)) stop("You have to provide as many layers as many valid entries in index.")
-
-			# reorder the stack
-			noNAInd <- index[!bNA]
-			newStack <- stack[noNAInd]
-
-			# force index to be monotonous integer sequence
-			newIndex <- index
-			newIndex[] <- NA
-			newIndex[!bNA] <- 1:length(stack)
-
-			# store final object
-			.Object@index <- newIndex
-			.Object@stack <- newStack
-			
-		}else{
-			if(!is.numeric(dim)) stop("The 'dim' argument has to be a 'numeric' vector.")
-			if(length(stack)!=prod(dim, na.rm=TRUE)) warning("The number of layers in the does not equal the product of the 'dim' vector.")
-			.Object@stack<- stack
-			index <- array(1:length(stack), dim=dim)
-			# in case of reuse
-			index[duplicated(as.numeric(index))] <- NA
-			.Object@index<- index
-			
-			
+		# and then test the entities for the class
+		for(i in 1:nlayers(ga@stack)){
+			x <- ga@stack[[i]]
+			# check for class
+			if(!inherits(x, "sfc")) stop("At least one element is not an sfc object")
+			if(sf::st_crs(x)!=firstCRS) stop("Mismatching CRS.")
 		}
+
+		# if everything goes well, all is fine! 
+		.Object@stack <- ga@stack
+		.Object@index <- ga@index
+
+	
 		return(.Object)
 	}
 )
 
 setMethod(
 	"show",
-	signature="XArray", 
+	signature="SfcArray", 
 	function (object) 
 	{
 	    cat("class         :", class(object), "\n")
@@ -69,6 +47,7 @@ setMethod(
 	    if (nl > 0) {
 	   		cat("Element properties: \n")
 			cat("- class       : ", class(object@stack[[1]]), "\n")
+			cat("- geodetic CRS: ", format(sf::st_crs(object@stack[[1]])), "\n")
 
   			cat("Array properties: \n")
   			adim <- dim(object)

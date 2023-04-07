@@ -1,5 +1,10 @@
 # Change log of the R package 'via'
 
+# via 0.2.0. (Junky Jackal) 
+### Added 
+- Class: SfcArray between the inheritance order of XArray -> SfArray, to allow geometry-only arrays
+
+
 # via 0.1.0. (Initial Ibex) - 2023-03-15
 ### Added 
 - Classes: XArray, SfArray, RasterArray

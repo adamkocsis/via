@@ -27,9 +27,11 @@ Collate:
 	RasterArray-replace.R
 	RasterArray-combine.R
 	RasterArray-rast.R
+    SfcArray-base.R
+	SfcArray-replace.R
+	SfcArray-sf.R
     SfArray-base.R
 	SfArray-replace.R
-	SfArray-sf.R
 Maintainer: Adam T. Kocsis <adam.t.kocsis@gmail.com>
 Description: The base class 'VirtualArray' is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived 'XArray' class is defined to be used for homogeneous lists that contain a single class of objects. The 'RasterArray' and 'SfArray' classes enable the use of stacked spatial data instead of lists.
 License: CC BY 4.0

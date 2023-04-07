@@ -73,6 +73,8 @@ RasterArray <- setClass("RasterArray", contains="VirtualArray")
 #' @param index A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.
 #' @param dim A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.
 #' @return An '\code{\link[via:SfArray-class]{SfArray}}'-class object.
+#' @name SfcArray
+#' @rdname SfArray-class
 #' @examples
 #' # example data
 #'   library(sf) 
@@ -83,8 +85,16 @@ RasterArray <- setClass("RasterArray", contains="VirtualArray")
 #'   dimnames(ind) <- list(age=c(0, 10, 20), c("margin", "coastlines"))
 #'   sa<- SfArray(stack=st, index=ind)
 #'   
-#' @exportClass RasterArray
-SfArray <- setClass("SfArray", contains="XArray")
+#' @exportClass SfcArray
+SfcArray <- setClass("SfcArray", contains="XArray")
+
+
+
+
+#' @name SfArray
+#' @rdname SfArray-class
+#' @exportClass SfcArray
+SfArray <- setClass("SfArray", contains="SfcArray")
 
 
 

@@ -1,7 +1,7 @@
 #' @rdname st_crs
-#' @method st_crs SfArray
+#' @method st_crs SfcArray
 #' @export 
-st_crs.SfArray <- function(x,...){
+st_crs.SfcArray <- function(x,...){
 	# CRS should be the same in the entire stack
 	if(!requireNamespace("sf", quietly=TRUE)) stop("This function requires the 'sf' package to run.")
 	crs <- sf::st_crs(x@stack[[1]],...)
@@ -10,9 +10,9 @@ st_crs.SfArray <- function(x,...){
 }
 
 #' @rdname st_transform
-#' @method st_transform SfArray
+#' @method st_transform SfcArray
 #' @export 
-st_transform.SfArray <- function(x,...){
+st_transform.SfcArray <- function(x,...){
 	# CRS should be the same in the entire stack
 	if(!requireNamespace("sf", quietly=TRUE)) stop("This function requires the 'sf' package to run.")
 	for(i in 1:length(x@stack)){
@@ -22,9 +22,9 @@ st_transform.SfArray <- function(x,...){
 }
 
 #' @rdname st_bbox
-#' @method st_bbox SfArray
+#' @method st_bbox SfcArray
 #' @export 
-st_bbox.SfArray <- function(x,...){
+st_bbox.SfcArray <- function(x,...){
 	# CRS should be the same in the entire stack
 	if(!requireNamespace("sf", quietly=TRUE)) stop("This function requires the 'sf' package to run.")
 	m <- NULL
