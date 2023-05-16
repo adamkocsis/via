@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="via">
-<title>VirtualArray basics. XArray. • via</title>
+<title>1. Installation • via</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -14,12 +14,12 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><link href="../deps/Buenard-0.4.2/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Buenard-0.4.6/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="VirtualArray basics. XArray.">
+<meta property="og:title" content="1. Installation">
 <meta property="og:description" content="via">
 <meta property="og:image" content="https://adamkocsis.github.io/via/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -35,7 +35,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">via</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,14 +44,10 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item dropdown">
+<li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-tutorials">Tutorials</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-tutorials">
-    <a class="dropdown-item" href="../404.html">1. Installation</a>
-    <a class="dropdown-item" href="../404.html">2. XArrays</a>
-    <a class="dropdown-item" href="../404.html">3. RasterArrays</a>
-    <a class="dropdown-item" href="../404.html">4. SfArrays</a>
-    <a class="dropdown-item" href="../404.html">5. The iterating function via</a>
+    <a class="dropdown-item" href="../articles/1_installation.html">1. Installation</a>
   </div>
 </li>
 <li class="nav-item">
@@ -90,10 +86,10 @@
 
 <script src="1_installation_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>VirtualArray basics. XArray.</h1>
-                        <h4 data-toc-skip class="author">Adam T. Kocsis, Nussaïbah B. Raja</h4>
+      <img src="../logo.png" class="logo" alt=""><h1>1. Installation</h1>
+                        <h4 data-toc-skip class="author">Adam T. Kocsis</h4>
             
-            <h4 data-toc-skip class="date">2023-03-22</h4>
+            <h4 data-toc-skip class="date">2023-05-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/adamkocsis/via/blob/HEAD/vignettes/1_installation.Rmd" class="external-link"><code>vignettes/1_installation.Rmd</code></a></small>
       <div class="d-none name"><code>1_installation.Rmd</code></div>
@@ -102,63 +98,33 @@
     
     
 <div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<h2 id="stable-version-from-the-cran">Stable version from the CRAN<a class="anchor" aria-label="anchor" href="#stable-version-from-the-cran"></a>
 </h2>
-<div class="section level3">
-<h3 id="classes">Classes<a class="anchor" aria-label="anchor" href="#classes"></a>
-</h3>
+<p>The stable version of the package is available on <a href="https://cran.r-project.org/package=via" class="external-link">CRAN servers</a>, which means that you can install it with the regular <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code> function.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"via"</span><span class="op">)</span></span></code></pre></div>
+<p>If for some reason, the installlation from CRAN fails, you might need to look into alternative methods.</p>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="alternative-methods">Alternative methods<a class="anchor" aria-label="anchor" href="#alternative-methods"></a>
+</h2>
+<div class="section level4">
+<h4 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
+</h4>
+<p>If you encounter technical problems with the package that are not described anywhere, you might want to take a look at the <a href="https://github.com/adamkocsis/via/tree/devel" class="external-link">development version</a>.</p>
+<p>If you wish to install the development version, I recommend a manual installation:<br>
+1. Clone the repository to your local hard drive.<br>
+2. Open a terminal and navigate to the directory where you cloned. The <code>via</code> directory should be visible from there.<br>
+3. Run this line in the terminal</p>
+<pre><code>R CMD INSTALL via </code></pre>
 <ul>
-<li>VirtualArray</li>
-<li>XArray</li>
-<li>RasterArray</li>
-<li>SfArray</li>
+<li>
+<em>If you see an error suggesting that <code>R</code> is not found, you have to add it to your <code>PATH</code> environmental variable.</em><br>
+</li>
+<li><em>If the R packages that <code>via</code> depend on are not installed, you have to install them manually, or you will get an error.</em></li>
 </ul>
 </div>
-<div class="section level3">
-<h3 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
-</h3>
-</div>
-</div>
-<div class="section level2">
-<h2 id="xarray">XArray<a class="anchor" aria-label="anchor" href="#xarray"></a>
-</h2>
-<div class="section level3">
-<h3 id="attributes-and-properties">Attributes and properties<a class="anchor" aria-label="anchor" href="#attributes-and-properties"></a>
-</h3>
-<ul>
-<li>dim</li>
-<li>names</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="subsetting-and-replacements">Subsetting and replacements<a class="anchor" aria-label="anchor" href="#subsetting-and-replacements"></a>
-</h3>
-</div>
-</div>
-<div class="section level2">
-<h2 id="creating-xarrays">Creating XArrays<a class="anchor" aria-label="anchor" href="#creating-xarrays"></a>
-</h2>
-<div class="section level3">
-<h3 id="folding">Folding<a class="anchor" aria-label="anchor" href="#folding"></a>
-</h3>
-</div>
-<div class="section level3">
-<h3 id="propagation">Propagation<a class="anchor" aria-label="anchor" href="#propagation"></a>
-</h3>
-<ul>
-<li>c()</li>
-<li>cbind()</li>
-<li>rbind()</li>
-</ul>
-</div>
-</div>
-<div class="section level2">
-<h2 id="xarray-1">XArray<a class="anchor" aria-label="anchor" href="#xarray-1"></a>
-</h2>
-</div>
-<div class="section level2">
-<h2 id="internal-structures">Internal structures<a class="anchor" aria-label="anchor" href="#internal-structures"></a>
-</h2>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
