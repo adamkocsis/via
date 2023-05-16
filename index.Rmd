@@ -24,11 +24,7 @@ This becomes especially handy when it comes to organisation of high-dimensional,
 
 ## The package
 
-The base class VirtualArray is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived XArray class is defined to be used for homogeneous lists that contain a single class of objects. The RasterArray and SfArray classes enable the use of stacked spatial data instead of lists.
-
-<div class="alert alert-danger" role="alert">
-  The package is still under intense development!
-</div>
+The base class `VirtualArray` is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into *n*-dimensional, R-style virtual arrays. The derived `XArray` class is defined to be used for homogeneous lists that contain a single class of objects. The `RasterArray`, `SfcArray` and `SfArray` classes enable the use of stacked spatial data instead of lists.
 
 * * *
 

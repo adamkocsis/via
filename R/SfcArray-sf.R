@@ -24,14 +24,14 @@ st_transform.SfcArray <- function(x,...){
 #' @rdname st_bbox
 #' @method st_bbox SfcArray
 #' @export 
-st_bbox.SfcArray <- function(x,...){
+st_bbox.SfcArray <- function(obj,...){
 	# CRS should be the same in the entire stack
 	if(!requireNamespace("sf", quietly=TRUE)) stop("This function requires the 'sf' package to run.")
 	m <- NULL
-	for(i in 1:length(x@stack)){
-		m<- rbind(m, sf::st_bbox(x@stack[[i]]))
+	for(i in 1:length(obj@stack)){
+		m<- rbind(m, sf::st_bbox(obj@stack[[i]]))
 	}
-	final <- sf::st_bbox(x@stack[[1]])
+	final <- sf::st_bbox(obj@stack[[1]])
 	final["xmin"] <- min(m[,"xmin"])
 	final["ymin"] <- min(m[,"ymin"])
 	final["xmax"] <- max(m[,"xmax"])

@@ -9,5 +9,8 @@ Virtual Arrays for efficient organisation of high-dimenional data.
 
 ## Stable version
 
-The package is about to be subitted to the CRAN. Until then, use the
-development version.
+The current version of the package is available from the CRAN servers:
+
+``` r
+install.packages("via")
+```

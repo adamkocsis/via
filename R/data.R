@@ -4,7 +4,7 @@
 #'
 #' This is version v7. The article describing the entire set is under review. Once that is published, the entire dataset will be available.
 #'
-#' @format A \code{\link[via:SfArray-class]{SfArray}} with 3 continental margin and 3 paleocoastline layers (3 rows and 2 columns).
+#' @format A \code{\link[via:SfcArray-class]{SfcArray}} with 3 continental margin and 3 paleocoastline layers (3 rows and 2 columns).
 #' @source 
 #' Kocsis, A. T., & Scotese, C. R. (2020). PaleoMAP PaleoCoastlines data [Data set]. Zenodo. https://doi.org/10.5281/zenodo.3903164
 #' @usage data(paleocoastlines)

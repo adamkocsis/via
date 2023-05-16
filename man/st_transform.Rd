@@ -10,7 +10,7 @@
 \arguments{
 \item{x}{a \code{\link[sf:sf]{sf}}-class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
+\item{...}{arguments passed to the \code{\link[sf]{st_transform}} function.}
 }
 \value{
 An \code{\link[via:RasterArray-class]{RasterArray}}-class object.
@@ -21,6 +21,6 @@ The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 \examples{
 data(paleocoastlines)
 moll<- st_transform(paleocoastlines, "ESRI:54009")
-plot(moll["20", "margin"]$geometry, col="cyan")
-plot(moll["20", "coastline"]$geometry, add=TRUE, col="brown")
+plot(moll["20", "margin"], col="cyan")
+plot(moll["20", "coast"], add=TRUE, col="brown")
 }

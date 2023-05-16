@@ -59,7 +59,7 @@ generator <- function(n, crs=4326){
 		res <- c(res, li[[i]])
 	}
 	st_crs(res) <- 4326
-	final <- st_sf(data.frame(a=1:n), geom=res)
+	final <- st_sf(data.frame(a=1:n), geometry=res)
 	return(final)
 }
 

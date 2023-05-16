@@ -63,17 +63,16 @@ RasterArray <- setClass("RasterArray", contains="VirtualArray")
 #' 
 #' Array class for easier navigation of vector spatial datasets 
 #' 
-#' The class implements structures to organize entire '\code{\link[sf:sf]{sf}}' objects that share coordinate reference systesm. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations. The class is derived from the '\code{\link[via:XArray-class]{XArray}}' class.
+#' The class implements structures to organize entire '\code{\link[sf:sfc]{sfc}}' and '\code{\link[sf:sf]{sf}}' objects that share coordinate reference systems. The 'SfcArray' class is derived from '\code{\link[via:XArray-class]{XArray}}' and represents arrays of geometry sets. The '\code{SfArray}' class is derived from '\code{SfArray}', that allows the wrapping of '\code{\link[sf:sf]{sf}}' objects with attributes. Subsetting rules were defined using the proxy object in the \code{@index} slot. See examples for implementations. 
 #' 
-#' The class has two slots:
+#' The classes have two slots:
 #' \code{@stack}: A \code{list} object with multiple '\code{\link[sf:sf]{sf}}' class layers, the actual data.
 #' \code{@index}: A proxy object that represents the organization of the layers. 
 #' 
-#' @param stack A \code{list} of \code{sf}-class objects.
+#' @param stack A \code{list} of \code{sf}-class objects or \code{sfc}-class objects.
 #' @param index A \code{vector}, \code{matrix} or \code{array} type object. Includes either the indices of layers in the stack, or their names.
 #' @param dim A \code{numeric} vector. Same as for \code{array}, creates \code{proxy} procedurally.
-#' @return An '\code{\link[via:SfArray-class]{SfArray}}'-class object.
-#' @name SfcArray
+#' @return An '\code{\link[via:SfArray-class]{SfcArray}}' or '\code{\link[via:SfArray-class]{SfArray}}'-class object.
 #' @rdname SfArray-class
 #' @examples
 #' # example data
@@ -83,7 +82,7 @@ RasterArray <- setClass("RasterArray", contains="VirtualArray")
 #'   ind <- 1:nlayers(st)
 #'   dim(ind) <- c(3,2)
 #'   dimnames(ind) <- list(age=c(0, 10, 20), c("margin", "coastlines"))
-#'   sa<- SfArray(stack=st, index=ind)
+#'   sa<- SfcArray(stack=st, index=ind)
 #'   
 #' @exportClass SfcArray
 SfcArray <- setClass("SfcArray", contains="XArray")
@@ -92,8 +91,9 @@ SfcArray <- setClass("SfcArray", contains="XArray")
 
 
 #' @name SfArray
+#' @aliases SfArray-class 
 #' @rdname SfArray-class
-#' @exportClass SfcArray
+#' @exportClass SfArray
 SfArray <- setClass("SfArray", contains="SfcArray")
 
 

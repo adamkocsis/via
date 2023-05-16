@@ -5,6 +5,8 @@ source("./SfArray_objects.R")
 
 ###################################
 # Informal draft testing
+##### Produced bugs with SfArray!!!
+ga1d <- as.SfcArray(ga1d)
 
 
 # replacement

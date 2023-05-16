@@ -1,10 +1,10 @@
 ---
-title: "VirtualArray basics. XArray."
-author: "Adam T. Kocsis, Nussaïbah B. Raja"
+title: "1. Installation"
+author: "Adam T. Kocsis"
 date: '`r Sys.Date()`'
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{VirtualArray basics. XArray.}
+  %\VignetteIndexEntry{1. Installation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,34 +14,35 @@ knitr::opts_chunk$set(echo = TRUE)
 library(via)
 ```
 
-# Introduction
 
-## Classes
-- VirtualArray
-- XArray
-- RasterArray
-- SfArray
+## Stable version from the CRAN
 
-## Example data
+The stable version of the package is available on [CRAN servers](https://cran.r-project.org/package=via), which means that you can install it with the regular `install.packages()` function.
 
-# XArray
+```{r cran, eval=FALSE}
+install.packages("via")
+```
 
-## Attributes and properties
-- dim
-- names
+If for some reason, the installlation from CRAN fails, you might need to look into alternative methods.
 
-## Subsetting and replacements
 
-# Creating XArrays
+* * * 
 
-## Folding
+## Alternative methods
 
-## Propagation
+#### Development version
 
-- c()
-- cbind()
-- rbind()
+If you encounter technical problems with the package that are not described anywhere, you might want to take a look at the [development version](https://github.com/adamkocsis/via/tree/devel).
 
-# XArray 
+If you wish to install the development version, I recommend a manual installation:  
+1. Clone the repository to your local hard drive.  
+2. Open a terminal and navigate to the directory where you cloned. The `via` directory should be visible from there.  
+3. Run this line in the terminal  
 
-# Internal structures
+```
+R CMD INSTALL via 
+```
+
+- *If you see an error suggesting that `R` is not found, you have to add it to your `PATH` environmental variable.*  
+- *If the R packages that `via` depend on are not installed, you have to install them manually, or you will get an error.*
+

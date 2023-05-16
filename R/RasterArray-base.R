@@ -109,7 +109,9 @@ setMethod(
 			cat("- missing     : ", sum(is.na(object@index)), "\n", 
 				sep = "")
 		    cat("- proxy:\n ")
-		    print(proxy(object))
+			theProx <- proxy(object)
+			theProx[] <- abbrev(theProx)
+			print(theProx)
 		   
 	    } else {
 	        cat("nlayers       :", nl, "\n")
@@ -117,7 +119,9 @@ setMethod(
 				cat("- missing     : ", sum(is.na(object@index)), "\n", 
 					sep = "")
 				cat("- proxy:\n ")
-				print(proxy(object))
+				theProx <- proxy(object)
+				theProx[] <- abbrev(theProx)
+				print(theProx)
 			}
 	    } 
 	    cat("\n")

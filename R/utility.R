@@ -122,3 +122,54 @@ setMethod(
 	return(dims[3])
 	}
 )
+
+# function to check the classes of the stack candidate list
+classcheck <- function(x){
+	# the very first
+	first <- class(x[[1]])
+
+	# treat different sfcs as the same...
+	first[first=="sfc_MULTIPOLYGON"] <- "sfc_POLYGON"
+
+	# default result
+	pass <- TRUE 
+	# check all of them separately
+	if(length(x)>1){
+		# look through all of them
+		for(i in 2:length(x)){
+			# the next entity
+			newclass <- class(x[[i]])
+			newclass[newclass=="sfc_MULTIPOLYGON"] <- "sfc_POLYGON"
+			# should have the same number of entries
+			suppressWarnings(theCheck <- first == newclass)
+			if(any(!theCheck)) pass <- FALSE
+		}
+
+	}
+	return(pass)
+
+}
+
+# utility function to abbreviate the name of layers
+abbrev <- function(x){
+	
+	# find extension
+	split <- strsplit(x, "\\.")
+	# extensions
+	ext <- unlist(lapply(split, function(x) x[length(x)]))
+	rest <- unlist(lapply(split, function(x) paste(x[-length(x)], collapse=".")))
+
+	# length of name in chars
+	len <- nchar(rest)
+
+	# where is this needed? 
+	bApp <- len > 8
+
+	# abbreviation
+	abbreviated <- paste0(substr(rest[bApp], 1, 5), "~", substr(rest[bApp], len[bApp]-1, len[bApp]), ".", ext[bApp])
+
+	# where this is applicable
+	x[bApp] <- abbreviated
+	return(x)
+
+}

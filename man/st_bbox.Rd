@@ -5,12 +5,12 @@
 \alias{st_bbox.SfcArray}
 \title{Bounding box of an '\code{\link[via:SfArray-class]{SfArray}}'-class object}
 \usage{
-\method{st_bbox}{SfcArray}(x, ...)
+\method{st_bbox}{SfcArray}(obj, ...)
 }
 \arguments{
-\item{x}{a \code{\link[sf:sf]{sf}}-class object.}
+\item{obj}{a \code{\link[sf:sf]{sf}}-class object.}
 
-\item{...}{arguments passed to the \code{\link[raster]{extent}} function.}
+\item{...}{arguments passed to the \code{\link[sf]{st_bbox}} function.}
 }
 \value{
 An \code{\link[via:RasterArray-class]{RasterArray}} class object.

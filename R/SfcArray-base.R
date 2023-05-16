@@ -17,6 +17,7 @@ setMethod("initialize",signature="SfcArray",
 			x <- ga@stack[[i]]
 			# check for class
 			if(!inherits(x, "sfc")) stop("At least one element is not an sfc object")
+			if(inherits(x, "sf")) stop("At least one element is an sf-class object. Use SfArray instead.")
 			if(sf::st_crs(x)!=firstCRS) stop("Mismatching CRS.")
 		}
 

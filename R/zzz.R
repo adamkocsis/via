@@ -9,6 +9,6 @@
 #' @name via
 NULL
 
-#' @importFrom methods new cbind2 rbind2
+#' @importFrom methods new cbind2 rbind2 as as<- slot slot<-
 NULL
 

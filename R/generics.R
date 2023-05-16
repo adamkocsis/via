@@ -206,14 +206,14 @@ if(!requireNamespace("sf", quietly=TRUE)){
 #' The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 #' 
 #' @param x a \code{\link[sf:sf]{sf}}-class object.
-#' @param ... arguments passed to the \code{\link[raster]{extent}} function.
+#' @param ... arguments passed to the \code{\link[sf]{st_transform}} function.
 #' 
 #' @return An \code{\link[via:RasterArray-class]{RasterArray}}-class object.
 #' @examples
 #' data(paleocoastlines)
 #' moll<- st_transform(paleocoastlines, "ESRI:54009")
-#' plot(moll["20", "margin"]$geometry, col="cyan")
-#' plot(moll["20", "coastline"]$geometry, add=TRUE, col="brown")
+#' plot(moll["20", "margin"], col="cyan")
+#' plot(moll["20", "coast"], add=TRUE, col="brown")
 #' @rdname st_transform
 #' @name st_transform
 #' @export 
@@ -230,8 +230,8 @@ if(!requireNamespace("sf", quietly=TRUE)){
 #' 
 #' The method is inherited from the '\code{\link[sf:sf]{sf}}' class.
 #' 
-#' @param x a \code{\link[sf:sf]{sf}}-class object.
-#' @param ... arguments passed to the \code{\link[raster]{extent}} function.
+#' @param obj a \code{\link[sf:sf]{sf}}-class object.
+#' @param ... arguments passed to the \code{\link[sf]{st_bbox}} function.
 #' 
 #' @return An \code{\link[via:RasterArray-class]{RasterArray}} class object.
 #' @examples
@@ -242,9 +242,10 @@ if(!requireNamespace("sf", quietly=TRUE)){
 #' @export 
 if(!requireNamespace("sf", quietly=TRUE)){
 #	setGeneric("st_bbox", function(x) standardGeneric("st_bbox"))# WRONG, S3 instead of S4!
-	st_bbox <- function(x,...){
-		UseMethod("st_bbox",x)
+	st_bbox <- function(obj,...){
+		UseMethod("st_bbox",obj)
 	}
 }else{
 	setGeneric("st_bbox", def=sf::st_bbox, package="sf")
+#	st_bbox <- sf::st_bbox
 }

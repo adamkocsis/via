@@ -9,7 +9,7 @@ setMethod("initialize",signature="XArray",
 
 		# check whether the stack has the same types
 		if(!inherits(stack,"list")) stop("The 'stack' has to be a 'list' - class object.")
-#		if(length(unique(lapply(stack, class)))!=1) stop("The 'stack' can only contain a single class of items.")
+		if(!classcheck(stack)) stop("The 'stack' can only contain a single class of items.")
 	
 		if(is.null(dim)){ 
 			if(!is.numeric(index)) stop("The 'index' has to be a 'numeric' object.")
@@ -104,7 +104,9 @@ setMethod(
 			cat("- missing     : ", sum(is.na(object@index)), "\n", 
 				sep = "")
 		    cat("- proxy:\n ")
-		    print(proxy(object))
+			theProx <- proxy(object)
+			theProx[] <- abbrev(theProx)
+			print(theProx)
 		   
 	    } else {
 	        cat("nlayers       :", nl, "\n")
@@ -112,7 +114,9 @@ setMethod(
 				cat("- missing     : ", sum(is.na(object@index)), "\n", 
 					sep = "")
 				cat("- proxy:\n ")
-				print(proxy(object))
+				theProx <- proxy(object)
+				theProx[] <- abbrev(theProx)
+				print(theProx)
 			}
 	    } 
 	    cat("\n")

@@ -30,6 +30,7 @@ setMethod(
 	"subset", 
 	signature(x="VirtualArray"), 
 	function(x, i,j, ...,oneDim=FALSE, drop=TRUE){
+
 			# fetch the index
 			indDim <- dim(x@index)
 

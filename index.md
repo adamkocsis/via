@@ -1,7 +1,7 @@
 
 # via: Virtual Arrays <img src="man/figures/logo.png" align="right" />
 
-[![](https://img.shields.io/badge/devel%20version-0.1.0-green.svg)](https://github.com/adamkocsis/via)
+[![](https://img.shields.io/badge/devel%20version-0.2.0-green.svg)](https://github.com/adamkocsis/via)
 [![](https://www.r-pkg.org/badges/version/via?color=blue)](https://cran.r-project.org/package=via)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/via?color=yellow)](https://cran.r-project.org/package=via)
 [![CRAN
@@ -18,18 +18,12 @@ high-dimensional, spatial data.
 
 ## The package
 
-The base class VirtualArray is defined, which acts as a wrapper around
+The base class `VirtualArray` is defined, which acts as a wrapper around
 lists allowing users to fold arbitrary sequential data into
-n-dimensional, R-style virtual arrays. The derived XArray class is
+*n*-dimensional, R-style virtual arrays. The derived `XArray` class is
 defined to be used for homogeneous lists that contain a single class of
-objects. The RasterArray and SfArray classes enable the use of stacked
-spatial data instead of lists.
-
-<div class="alert alert-danger" data-role="alert">
-
-The package is still under intense development\!
-
-</div>
+objects. The `RasterArray`, `SfcArray` and `SfArray` classes enable the
+use of stacked spatial data instead of lists.
 
 -----
 
