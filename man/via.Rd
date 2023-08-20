@@ -3,11 +3,19 @@
 \docType{package}
 \name{via}
 \alias{via}
+\alias{via-package}
 \title{Virtual Arrays}
 \description{
 The base class '\code{\link[via:XArray-class]{VirtualArray}}' is defined, which acts as a wrapper around lists allowing users to fold arbitrary sequential data into n-dimensional, R-style virtual arrays. The derived '\code{\link[via:XArray-class]{XArray}}' class is defined to be used for homogeneous lists that contain a single class of objects. The '\code{\link[via:RasterArray-class]{RasterArray}}' and '\code{\link[via:SfArray-class]{SfArray}}' classes enable the use of stacked spatial data instead of lists.
 #' 
 This is still the pre-alpha version. As is R, this is free software and comes with ABSOLUTELY NO WARRANTY. Nevertheless, notes about found bugs and suggestions are more than welcome.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item Report bugs at \url{https://github.com/adamkocsis/via}
+}
+
 }
 \author{
 Adam T. Kocsis (adam.t.kocsis@gmail.com)

@@ -7,7 +7,8 @@
 #' @author Adam T. Kocsis (adam.t.kocsis@gmail.com)
 #' @docType package
 #' @name via
-NULL
+"_PACKAGE"
+
 
 #' @importFrom methods new cbind2 rbind2 as as<- slot slot<-
 NULL
